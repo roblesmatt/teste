@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #000000;
+  color: #ffffff;
+  width: 100%;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Header */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+lottie-player {
+  width: 250px;
+  height: 250px;
+}
+
+/* --- GRID DE PROJETOS --- */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Mantém as duas colunas */
+  gap: 4vw;
+  padding: 0 10%;
+  margin-bottom: 10vw;
+}
+
+/* Isso só afeta o contêiner de baixo */
+.grid-container.single-item {
+  display: grid !important; /* Voltamos para o Grid como você gostou */
+  grid-template-columns: 1fr; /* Criamos apenas uma coluna */
+  justify-items: center; /* CENTRALIZA O ITEM DENTRO DA GRADE */
+  width: 100%;
+  margin-top: 10vw;
+  margin-bottom: 15vw;
+  padding: 0; /* Remove paddings que empurram para o lado */
+}
+
+/* Isso só afeta o card dentro do single-item */
+.grid-container.single-item .card-projeto {
+  /* No Desktop/Tablet */
+  width: 600px; /* Tamanho fixo para garantir bordas */
+  height: 600px; /* Mantém o quadrado */
+  aspect-ratio: 1 / 1;
+  border-radius: 0 !important;
+
+  max-width: 80vw; /* No iPhone, ele não estoura a tela */
+  transform: scale(1) !important;
+}
+
+/* Ajuste para o iPhone SE / Pro Max ficar perfeito */
+@media (max-width: 480px) {
+  .grid-container.single-item .card-projeto {
+    width: 280px; /* Tamanho menor para sobrar borda lateral */
+    height: 280px;
+  }
+}
+
+.card-projeto {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* CORREÇÃO: De 4/5 para 1/1 para ser QUADRADO */
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+
+  /* PREPARAÇÃO PARA A ESCALA: Faz o movimento ser suave */
+  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  cursor: pointer;
+  will-change: transform;
+}
+
+/* --- EFEITO DE ESCALA (AUMENTAR AO PASSAR O MOUSE) --- */
+.card-projeto:hover {
+  transform: scale(1.05); /* Aumenta o card em 5% */
+  z-index: 10; /* Garante que ele fique na frente dos outros ao crescer */
+}
+
+/* Ajuste do vídeo para preencher o novo formato quadrado */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- RESPONSIVIDADE PARA CELULAR --- */
+@media (max-width: 834px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Fica uma coluna só no iPhone */
+    gap: 30px;
+  }
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Seção de Texto - CORRIGIDA COM CLAMP */
+.info-sessao {
+  padding: 20vw 10%; /* Espaçamento grande para o scroll funcionar bem */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.op-logic {
+  font-size: 7vw;
+  line-height: 1.1;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 25vw; /* Aumentar o respiro ajuda no efeito de um por um */
+  color: #ffffff;
+  text-align: center;
+  opacity: 0.1; /* Seu cinza escuro padrão */
+  transition: opacity 0.5s ease;
+}
+
+/* Rodapé */
+footer {
+  padding: 10vw 0;
+  text-align: center;
+}
+
+.email-link {
+  font-size: clamp(18px, 2.5vw, 32px);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.copyright {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 20px;
+}
+
+/* Responsividade do Grid */
+@media (max-width: 834px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}

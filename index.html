@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robles Matt | uminimo</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="logo-container">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <lottie-player
+        id="logo-uminimo"
+        src="uminimo.json"
+        background="transparent"
+        speed="0.8"
+        autoplay
+      >
+      </lottie-player>
+    </header>
+
+    <main class="grid-container">
+      <div class="card-projeto">
+        <video loop muted playsinline>
+          <source src="videos/Projeto1.webm" type="video/webm" />
+          <source src="videos/Projeto1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="card-projeto">
+        <video loop muted playsinline>
+          <source src="videos/Projeto1.webm" type="video/webm" />
+          <source src="videos/Projeto1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="card-projeto">
+        <video loop muted playsinline>
+          <source src="videos/Projeto1.webm" type="video/webm" />
+          <source src="videos/Projeto1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="card-projeto">
+        <video loop muted playsinline>
+          <source src="videos/Projeto1.webm" type="video/webm" />
+          <source src="videos/Projeto1.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </main>
+
+    <section class="info-sessao">
+      <p class="op-logic">
+        BRANDING & PUBLICIDADE: LOGOTIPOS, REDESIGN, IDENTIDADE VISUAL,
+        EMBALAGEM, ICONOGRAFIA, SOCIAL MEDIA.
+      </p>
+      <p class="op-logic">
+        UI/UX & MOTION GRAPHICS: INTERFACE, PROTOTIPAGEM, ANIMAÇÃO 2D/MARCA,
+        MICRO INTERAÇÕES, LOTTIE.
+      </p>
+      <p class="op-logic">
+        ARTE DIGITAL & VOLUMES: DESENHOS DIVERSOS, PRODUTOS/PERSONAGENS
+        MODELADOS EM 3D.
+      </p>
+    </section>
+
+    <div class="grid-container single-item">
+      <div class="card-projeto">
+        <video loop muted playsinline>
+          <source src="videos/Foto-perfil.webm" type="video/webm" />
+          <source src="videos/Foto-perfil.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <footer>
+      <a href="mailto:uminimo@hotmail.com" class="email-link"
+        >uminimo@hotmail.com</a
+      >
+      <p class="copyright">
+        Robles Matt [Designer, Ilustrador & Animador]<br />
+        © uminimo - 2027
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. LÓGICA DO LOGO LOTTIE ---
+        const logo = document.getElementById("logo-uminimo");
+        if (logo) {
+          setInterval(() => {
+            logo.seek(0);
+            logo.play();
+          }, 120000);
+        }
+
+        // --- 2. LÓGICA DO TEXTO (OPACIDADE NO SCROLL) ---
+        const blocks = document.querySelectorAll(".op-logic");
+        window.addEventListener("scroll", () => {
+          let closestBlock = null;
+          let minDistance = Infinity;
+          const screenCenter = window.innerHeight / 2;
+
+          blocks.forEach((block) => {
+            const rect = block.getBoundingClientRect();
+            const blockCenter = rect.top + rect.height / 2;
+            const distanceToCenter = Math.abs(screenCenter - blockCenter);
+
+            if (distanceToCenter < minDistance) {
+              minDistance = distanceToCenter;
+              closestBlock = block;
+            }
+          });
+
+          blocks.forEach((block) => {
+            block.style.opacity = block === closestBlock ? "1" : "0.1";
+          });
+        });
+
+        // --- 3. LÓGICA DOS VÍDEOS (HOVER VS SCROLL) ---
+        const videos = document.querySelectorAll("video");
+        const isTouchDevice =
+          "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+        if (isTouchDevice) {
+          // Mobile: Ativa por Scroll
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.play();
+                } else {
+                  entry.target.pause();
+                }
+              });
+            },
+            { threshold: 0.5 },
+          ); // 50% visível para dar play
+
+          videos.forEach((v) => observer.observe(v));
+        } else {
+          // Desktop: Ativa por Hover
+          videos.forEach((video) => {
+            const container = video.closest(".card-projeto");
+            container.addEventListener("mouseenter", () => video.play());
+            container.addEventListener("mouseleave", () => {
+              video.pause();
+              video.currentTime = 0;
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
