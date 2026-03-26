@@ -50,10 +50,12 @@ body {
   background-color: #000000;
   color: #ffffff;
   width: 100%;
+  height: auto;
   font-family: "Anton", sans-serif; /* SUA FONTE ATUAL */
   font-weight: 400 !important;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* --- HEADER: PROTOCOLO TÓPICO 2 --- */
