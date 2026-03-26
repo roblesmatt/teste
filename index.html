@@ -88,7 +88,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // --- 1. LÓGICA DO LOGO LOTTIE ---
+        // 1. LOGO LOTTIE
         const logo = document.getElementById("logo-uminimo");
         if (logo) {
           setInterval(() => {
@@ -97,18 +97,17 @@
           }, 120000);
         }
 
-        // --- 2. LÓGICA DO TEXTO (OPACIDADE NO SCROLL) ---
+        // 2. TEXTO (ÚNICA COISA COM SCROLL)
         const blocks = document.querySelectorAll(".op-logic");
         window.addEventListener("scroll", () => {
+          const screenCenter = window.innerHeight / 2;
           let closestBlock = null;
           let minDistance = Infinity;
-          const screenCenter = window.innerHeight / 2;
 
           blocks.forEach((block) => {
             const rect = block.getBoundingClientRect();
             const blockCenter = rect.top + rect.height / 2;
             const distanceToCenter = Math.abs(screenCenter - blockCenter);
-
             if (distanceToCenter < minDistance) {
               minDistance = distanceToCenter;
               closestBlock = block;
@@ -120,40 +119,22 @@
           });
         });
 
-        // --- 3. LÓGICA DOS VÍDEOS (HOVER VS SCROLL) ---
-        const videos = document.querySelectorAll("video");
-        const isTouchDevice =
-          "ontouchstart" in window || navigator.maxTouchPoints > 0;
+        // 3. VÍDEOS: REMOVIDO SCROLL / APENAS HOVER
+        const cards = document.querySelectorAll(".card-projeto");
+        cards.forEach((card) => {
+          const video = card.querySelector("video");
+          if (video) {
+            // Garante que comece parado no Frame 0
+            video.pause();
+            video.currentTime = 0;
 
-        if (isTouchDevice) {
-    // Mobile: Ativa por Scroll individual
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.play();
-            entry.target.classList.add("active"); // ACENDE O VÍDEO
-          } else {
-            entry.target.pause();
-            entry.target.classList.remove("active"); // APAGA O VÍDEO
-          }
-        });
-      },
-      { threshold: 0.8 } // 80% visível para garantir a cadência "um por um"
-    );
-
-    videos.forEach((v) => observer.observe(v));
-  } else {
-          // Desktop: Ativa por Hover
-          videos.forEach((video) => {
-            const container = video.closest(".card-projeto");
-            container.addEventListener("mouseenter", () => video.play());
-            container.addEventListener("mouseleave", () => {
+            card.addEventListener("mouseenter", () => video.play());
+            card.addEventListener("mouseleave", () => {
               video.pause();
               video.currentTime = 0;
             });
-          });
-        }
+          }
+        });
       });
     </script>
   </body>
