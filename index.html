@@ -126,22 +126,24 @@
           "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
         if (isTouchDevice) {
-          // Mobile: Ativa por Scroll
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.play();
-                } else {
-                  entry.target.pause();
-                }
-              });
-            },
-            { threshold: 0.5 },
-          ); // 50% visível para dar play
+    // Mobile: Ativa por Scroll individual
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.play();
+            entry.target.classList.add("active"); // ACENDE O VÍDEO
+          } else {
+            entry.target.pause();
+            entry.target.classList.remove("active"); // APAGA O VÍDEO
+          }
+        });
+      },
+      { threshold: 0.8 } // 80% visível para garantir a cadência "um por um"
+    );
 
-          videos.forEach((v) => observer.observe(v));
-        } else {
+    videos.forEach((v) => observer.observe(v));
+  } else {
           // Desktop: Ativa por Hover
           videos.forEach((video) => {
             const container = video.closest(".card-projeto");
