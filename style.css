@@ -1,7 +1,17 @@
+/* PASSO 2: ENGENHARIA DE FONTE LOCAL (NITIDEZ MÁXIMA) */
+@font-face {
+  font-family: "Anton";
+  src: url("Anton-Regular.ttf") format("truetype");
+  font-weight: normal; /* Define que o arquivo É o normal */
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* IMPEDE O NAVEGADOR DE "INVENTAR" NEGRITO */
+  -webkit-text-stroke: 0px transparent;
 }
 
 html,
@@ -9,40 +19,102 @@ body {
   background-color: #000000;
   color: #ffffff;
   width: 100%;
-  font-family: "Fira Sans Extra Condensed", sans-serif;
+  font-family: "Anton", sans-serif;
+
+  /* --- COMANDOS ANTI-BORRÃO --- */
+  font-weight: 400 !important;
+  font-synthesis: none; /* PROÍBE O NAVEGADOR DE CRIAR NEGRITO FALSO */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
   overflow-x: hidden;
 }
 
-/* Header */
+/* --- APLICAÇÃO RÍGIDA: REGRA DOS 25/50 --- */
+
+/* 1. Logo (Respiro de Grupo 50px) */
 .logo-container {
   display: flex;
   justify-content: center;
-  padding: 80px 0;
+  padding: 50px 0;
 }
 
-lottie-player {
-  width: 250px;
-  height: 250px;
-}
-
-/* --- GRID DE PROJETOS --- */
+/* 2. Galeria (Conexão 25px / Respiro 50px) */
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Mantém as duas colunas */
-  gap: 4vw;
-  padding: 0 10%;
-  margin-bottom: 10vw;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px; /* CONEXÃO: Espaço fixo entre os cards */
+  padding: 0 25px; /* CONEXÃO: Margem lateral fixa de 25px */
+  margin-bottom: 50px; /* RESPIRO DE GRUPO: Espaço após a galeria */
 }
 
-/* Isso só afeta o contêiner de baixo */
-.grid-container.single-item {
-  display: grid !important; /* Voltamos para o Grid como você gostou */
-  grid-template-columns: 1fr; /* Criamos apenas uma coluna */
-  justify-items: center; /* CENTRALIZA O ITEM DENTRO DA GRADE */
+/* 3. Estabilidade (Sem Scale) */
+.card-projeto {
   width: 100%;
-  margin-top: 10vw;
-  margin-bottom: 15vw;
-  padding: 0; /* Remove paddings que empurram para o lado */
+  aspect-ratio: 1 / 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px; /* MANTIDO: Sua borda original */
+  overflow: hidden;
+  position: relative;
+  /* REMOVIDO: Qualquer efeito de escala (scale) no hover */
+  transition: none;
+}
+
+/* 4. Tags (Conexão Vertical Interna 25px) */
+.info-sessao {
+  padding: 50px 0; /* RESPIRO DE GRUPO: 50px vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* MANTIDO: Centralização */
+}
+
+.op-logic {
+  font-size: 7vw;
+  line-height: 1.1;
+
+  text-transform: uppercase;
+  margin-bottom: 25px; /* CONEXÃO: Espaço entre as tags fixado em 25px */
+  text-align: center;
+  opacity: 0.1;
+  transition: opacity 0.5s ease;
+}
+
+/* PASSO 3: ENGENHARIA DO WEBM (CINZA E ATIVAÇÃO) */
+
+/* 1. Estado Frame 0: Vídeos em cinza e pausados (via CSS) */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%); /* Cinza absoluto */
+  transition: filter 0.8s ease; /* Ganho de cor suave */
+}
+
+/* 2. Ativação: Quando o vídeo ganha a classe .active via JS */
+video.active {
+  filter: grayscale(0%); /* Cor original */
+}
+
+/* 3. Ativação das Tags: Aumenta a opacidade quando no centro */
+.op-logic.active {
+  opacity: 1 !important;
+  filter: grayscale(0%);
+}
+
+/* 5. Foto Perfil (Simetria) */
+.grid-container.single-item {
+  display: flex;
+  justify-content: center;
+  padding: 0 25px;
+  margin-top: 50px; /* RESPIRO DE GRUPO */
+  margin-bottom: 50px; /* RESPIRO DE GRUPO */
+}
+
+/* Isso garante que o vídeo da foto de perfil não tenha filtro cinza */
+.grid-container.single-item video {
+  filter: none !important;
+  opacity: 1 !important;
 }
 
 /* Isso só afeta o card dentro do single-item */
@@ -77,12 +149,6 @@ lottie-player {
   transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
   cursor: pointer;
   will-change: transform;
-}
-
-/* --- EFEITO DE ESCALA (AUMENTAR AO PASSAR O MOUSE) --- */
-.card-projeto:hover {
-  transform: scale(1.05); /* Aumenta o card em 5% */
-  z-index: 10; /* Garante que ele fique na frente dos outros ao crescer */
 }
 
 /* Ajuste do vídeo para preencher o novo formato quadrado */
