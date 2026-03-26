@@ -98,24 +98,27 @@ video {
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%);
-  opacity: 0.2;
+  opacity: 0.2; /* Começa apagadinho como no protocolo */
   transition: all 0.8s ease;
 }
 
-/* --- 2. COMPORTAMENTO DESKTOP (MOUSE) --- */
+/* --- 2. COMPORTAMENTO DESKTOP (MOUSE / HOVER) --- */
 @media (min-width: 1025px) {
   .card-projeto:hover video {
-    filter: grayscale(0%);
-    opacity: 1;
+    filter: grayscale(0%) !important;
+    filter: none !important; /* Reforço para navegadores Apple */
+    opacity: 1 !important;
   }
 }
 
-/* --- 3. COMPORTAMENTO TABLET/MOBILE (SCROLL) --- */
+/* --- 3. COMPORTAMENTO TABLET/MOBILE (SCROLL / ACTIVE) --- */
 @media (max-width: 1024px) {
-  /* No celular, a cor só aparece quando o JS adiciona .active no scroll */
-  video.active {
+  /* Quando o JS detectar o scroll e adicionar .active, a cor APARECE */
+  video.active,
+  .card-projeto video.active {
     filter: grayscale(0%) !important;
-    opacity: 1 !important;
+    filter: none !important; /* Limpa o filtro cinza completamente */
+    opacity: 1 !important; /* Tira a transparência */
   }
 }
 
