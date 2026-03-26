@@ -88,38 +88,71 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-  const elementos = document.querySelectorAll("video, .op-logic");
-
-  const observerOptions = {
-    root: null,
-    // FOCO INTELIGENTE: Mira de 10% no centro da tela
-    rootMargin: "-45% 0px -45% 0px", 
-    threshold: 0
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const el = entry.target;
-      
-      if (entry.isIntersecting) {
-        // ATIVAÇÃO (CENTRO DA TELA)
-        el.classList.add("active");
-        if (el.tagName === "VIDEO") {
-          el.play();
+        // --- 1. LÓGICA DO LOGO LOTTIE ---
+        const logo = document.getElementById("logo-uminimo");
+        if (logo) {
+          setInterval(() => {
+            logo.seek(0);
+            logo.play();
+          }, 120000);
         }
-      } else {
-        // LIMPEZA (SAIU DO CENTRO)
-        el.classList.remove("active");
-        if (el.tagName === "VIDEO") {
-          el.pause();
-          el.currentTime = 0; // Reset para o WebM
-        }
-      }
-    });
-  }, observerOptions);
 
-  elementos.forEach((el) => observer.observe(el));
-});
+        // --- 2. LÓGICA DO TEXTO (OPACIDADE NO SCROLL) ---
+        const blocks = document.querySelectorAll(".op-logic");
+        window.addEventListener("scroll", () => {
+          let closestBlock = null;
+          let minDistance = Infinity;
+          const screenCenter = window.innerHeight / 2;
+
+          blocks.forEach((block) => {
+            const rect = block.getBoundingClientRect();
+            const blockCenter = rect.top + rect.height / 2;
+            const distanceToCenter = Math.abs(screenCenter - blockCenter);
+
+            if (distanceToCenter < minDistance) {
+              minDistance = distanceToCenter;
+              closestBlock = block;
+            }
+          });
+
+          blocks.forEach((block) => {
+            block.style.opacity = block === closestBlock ? "1" : "0.1";
+          });
+        });
+
+        // --- 3. LÓGICA DOS VÍDEOS (HOVER VS SCROLL) ---
+        const videos = document.querySelectorAll("video");
+        const isTouchDevice =
+          "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+        if (isTouchDevice) {
+          // Mobile: Ativa por Scroll
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.play();
+                } else {
+                  entry.target.pause();
+                }
+              });
+            },
+            { threshold: 0.5 },
+          ); // 50% visível para dar play
+
+          videos.forEach((v) => observer.observe(v));
+        } else {
+          // Desktop: Ativa por Hover
+          videos.forEach((video) => {
+            const container = video.closest(".card-projeto");
+            container.addEventListener("mouseenter", () => video.play());
+            container.addEventListener("mouseleave", () => {
+              video.pause();
+              video.currentTime = 0;
+            });
+          });
+        }
+      });
     </script>
   </body>
 </html>
