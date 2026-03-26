@@ -172,6 +172,11 @@
           }
         });
       });
+
+      // 5. DESATIVAR MENU DE CONTEXTO (BOTÃO DIREITO)
+      document.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+      });
     </script>
   </body>
 </html>
