@@ -17,9 +17,32 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-text-stroke: 0px transparent;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-appearance: none !important;
   user-select: none;
   -webkit-touch-callout: none;
+  box-shadow: none !important;
+  border: none !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+*::-webkit-tap-highlight-color {
+  background-color: transparent !important;
+}
+
+*:active,
+*:focus,
+*:visited,
+*:focus-visible,
+*::after,
+*::before {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
 }
 
 html,
