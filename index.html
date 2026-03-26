@@ -179,14 +179,6 @@
       });
 
       // 6. FORÇAR REMOÇÃO DE SELEÇÃO AZUL COM JAVASCRIPT
-      document.addEventListener(
-        "touchstart",
-        (e) => {
-          e.preventDefault();
-        },
-        { passive: false },
-      );
-
       document.addEventListener("mousedown", (e) => {
         if (e.button === 0) {
           // Remove qualquer seleção de texto
