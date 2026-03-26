@@ -5,16 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Robles Matt | uminimo</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&display=swap"
-      rel="stylesheet"
-    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body>
     <header class="logo-container">
-      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
       <lottie-player
         id="logo-uminimo"
         src="uminimo.json"
@@ -27,28 +21,43 @@
 
     <main class="grid-container">
       <div class="card-projeto">
-        <video autoplay loop muted playsinline webkit-playsinline>
-          <source src="videos/Projeto1.webm" type="video/webm" />
-          <source src="videos/Projeto1.mp4" type="video/mp4" />
-        </video>
+        <lottie-player
+          src="lottie/teste.json"
+          background="transparent"
+          speed="1"
+          autoplay
+          class="lottie-grid"
+        ></lottie-player>
       </div>
+
       <div class="card-projeto">
-        <video autoplay loop muted playsinline webkit-playsinline>
-          <source src="videos/Projeto1.webm" type="video/webm" />
-          <source src="videos/Projeto1.mp4" type="video/mp4" />
-        </video>
+        <lottie-player
+          src="lottie/teste.json"
+          background="transparent"
+          speed="1"
+          autoplay
+          class="lottie-grid"
+        ></lottie-player>
       </div>
+
       <div class="card-projeto">
-        <video autoplay loop muted playsinline webkit-playsinline>
-          <source src="videos/Projeto1.webm" type="video/webm" />
-          <source src="videos/Projeto1.mp4" type="video/mp4" />
-        </video>
+        <lottie-player
+          src="lottie/teste.json"
+          background="transparent"
+          speed="1"
+          autoplay
+          class="lottie-grid"
+        ></lottie-player>
       </div>
+
       <div class="card-projeto">
-        <video autoplay loop muted playsinline webkit-playsinline>
-          <source src="videos/Projeto1.webm" type="video/webm" />
-          <source src="videos/Projeto1.mp4" type="video/mp4" />
-        </video>
+        <lottie-player
+          src="lottie/teste.json"
+          background="transparent"
+          speed="1"
+          autoplay
+          class="lottie-grid"
+        ></lottie-player>
       </div>
     </main>
 
@@ -132,6 +141,33 @@
             card.addEventListener("mouseleave", () => {
               video.pause();
               video.currentTime = 0;
+            });
+          }
+
+          // 4. LOTTIE-PLAYER: Frame 0 estático ao carregar, animação no hover
+          const lottie = card.querySelector("lottie-player");
+          if (lottie) {
+            // Para na animação assim que carregar e volta ao frame 0
+            lottie.addEventListener("ready", () => {
+              lottie.pause();
+              lottie.seek(0);
+            });
+
+            // Fallback: garante pausa após delay
+            setTimeout(() => {
+              lottie.pause();
+              lottie.seek(0);
+            }, 100);
+
+            // Mouseenter: play com loop
+            card.addEventListener("mouseenter", () => {
+              lottie.play();
+            });
+
+            // Mouseleave: pause e volta ao frame 0
+            card.addEventListener("mouseleave", () => {
+              lottie.pause();
+              lottie.seek(0);
             });
           }
         });

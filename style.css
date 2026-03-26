@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -34,19 +41,27 @@ body {
 }
 
 lottie-player {
-  /* ESCALA MÁXIMA: Para ocupar a tela como na sua foto */
-  width: 90vw;
-  max-width: 500px; /* Limite para não ficar gigante no Mac mini */
-  height: auto;
+  display: block !important;
+  width: 100% !important;
+  max-width: 400px;
+  height: 100% !important;
+  margin: 0 auto;
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
 }
 
 /* --- GRID DE PROJETOS --- */
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Mantém as duas colunas */
+  grid-template-columns: repeat(2, 1fr); /* Desktop: 2 colunas */
   gap: 25px;
   padding: 0 25px;
   margin-bottom: 50px;
+  min-height: 400px;
+  width: 100%;
 }
 
 /* Isso só afeta o contêiner de baixo */
@@ -55,7 +70,9 @@ lottie-player {
   grid-template-columns: 1fr; /* Criamos apenas uma coluna */
   justify-items: center; /* CENTRALIZA O ITEM DENTRO DA GRADE */
   width: 100%;
-  margin-top: 50px;
+  margin-top: 10px !important;
+  margin-bottom: 50px !important;
+  padding-top: 0 !important;
 }
 
 /* Isso só afeta o card dentro do single-item */
@@ -85,6 +102,7 @@ lottie-player {
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  opacity: 1 !important;
 
   /* PREPARAÇÃO PARA A ESCALA: Faz o movimento ser suave */
   transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
@@ -105,8 +123,8 @@ video {
   filter: none !important;
   -webkit-filter: none !important;
 
-  /* Mantém a performance suave */
-  transition: opacity 0.3s ease;
+  /* Sem transição para evitar conflitos */
+  transition: none !important;
 }
 
 /* --- EXCEÇÃO: FOTO DE PERFIL --- */
@@ -128,35 +146,56 @@ video {
   font-size: 7vw;
   line-height: 1.1;
   text-transform: uppercase;
-  margin-bottom: 25vw; /* Aumentar o respiro ajuda no efeito de um por um */
+  margin-bottom: 25px !important; /* 25px de espaço entre as tags */
   color: #ffffff;
   text-align: center;
   opacity: 0.1; /* Seu cinza escuro padrão */
   transition: opacity 0.5s ease;
 }
 
+/* Última tag: 10px de espaço antes da imagem */
+.op-logic:last-of-type {
+  margin-bottom: 10px !important;
+}
+
 /* Rodapé */
 footer {
-  padding: 10vw 0;
+  padding: 20px 0 25px 0;
   text-align: center;
+  margin-top: 0 !important;
 }
 
 .email-link {
-  font-size: clamp(18px, 2.5vw, 32px);
+  font-size: clamp(24px, 3.5vw, 48px);
   color: #ffffff;
   text-decoration: none;
   font-weight: 900;
+  transition: color 0.3s ease;
+}
+
+.email-link:hover {
+  color: #999999;
 }
 
 .copyright {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
   margin-top: 20px;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Responsividade do Grid */
-@media (max-width: 834px) {
+/* Tablet e Mobile: 1 coluna */
+@media (max-width: 1024px) {
   .grid-container {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile pequeno: reduz espaço entre foto perfil e email */
+@media (max-width: 768px) {
+  .grid-container.single-item {
+    margin-bottom: 10px !important;
+    padding-top: 0 !important;
   }
 }
