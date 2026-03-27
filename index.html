@@ -156,8 +156,9 @@
           }
         });
 
-        // 4. LOTTIE-PLAYER: Gerenciamento único scroll/hover
+        // 4. LOTTIE-PLAYER: Desktop (hover) x Mobile (scroll, sem resize)
         const lotties = document.querySelectorAll(".card-lottie");
+        // Sempre inicia no frame 0 (estático)
         lotties.forEach((lottie) => {
           lottie.addEventListener("ready", () => {
             lottie.pause();
@@ -165,8 +166,18 @@
           });
         });
 
-        if (window.innerWidth < 1024) {
-          // Mobile/tablet: foco central no scroll (apenas no load)
+        if (window.innerWidth >= 1024) {
+          // Desktop/iPad Landscape: hover play, mouseleave seek(0)
+          lotties.forEach((lottie) => {
+            lottie.addEventListener("mouseenter", () => lottie.play());
+            lottie.addEventListener("mouseleave", () => {
+              lottie.pause();
+              lottie.seek(0);
+            });
+            lottie.style.opacity = "1";
+          });
+        } else {
+          // Mobile/tablet: foco central no scroll (sem resize)
           function handleLottieScrollFocus() {
             const screenCenter = window.innerHeight / 2;
             let closest = null;
@@ -192,19 +203,8 @@
             });
           }
           window.addEventListener("scroll", handleLottieScrollFocus);
+          // Inicializa o estado correto ao carregar
           setTimeout(handleLottieScrollFocus, 100);
-        } else {
-          // Desktop: hover play, mouseleave seek(0)
-          lotties.forEach((lottie) => {
-            lottie.addEventListener("mouseenter", () => lottie.play());
-            lottie.addEventListener("mouseleave", () => {
-              lottie.pause();
-              lottie.seek(0);
-            });
-            lottie.style.opacity = "1";
-            lottie.pause();
-            lottie.seek(0);
-          });
         }
       });
 
