@@ -156,27 +156,22 @@
           }
         });
 
-        // 4. LOTTIE-PLAYER: Gerenciamento dinâmico scroll/hover
-        function setupLottieAnimations() {
-          const lotties = document.querySelectorAll(".card-lottie");
-          // Remove todos os event listeners antigos
-          lotties.forEach((lottie) => {
-            lottie.replaceWith(lottie.cloneNode(true));
+        // 4. LOTTIE-PLAYER: Gerenciamento único scroll/hover
+        const lotties = document.querySelectorAll(".card-lottie");
+        lotties.forEach((lottie) => {
+          lottie.addEventListener("ready", () => {
+            lottie.pause();
+            lottie.seek(0);
           });
-          const freshLotties = document.querySelectorAll(".card-lottie");
-          // Sempre inicia no frame 0 (estático)
-          freshLotties.forEach((lottie) => {
-            lottie.addEventListener("ready", () => {
-              lottie.pause();
-              lottie.seek(0);
-            });
-          });
+        });
 
+        if (window.innerWidth < 1024) {
+          // Mobile/tablet: foco central no scroll (apenas no load)
           function handleLottieScrollFocus() {
             const screenCenter = window.innerHeight / 2;
             let closest = null;
             let minDist = Infinity;
-            freshLotties.forEach((lottie) => {
+            lotties.forEach((lottie) => {
               const rect = lottie.getBoundingClientRect();
               const center = rect.top + rect.height / 2;
               const dist = Math.abs(screenCenter - center);
@@ -185,7 +180,7 @@
                 closest = lottie;
               }
             });
-            freshLotties.forEach((lottie) => {
+            lotties.forEach((lottie) => {
               if (lottie === closest) {
                 lottie.style.opacity = "1";
                 lottie.play();
@@ -196,45 +191,21 @@
               }
             });
           }
-
-          // Remove listeners globais antigos
-          window.removeEventListener(
-            "scroll",
-            window._lottieScrollHandler || (() => {}),
-          );
-          window.removeEventListener(
-            "resize",
-            window._lottieScrollHandler || (() => {}),
-          );
-
-          if (window.innerWidth < 1024) {
-            // Mobile/tablet: foco central no scroll
-            window._lottieScrollHandler = handleLottieScrollFocus;
-            window.addEventListener("scroll", handleLottieScrollFocus);
-            window.addEventListener("resize", handleLottieScrollFocus);
-            setTimeout(handleLottieScrollFocus, 100);
-            // Remove hover listeners
-            freshLotties.forEach((lottie) => {
-              lottie.style.opacity = "0.3";
-            });
-          } else {
-            // Desktop: hover play, mouseleave seek(0)
-            freshLotties.forEach((lottie) => {
-              lottie.addEventListener("mouseenter", () => lottie.play());
-              lottie.addEventListener("mouseleave", () => {
-                lottie.pause();
-                lottie.seek(0);
-              });
-              lottie.style.opacity = "1";
+          window.addEventListener("scroll", handleLottieScrollFocus);
+          setTimeout(handleLottieScrollFocus, 100);
+        } else {
+          // Desktop: hover play, mouseleave seek(0)
+          lotties.forEach((lottie) => {
+            lottie.addEventListener("mouseenter", () => lottie.play());
+            lottie.addEventListener("mouseleave", () => {
               lottie.pause();
               lottie.seek(0);
             });
-          }
+            lottie.style.opacity = "1";
+            lottie.pause();
+            lottie.seek(0);
+          });
         }
-
-        // Inicializa e escuta resize
-        setupLottieAnimations();
-        window.addEventListener("resize", setupLottieAnimations);
       });
 
       // 5. DESATIVAR MENU DE CONTEXTO (BOTÃO DIREITO)
