@@ -98,9 +98,10 @@ lottie-player:focus {
 
 /* Isso só afeta o contêiner de baixo */
 .grid-container.single-item {
-  display: grid !important; /* Voltamos para o Grid como você gostou */
-  grid-template-columns: 1fr; /* Criamos apenas uma coluna */
-  justify-items: center; /* CENTRALIZA O ITEM DENTRO DA GRADE */
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   margin-top: 10px !important;
   margin-bottom: 50px !important;
@@ -110,12 +111,14 @@ lottie-player:focus {
 /* Isso só afeta o card dentro do single-item */
 .grid-container.single-item .card-projeto {
   /* No Desktop/Tablet */
-  width: 600px; /* Tamanho fixo para garantir bordas */
-  height: 600px; /* Mantém o quadrado */
+  width: 100%;
+  max-width: 600px;
   aspect-ratio: 1 / 1;
   border-radius: 0 !important;
-
-  max-width: 80vw; /* No iPhone, ele não estoura a tela */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   transform: scale(1) !important;
 }
 
@@ -216,6 +219,8 @@ video {
 /* --- EXCEÇÃO: FOTO DE PERFIL --- */
 .grid-container.single-item video {
   opacity: 1 !important;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Seção de Texto - CORRIGIDA COM CLAMP */
@@ -260,7 +265,8 @@ footer {
   color: #ffffff;
   text-decoration: none;
   font-family: "Anton", sans-serif;
-  font-weight: 900;
+  font-weight: bold;
+  letter-spacing: 0.02em;
   transition: color 0.3s ease;
 }
 
