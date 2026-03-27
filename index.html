@@ -148,8 +148,6 @@
         });
 
         // 4. LOTTIE-PLAYER: Desktop (hover) x Mobile (IntersectionObserver)
-        const isTouch =
-          "ontouchstart" in window || navigator.maxTouchPoints > 0;
         const lotties = document.querySelectorAll(".card-lottie");
 
         // Sempre inicia no frame 0 (estático)
@@ -160,33 +158,7 @@
           });
         });
 
-        function handleLottieScrollFocus() {
-          const cards = Array.from(document.querySelectorAll(".card-lottie"));
-          const screenCenter = window.innerHeight / 2;
-          let closestCard = null;
-          let minDistance = Infinity;
-          cards.forEach((card) => {
-            const rect = card.getBoundingClientRect();
-            const cardCenter = rect.top + rect.height / 2;
-            const distanceToCenter = Math.abs(screenCenter - cardCenter);
-            if (distanceToCenter < minDistance) {
-              minDistance = distanceToCenter;
-              closestCard = card;
-            }
-          });
-          cards.forEach((card) => {
-            if (card === closestCard) {
-              card.style.opacity = "1";
-              card.play && card.play();
-            } else {
-              card.style.opacity = "0.3";
-              card.pause && card.pause();
-              card.seek && card.seek(0);
-            }
-          });
-        }
-
-        if (window.innerWidth > 1024) {
+        if (window.matchMedia("(min-width: 1025px)").matches) {
           // Desktop: hover play, mouseleave seek(0)
           lotties.forEach((lottie) => {
             lottie.style.opacity = "1";
@@ -197,10 +169,24 @@
             });
           });
         } else {
-          // Mobile/tablet: scroll central focus
-          window.addEventListener("scroll", handleLottieScrollFocus);
-          window.addEventListener("resize", handleLottieScrollFocus);
-          setTimeout(handleLottieScrollFocus, 100); // inicializa
+          // Tablet/Mobile: IntersectionObserver play/pause (sem seek)
+          const observer = new window.IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                const lottie = entry.target;
+                if (entry.intersectionRatio >= 0.8) {
+                  lottie.style.opacity = "1";
+                  lottie.play && lottie.play();
+                } else {
+                  lottie.style.opacity = "0.3";
+                  lottie.pause && lottie.pause();
+                  // NÃO resetar com seek(0) para evitar pulo visual
+                }
+              });
+            },
+            { threshold: [0, 0.8, 1] },
+          );
+          lotties.forEach((lottie) => observer.observe(lottie));
         }
       });
 
