@@ -44,14 +44,14 @@
 }
 @font-face {
   font-family: "Anton";
-  src: url("Anton-Regular.ttf") format("truetype");
+  src: url("fonts/Anton-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Open Sans";
-  src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+  src: url("fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
