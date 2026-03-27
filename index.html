@@ -20,45 +20,49 @@
     </header>
 
     <main class="grid-container">
-      <div class="card-projeto">
-        <lottie-player
-          src="lottie/teste.json"
-          background="transparent"
-          speed="1"
-          autoplay
-          class="lottie-grid"
-        ></lottie-player>
-      </div>
+      <lottie-player
+        class="card-lottie"
+        src="lottie/teste.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+        muted
+        preserveAspectRatio="xMidYMid slice"
+      ></lottie-player>
 
-      <div class="card-projeto">
-        <lottie-player
-          src="lottie/teste.json"
-          background="transparent"
-          speed="1"
-          autoplay
-          class="lottie-grid"
-        ></lottie-player>
-      </div>
+      <lottie-player
+        class="card-lottie"
+        src="lottie/teste.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+        muted
+        preserveAspectRatio="xMidYMid slice"
+      ></lottie-player>
 
-      <div class="card-projeto">
-        <lottie-player
-          src="lottie/teste.json"
-          background="transparent"
-          speed="1"
-          autoplay
-          class="lottie-grid"
-        ></lottie-player>
-      </div>
+      <lottie-player
+        class="card-lottie"
+        src="lottie/teste.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+        muted
+        preserveAspectRatio="xMidYMid slice"
+      ></lottie-player>
 
-      <div class="card-projeto">
-        <lottie-player
-          src="lottie/teste.json"
-          background="transparent"
-          speed="1"
-          autoplay
-          class="lottie-grid"
-        ></lottie-player>
-      </div>
+      <lottie-player
+        class="card-lottie"
+        src="lottie/teste.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+        muted
+        preserveAspectRatio="xMidYMid slice"
+      ></lottie-player>
     </main>
 
     <section class="info-sessao">
@@ -128,49 +132,61 @@
           });
         });
 
-        // 3. VÍDEOS: REMOVIDO SCROLL / APENAS HOVER
+        // 3. VÍDEOS: hover play/pause
         const cards = document.querySelectorAll(".card-projeto");
         cards.forEach((card) => {
           const video = card.querySelector("video");
           if (video) {
-            // Garante que comece parado no Frame 0
             video.pause();
             video.currentTime = 0;
-
             card.addEventListener("mouseenter", () => video.play());
             card.addEventListener("mouseleave", () => {
               video.pause();
               video.currentTime = 0;
             });
           }
-
-          // 4. LOTTIE-PLAYER: Frame 0 estático ao carregar, animação no hover
-          const lottie = card.querySelector("lottie-player");
-          if (lottie) {
-            // Para na animação assim que carregar e volta ao frame 0
-            lottie.addEventListener("ready", () => {
-              lottie.pause();
-              lottie.seek(0);
-            });
-
-            // Fallback: garante pausa após delay
-            setTimeout(() => {
-              lottie.pause();
-              lottie.seek(0);
-            }, 100);
-
-            // Mouseenter: play com loop
-            card.addEventListener("mouseenter", () => {
-              lottie.play();
-            });
-
-            // Mouseleave: pause e volta ao frame 0
-            card.addEventListener("mouseleave", () => {
-              lottie.pause();
-              lottie.seek(0);
-            });
-          }
         });
+
+        // 4. LOTTIE-PLAYER: Desktop (hover) x Mobile (IntersectionObserver)
+        const isTouch =
+          "ontouchstart" in window || navigator.maxTouchPoints > 0;
+        const lotties = document.querySelectorAll(".card-lottie");
+
+        // Sempre inicia no frame 0 (estático)
+        lotties.forEach((lottie) => {
+          lottie.addEventListener("ready", () => {
+            lottie.pause();
+            lottie.seek(0);
+          });
+        });
+
+        if (!isTouch) {
+          // Desktop: hover play, mouseleave seek(0)
+          lotties.forEach((lottie) => {
+            lottie.addEventListener("mouseenter", () => lottie.play());
+            lottie.addEventListener("mouseleave", () => {
+              lottie.pause();
+              lottie.seek(0);
+            });
+          });
+        } else {
+          // Mobile/tablet: IntersectionObserver play/pause
+          const observer = new window.IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                const lottie = entry.target;
+                if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                  lottie.play();
+                } else {
+                  lottie.pause();
+                  lottie.seek(0);
+                }
+              });
+            },
+            { threshold: [0, 0.6, 1] },
+          );
+          lotties.forEach((lottie) => observer.observe(lottie));
+        }
       });
 
       // 5. DESATIVAR MENU DE CONTEXTO (BOTÃO DIREITO)
