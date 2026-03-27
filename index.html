@@ -160,7 +160,32 @@
           });
         });
 
-        if (!isTouch) {
+        function handleLottieScrollFocus() {
+          const screenCenter = window.innerHeight / 2;
+          let closest = null;
+          let minDist = Infinity;
+          lotties.forEach((lottie) => {
+            const rect = lottie.getBoundingClientRect();
+            const center = rect.top + rect.height / 2;
+            const dist = Math.abs(screenCenter - center);
+            if (dist < minDist) {
+              minDist = dist;
+              closest = lottie;
+            }
+          });
+          lotties.forEach((lottie) => {
+            if (lottie === closest) {
+              lottie.style.opacity = "1";
+              lottie.play();
+            } else {
+              lottie.style.opacity = "0.3";
+              lottie.pause();
+              lottie.seek(0);
+            }
+          });
+        }
+
+        if (window.innerWidth > 1024) {
           // Desktop: hover play, mouseleave seek(0)
           lotties.forEach((lottie) => {
             lottie.addEventListener("mouseenter", () => lottie.play());
@@ -168,24 +193,14 @@
               lottie.pause();
               lottie.seek(0);
             });
+            lottie.style.opacity = "1";
           });
         } else {
-          // Mobile/tablet: IntersectionObserver play/pause
-          const observer = new window.IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                const lottie = entry.target;
-                if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-                  lottie.play();
-                } else {
-                  lottie.pause();
-                  lottie.seek(0);
-                }
-              });
-            },
-            { threshold: [0, 0.6, 1] },
-          );
-          lotties.forEach((lottie) => observer.observe(lottie));
+          // Mobile/tablet: foco central no scroll
+          window.addEventListener("scroll", handleLottieScrollFocus);
+          window.addEventListener("resize", handleLottieScrollFocus);
+          // Inicializa o estado correto ao carregar
+          setTimeout(handleLottieScrollFocus, 100);
         }
       });
 
