@@ -1,3 +1,8 @@
+/* Estilo para o span do copyright em Open Sans itálico */
+.copyright span {
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+}
 /* Colagem animada de perfil (SVG + Lottie) */
 .profile-collage {
   position: relative;
