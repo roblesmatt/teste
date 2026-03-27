@@ -71,7 +71,6 @@ body {
 lottie-player {
   display: block !important;
   width: 100% !important;
-  max-width: 400px;
   height: 100% !important;
   margin: 0 auto;
   opacity: 1 !important;
@@ -128,6 +127,36 @@ lottie-player:focus {
   }
 }
 
+/* Responsividade do Grid */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    padding: 0;
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .card-projeto {
+    width: 100vw;
+    aspect-ratio: 1 / 1;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+  .card-projeto lottie-player,
+  .card-lottie {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0;
+    min-height: 0;
+    display: block;
+  }
+}
 .card-projeto {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -230,7 +259,7 @@ footer {
   font-size: clamp(24px, 3.5vw, 48px);
   color: #ffffff;
   text-decoration: none;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Anton", sans-serif;
   font-weight: 900;
   transition: color 0.3s ease;
 }
@@ -256,5 +285,10 @@ footer {
   .card-projeto {
     width: 100%;
     aspect-ratio: 1 / 1;
+    margin-left: 25;
+    margin-right: 25px;
+    /* Remove qualquer max-width ou restrição */
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
