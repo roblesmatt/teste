@@ -160,9 +160,36 @@
           });
         });
 
-        if (!isTouch) {
+        function handleLottieScrollFocus() {
+          const cards = Array.from(document.querySelectorAll(".card-lottie"));
+          const screenCenter = window.innerHeight / 2;
+          let closestCard = null;
+          let minDistance = Infinity;
+          cards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.top + rect.height / 2;
+            const distanceToCenter = Math.abs(screenCenter - cardCenter);
+            if (distanceToCenter < minDistance) {
+              minDistance = distanceToCenter;
+              closestCard = card;
+            }
+          });
+          cards.forEach((card) => {
+            if (card === closestCard) {
+              card.style.opacity = "1";
+              card.play && card.play();
+            } else {
+              card.style.opacity = "0.3";
+              card.pause && card.pause();
+              card.seek && card.seek(0);
+            }
+          });
+        }
+
+        if (window.innerWidth > 1024) {
           // Desktop: hover play, mouseleave seek(0)
           lotties.forEach((lottie) => {
+            lottie.style.opacity = "1";
             lottie.addEventListener("mouseenter", () => lottie.play());
             lottie.addEventListener("mouseleave", () => {
               lottie.pause();
@@ -170,22 +197,10 @@
             });
           });
         } else {
-          // Mobile/tablet: IntersectionObserver play/pause
-          const observer = new window.IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                const lottie = entry.target;
-                if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-                  lottie.play();
-                } else {
-                  lottie.pause();
-                  lottie.seek(0);
-                }
-              });
-            },
-            { threshold: [0, 0.6, 1] },
-          );
-          lotties.forEach((lottie) => observer.observe(lottie));
+          // Mobile/tablet: scroll central focus
+          window.addEventListener("scroll", handleLottieScrollFocus);
+          window.addEventListener("resize", handleLottieScrollFocus);
+          setTimeout(handleLottieScrollFocus, 100); // inicializa
         }
       });
 
