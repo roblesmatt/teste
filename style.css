@@ -1,3 +1,42 @@
+/* Bloco tipográfico minimalista inspirado na arte enviada */
+.perfil-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
+  margin: 60px auto 40px auto;
+  max-width: fit-content;
+  width: auto;
+}
+.perfil-line {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3em;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 6vw;
+  line-height: 1.02;
+  white-space: nowrap;
+}
+.perfil-line img {
+  height: 0.9em;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.perfil-line lottie-player {
+  width: 1.2em !important;
+  height: 1.2em !important;
+  display: inline-flex !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: content-box !important;
+}
 /* Botão de e-mail fiel à imagem: retangular, cantos levemente arredondados, borda branca grossa, fundo preto, texto branco, hover invertido, transição suave */
 .email-link {
   display: inline-block;
