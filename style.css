@@ -1,3 +1,32 @@
+/* Botão de e-mail fiel à imagem: retangular, cantos levemente arredondados, borda branca grossa, fundo preto, texto branco, hover invertido, transição suave */
+.email-link {
+  display: inline-block;
+  padding: 0.35em 1.1em;
+  border: 2px solid #ffffff !important;
+  border-radius: 8px;
+  background: #000000;
+  color: #ffffff;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1.25em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 1, 0.4, 1);
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
+.email-link:hover,
+.email-link:focus {
+  background: #ffffff;
+  color: #000000 !important;
+  border-color: #ffffff;
+  box-shadow: none;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
+  font-weight: 400 !important;
+}
 /* Estilo para o span do copyright em Open Sans itálico */
 .copyright span {
   font-family: "Open Sans", sans-serif;
