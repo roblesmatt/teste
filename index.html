@@ -137,8 +137,11 @@
             }
           });
           blocks.forEach((block) => {
-            block.style.opacity = block === closestBlock ? "1" : "0.1";
+            block.classList.remove("active");
           });
+          if (closestBlock) {
+            closestBlock.classList.add("active");
+          }
         });
 
         // 3. VÍDEOS: hover play/pause
@@ -177,8 +180,8 @@
             lottie.style.opacity = "1";
           });
         } else {
-          // Mobile/tablet: foco central no scroll (sem resize)
-          function handleLottieScrollFocus() {
+          // Mobile/tablet: play/pause conforme o card centraliza na tela, mas SEM alterar opacidade
+          function handleLottieScrollPlay() {
             const screenCenter = window.innerHeight / 2;
             let closest = null;
             let minDist = Infinity;
@@ -193,18 +196,20 @@
             });
             lotties.forEach((lottie) => {
               if (lottie === closest) {
-                lottie.style.opacity = "1";
                 lottie.play();
               } else {
-                lottie.style.opacity = "0.3";
                 lottie.pause();
                 lottie.seek(0);
               }
             });
           }
-          window.addEventListener("scroll", handleLottieScrollFocus);
+          window.addEventListener("scroll", handleLottieScrollPlay);
           // Inicializa o estado correto ao carregar
-          setTimeout(handleLottieScrollFocus, 100);
+          setTimeout(handleLottieScrollPlay, 100);
+          // Garante opacidade sempre 1
+          lotties.forEach((lottie) => {
+            lottie.style.opacity = "1";
+          });
         }
       });
 

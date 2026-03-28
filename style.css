@@ -68,6 +68,7 @@
   -webkit-text-stroke: 0px transparent;
   -webkit-tap-highlight-color: transparent !important;
   -webkit-appearance: none !important;
+  appearance: none !important;
   user-select: none;
   -webkit-touch-callout: none;
   box-shadow: none !important;
@@ -92,6 +93,7 @@
   border: none !important;
   box-shadow: none !important;
   -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
 html,
@@ -124,7 +126,6 @@ body {
   height: auto !important;
   display: block;
   margin: 0 auto;
-}
 }
 
 lottie-player {
@@ -250,12 +251,11 @@ lottie-player:focus {
   aspect-ratio: 1 / 1;
   border-radius: 20px;
   overflow: hidden;
-  transition:
-    transform 0.35s cubic-bezier(0.2, 1, 0.3, 1),
-    filter 0.35s ease,
-    opacity 0.35s ease;
+  transition: transform 0.35s cubic-bezier(0.2, 1, 0.3, 1);
   cursor: pointer;
   will-change: transform;
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 /* --- ESTADO TOTAL: 100% BRILHO E COR --- */
@@ -301,10 +301,15 @@ video {
   margin-bottom: 25px !important; /* 25px de espaço entre as tags */
   color: #ffffff;
   text-align: left;
-  opacity: 0.1; /* Seu cinza escuro padrão */
-  transition: opacity 0.5s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
   font-family: "Anton", sans-serif;
   font-weight: 400;
+}
+
+.op-logic.active {
+  color: #ffffff;
+  opacity: 1;
 }
 
 /* Última tag: 10px de espaço antes da imagem */
