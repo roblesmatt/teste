@@ -1,3 +1,30 @@
+/* Reduzir o espaçamento do bloco de email */
+.bloco-email {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+/* Centralizar o bloco de copyright do rodapé */
+.bloco-rodape .copyright {
+  text-align: center;
+  width: 100%;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+  color: #fff;
+  opacity: 0.7;
+}
+/* Espaçamento padrão entre blocos principais */
+.bloco {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+/* Remover margem do primeiro bloco e último bloco para evitar espaço extra no topo/rodapé */
+.bloco:first-child {
+  margin-top: 0;
+}
+.bloco:last-child {
+  margin-bottom: 0;
+}
 /* Bloco tipográfico minimalista inspirado na arte enviada */
 .perfil-container {
   display: flex;
@@ -53,14 +80,14 @@
 /* Botão de e-mail fiel à imagem: retangular, cantos levemente arredondados, borda branca grossa, fundo preto, texto branco, hover invertido, transição suave */
 .email-link {
   display: inline-block;
-  padding: 0.35em 1.1em;
+  padding: 2px 12px;
   border: 2px solid #ffffff !important;
   border-radius: 8px;
   background: #000000;
   color: #ffffff;
   font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
   font-weight: 400 !important;
-  font-size: 1.25em;
+  font-size: 13px;
   text-align: center;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.4, 1, 0.4, 1);
@@ -272,12 +299,6 @@ lottie-player:focus {
 }
 
 /* Responsividade do Grid */
-@media (max-width: 1024px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-    padding: 0;
-    width: 100vw;
-    margin-left: 0;
     margin-right: 0;
   }
   .card-projeto {
