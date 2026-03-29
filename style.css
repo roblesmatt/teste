@@ -1,6 +1,15 @@
+/* Espaço entre bloco logo lottie e rodapé */
+.bloco-logo {
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+}
+
+.bloco-rodape {
+  margin-top: 0 !important;
+}
 /* Reduzir o espaçamento do bloco de email */
 .bloco-email {
-  margin-top: 20px !important;
+  margin-top: 130px !important;
   margin-bottom: 20px !important;
 }
 /* Centralizar o bloco de copyright do rodapé */
@@ -45,20 +54,20 @@
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-weight: 700;
   color: #fff;
-  font-size: 8vw;
-  line-height: 1.02;
-  white-space: nowrap;
+  font-size: clamp(2.2rem, 10vw, 4.2rem);
+  line-height: 1.05;
+  white-space: normal;
 }
 
 @media (min-width: 600px) {
   .perfil-line {
-    font-size: 6vw;
+    font-size: clamp(2.7rem, 8vw, 4.5rem);
   }
 }
 
 @media (min-width: 1024px) {
   .perfil-line {
-    font-size: 4vw;
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
   }
 }
 .perfil-line img {
@@ -80,9 +89,9 @@
 /* Botão de e-mail fiel à imagem: retangular, cantos levemente arredondados, borda branca grossa, fundo preto, texto branco, hover invertido, transição suave */
 .email-link {
   display: inline-block;
-  padding: 2px 12px;
-  border: 2px solid #ffffff !important;
-  border-radius: 8px;
+  padding: 20px 25px;
+  border: 1px solid #ffffff !important;
+  border-radius: 20px;
   background: #000000;
   color: #ffffff;
   font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
@@ -98,10 +107,10 @@
 }
 
 .email-link:hover,
-.email-link:focus {
+  .email-link:focus {
   background: #ffffff;
   color: #000000 !important;
-  border-color: #ffffff;
+  border: 1px solid #ffffff !important;
   box-shadow: none;
   font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
   font-weight: 400 !important;
@@ -436,8 +445,7 @@ footer {
   transition: color 0.3s ease;
 }
 
-.email-link:hover {
-  color: #999999;
+/* Removido para evitar conflito de cor no hover */
 }
 
 .copyright {
