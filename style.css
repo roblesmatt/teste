@@ -140,8 +140,8 @@
 }
 
 @font-face { 
-    font-family: "Oswald";
-    src: url("fonts/Oswald.ttf") format("truetype");
+    font-family: "Bebas Neue";
+    src: url("fonts/BebasNeue.ttf") format("truetype");
     font-weight: normal;
     font-style: normal; 
 }
@@ -478,7 +478,7 @@ footer {
 }
 
 .perfil-ilustrador { 
-    font-family: 'Oswald', sans-serif !important; 
+    font-family: 'Bebas Neue', sans-serif !important; 
     font-size: 10vw !important; 
     fill: white; 
 }
