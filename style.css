@@ -1,3 +1,13 @@
+/* Garante espaçamento igual entre perfil-wrapper e outros blocos principais */
+.perfil-wrapper {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Remove margem duplicada se perfil-wrapper for o primeiro bloco */
+.perfil-wrapper:first-child {
+  margin-top: 0;
+}
 /* Espaço entre bloco logo lottie e rodapé */
 .bloco-logo {
   margin-top: 10px !important;
@@ -14,54 +24,6 @@
 }
 /* Centralizar o bloco de copyright do rodapé */
 .bloco-rodape .copyright {
-  text-align: center;
-  width: 100%;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
-  color: #fff;
-  opacity: 0.7;
-}
-/* Espaçamento padrão entre blocos principais */
-.bloco {
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
-
-/* Remover margem do primeiro bloco e último bloco para evitar espaço extra no topo/rodapé */
-.bloco:first-child {
-  margin-top: 0;
-}
-.bloco:last-child {
-  margin-bottom: 0;
-}
-/* Bloco tipográfico minimalista inspirado na arte enviada */
-.perfil-container {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  gap: 0.1em;
-  margin: 60px 0 40px 0;
-  width: 100%;
-  max-width: 100%;
-  padding: 0 5%;
-}
-.perfil-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.3em;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  color: #fff;
-  font-size: clamp(2.2rem, 10vw, 4.2rem);
-  line-height: 1.05;
-  white-space: normal;
-}
-
-@media (min-width: 600px) {
-  .perfil-line {
-    font-size: clamp(2.7rem, 8vw, 4.5rem);
-  }
 }
 
 @media (min-width: 1024px) {
@@ -175,6 +137,13 @@
   src: url("fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
+}
+
+@font-face { 
+    font-family: "Oswald";
+    src: url("fonts/Oswald.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; 
 }
 
 * {
@@ -309,6 +278,7 @@ lottie-player:focus {
 /* Responsividade do Grid */
     margin-right: 0;
   }
+  
   .card-projeto {
     width: 100vw;
     aspect-ratio: 1 / 1;
@@ -470,4 +440,67 @@ footer {
     max-width: 100%;
     box-sizing: border-box;
   }
+}
+/* --- AJUSTE FINO DO PERFIL SVG (MINIMISTA) --- */
+
+.perfil-container-svg {
+    width: 100%;
+    max-width: 1080px; /* Mantém a proporção do Affinity */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.perfil-apresentacao { 
+    font-family: 'Anton', sans-serif; 
+    font-size: 15vw !important; /* Diminuí um pouco para caber no 32" */
+    fill: white; 
+}
+
+.perfil-nome { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 8vw !important; 
+    font-style: italic;
+    font-weight: 800;
+    fill: white; 
+}
+
+.perfil-designer { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 9vw !important; 
+    font-weight: 800;
+    fill: white; 
+}
+
+.perfil-minimalista { 
+    font-family: 'Space Mono', monospace; 
+    font-size: 4.5vw !important; 
+    fill: white; 
+}
+
+.perfil-ilustrador { 
+    font-family: 'Oswald', sans-serif !important; 
+    font-size: 10vw !important; 
+    fill: white; 
+}
+
+.perfil-unico { 
+    font-family: 'Inter', sans-serif !important; 
+    font-size: 12vw !important; 
+    font-style: italic;
+    font-weight: 800;
+    fill: white; 
+}
+
+.perfil-animador { 
+    font-family: 'Playfair Display', serif !important; 
+    font-size: 11vw !important; 
+    font-style: italic;
+    fill: white; 
+}
+
+.perfil-expressivo { 
+    font-family: 'Inter', sans-serif !important; 
+    font-size: 8vw !important; 
+    font-weight: 800;
+    fill: white; 
 }
