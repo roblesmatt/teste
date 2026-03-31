@@ -1,29 +1,12 @@
 /* Garante espaçamento igual entre perfil-wrapper e outros blocos principais */
 .perfil-wrapper {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* Remove margem duplicada se perfil-wrapper for o primeiro bloco */
-.perfil-wrapper:first-child {
-  margin-top: 0;
-}
-/* Espaço entre bloco logo lottie e rodapé */
-.bloco-logo {
-  margin-top: 10px !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 0px;
 }
 
 .bloco-rodape {
-  margin-top: 0 !important;
-}
-/* Reduzir o espaçamento do bloco de email */
-.bloco-email {
-  margin-top: 130px !important;
-  margin-bottom: 20px !important;
-}
-/* Centralizar o bloco de copyright do rodapé */
-.bloco-rodape .copyright {
+  font-family: "Open Sans";
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 1024px) {
@@ -52,10 +35,10 @@
   display: inline-block;
   padding: 20px 25px;
   border: 1px solid #ffffff !important;
-  border-radius: 20px;
+  border-radius: 100px;
   background: #000000;
   color: #ffffff;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
+  font-family: "Open Sans";
   font-weight: 400 !important;
   font-size: 13px;
   text-align: center;
@@ -133,9 +116,23 @@
 }
 
 @font-face {
-  font-family: "Open Sans";
-  src: url("fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
-  font-weight: 100 900;
+  font-family: "Inter";
+  src: url("fonts/Inter.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Archivo Black";
+  src: url("fonts/ArchivoBlack.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("fonts/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -150,8 +147,31 @@
     font-family: "Opal";
     src: url("fonts/Opal.ttf") format("truetype");
     font-weight: normal;
-    font-style: normal; 
+    font-style: italic; 
+  
 }
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("fonts/PlayfairDisplay-Italic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("fonts/OpenSans.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 * {
   margin: 0;
@@ -248,38 +268,10 @@ lottie-player:focus {
   width: 100%;
 }
 
-/* Isso só afeta o contêiner de baixo */
-.grid-container.single-item {
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 10px !important;
-  margin-bottom: 50px !important;
-  padding-top: 0 !important;
 }
 
-/* Isso só afeta o card dentro do single-item */
-.grid-container.single-item .card-projeto {
-  /* No Desktop/Tablet */
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 1 / 1;
-  border-radius: 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  transform: scale(1) !important;
-}
 
-/* Ajuste para o iPhone SE / Pro Max ficar perfeito */
-@media (max-width: 480px) {
-  .grid-container.single-item .card-projeto {
-    width: 280px; /* Tamanho menor para sobrar borda lateral */
-    height: 280px;
-  }
+
 }
 
 /* Responsividade do Grid */
@@ -322,10 +314,7 @@ lottie-player:focus {
   position: relative;
   opacity: 1 !important;
 
-  /* PREPARAÇÃO PARA A ESCALA: Faz o movimento ser suave */
-  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-  cursor: pointer;
-  will-change: transform;
+
 }
 
 .card-projeto:focus {
@@ -345,29 +334,8 @@ lottie-player:focus {
   filter: none !important;
 }
 
-/* --- ESTADO TOTAL: 100% BRILHO E COR --- */
-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 
-  /* OPACIDADE EM 1: Remove o aspecto "apagado" ou fraco */
-  opacity: 1 !important;
 
-  /* GARANTE QUE NÃO HAJA FILTROS */
-  filter: none !important;
-  -webkit-filter: none !important;
-
-  /* Sem transição para evitar conflitos */
-  transition: none !important;
-}
-
-/* --- EXCEÇÃO: FOTO DE PERFIL --- */
-.grid-container.single-item video {
-  opacity: 1 !important;
-  display: block;
-  margin: 0 auto;
-}
 
 /* Seção de Texto - CORRIGIDA COM CLAMP */
 .info-sessao {
@@ -412,12 +380,12 @@ footer {
 }
 
 .email-link {
-  font-size: clamp(24px, 3.5vw, 48px);
+  font-size: clamp(1px, 3.5vw, 48px);
   color: #ffffff;
   text-decoration: none;
-  font-family: "Anton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   transition: color 0.3s ease;
 }
 
@@ -447,67 +415,4 @@ footer {
     max-width: 100%;
     box-sizing: border-box;
   }
-}
-/* --- AJUSTE FINO DO PERFIL SVG (MINIMISTA) --- */
-
-.perfil-container-svg {
-    width: 100%;
-    max-width: 1080px; /* Mantém a proporção do Affinity */
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.perfil-apresentacao { 
-    font-family: 'Anton', sans-serif; 
-    font-size: 15vw !important; /* Diminuí um pouco para caber no 32" */
-    fill: white; 
-}
-
-.perfil-nome { 
-    font-family: 'Inter', sans-serif; 
-    font-size: 8vw !important; 
-    font-style: italic;
-    font-weight: 800;
-    fill: white; 
-}
-
-.perfil-designer { 
-    font-family: 'Inter', sans-serif; 
-    font-size: 9vw !important; 
-    font-weight: 800;
-    fill: white; 
-}
-
-.perfil-minimalista { 
-    font-family: 'Space Mono', monospace; 
-    font-size: 4.5vw !important; 
-    fill: white; 
-}
-
-.perfil-ilustrador { 
-    font-family: 'Bebas Neue', sans-serif !important; 
-    font-size: 10vw !important; 
-    fill: white; 
-}
-
-.perfil-unico { 
-    font-family: 'Inter', sans-serif !important; 
-    font-size: 12vw !important; 
-    font-style: italic;
-    font-weight: 800;
-    fill: white; 
-}
-
-.perfil-animador { 
-    font-family: 'Playfair Display', serif !important; 
-    font-size: 11vw !important; 
-    font-style: italic;
-    fill: white; 
-}
-
-.perfil-expressivo { 
-    font-family: 'Inter', sans-serif !important; 
-    font-size: 8vw !important; 
-    font-weight: 800;
-    fill: white; 
 }
