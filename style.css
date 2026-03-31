@@ -1,10 +1,8 @@
-/* Garante espaçamento igual entre perfil-wrapper e outros blocos principais */
-.perfil-wrapper {
-  margin-bottom: 0px;
-}
 
 .bloco-rodape {
   font-family: "Open Sans";
+  font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
+  font-size: 13px;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -30,35 +28,7 @@
   padding: 0 !important;
   box-sizing: content-box !important;
 }
-/* Botão de e-mail fiel à imagem: retangular, cantos levemente arredondados, borda branca grossa, fundo preto, texto branco, hover invertido, transição suave */
-.email-link {
-  display: inline-block;
-  padding: 20px 25px;
-  border: 1px solid #ffffff !important;
-  border-radius: 100px;
-  background: #000000;
-  color: #ffffff;
-  font-family: "Open Sans";
-  font-weight: 400 !important;
-  font-size: 13px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.4, 1, 0.4, 1);
-  box-shadow: none;
-  outline: none;
-  cursor: pointer;
-  text-transform: lowercase;
-}
 
-.email-link:hover,
-  .email-link:focus {
-  background: #ffffff;
-  color: #000000 !important;
-  border: 1px solid #ffffff !important;
-  box-shadow: none;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
-  font-weight: 400 !important;
-}
 /* Estilo para o span do copyright em Open Sans itálico */
 .copyright span {
   font-family: "Open Sans", sans-serif;
@@ -367,10 +337,7 @@ lottie-player:focus {
   opacity: 1;
 }
 
-/* Última tag: 10px de espaço antes da imagem */
-.op-logic:last-of-type {
-  margin-bottom: 10px !important;
-}
+
 
 /* Rodapé */
 footer {
@@ -415,4 +382,44 @@ footer {
     max-width: 100%;
     box-sizing: border-box;
   }
+
+}
+
+.email-container {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    background-color: #000000;
+}
+
+.email-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Tamanho Fixo para todas as versões */
+    width: 200px; 
+    height: 60px; 
+    
+    border: 1.5px solid #ffffff !important;
+    border-radius: 100px;
+    
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+    
+    /* Estilo da Fonte */
+    font-family: 'Open Sans'; /* Ou sua fonte limpa preferida */
+    font-weight: 800;
+    font-size: 13px;
+    transition: all 0.1s ease;
+}
+
+
+/* Hover apenas para Desktop */
+@media (hover: hover) {
+    .email-button:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
 }
