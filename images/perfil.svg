@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Keyshape -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="2000" viewBox="0 0 1080 2000" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" style="white-space: preserve-spaces;">
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1899.01" viewBox="0 0 1080 1899.01" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" style="white-space: preserve-spaces;">
     <g id="_1080px" transform="translate(1202.14,1512.56) scale(1,1.04167) translate(-1202.14,-1452.06)">
-        <rect width="1080" height="1920" transform="translate(540,960) translate(-540,-960)"/>
+        <rect width="1080" height="1823.04" transform="translate(540,960) translate(-540,-960)"/>
         <g id="teste.json" transform="translate(540.002,1751.04) scale(2.9052,0.505483) translate(-2396.5,-198.438)">
             <rect width="327" height="284.876" fill="rgb(204,87,80)" transform="translate(2396.5,198.438) translate(-163.5,-142.438)"/>
         </g>
@@ -21,7 +21,7 @@
         </g>
         <g id="ANIMADOR" transform="translate(431.046,1360.09) scale(1.2043,1.15613) translate(-1553.95,-1168.14)">
             <g transform="translate(1856.95,1224.34) scale(135.271,135.271)"/>
-            <text fill="white" font-family="'Playfair Display'" font-size="135.271px" font-weight="700" font-style="italic" transform="translate(1553.93,1168.14) translate(-302.992,56.2047)">Animador</text>
+            <text fill="white" font-family="'Playfair Display'" font-size="135.271px" font-style="italic" font-weight="700" transform="translate(1553.93,1168.14) translate(-302.992,56.2047)">Animador</text>
         </g>
         <g id="teste.json2" transform="translate(930.001,1155.84) scale(0.519878,0.572881) translate(-2396.5,-198.438)">
             <rect width="327" height="284.876" fill="rgb(204,87,80)" transform="translate(2396.5,198.438) translate(-163.5,-142.438)"/>
