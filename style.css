@@ -365,6 +365,143 @@ footer {
   font-family: "Open Sans", sans-serif;
 }
 
+
+.bloco-cards {
+    padding: 60px 0;
+    background-color: #000;
+}
+
+/* Cabeçalho e Controles das Setas */
+.cards-header {
+    max-width: 1200px;
+    margin: 0 auto 25px auto;
+    display: flex;
+    justify-content: flex-end; /* Fixa as setas à direita */
+    padding: 0 20px;
+}
+
+.nav-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #111; /* Fundo escuro do círculo conforme layout */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-btn:hover { background-color: #222; }
+
+.nav-btn lottie-player {
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin: 0;
+}
+
+/* Container do Carrossel */
+.carrossel-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-left: 5vw;  /* Usa 5% da largura da tela como margem esquerda */
+    padding-right: 5vw; /* Garante que o último card também tenha respiro */
+    padding-bottom: 30px;    
+    scrollbar-width: none; /* Esconde barra no Firefox */
+    scroll-behavior: smooth;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.carrossel-container::-webkit-scrollbar { display: none; } /* Esconde barra no Chrome */
+
+/* Estilo do Card Individual */
+.card-jornal {
+    flex: 0 0 280px; /* Largura fixa para manter o alinhamento lado a lado */
+    background-color: #0d0d0d;
+    padding: 35px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+}
+
+.card-jornal h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+    line-height: 1.2;
+}
+
+.card-jornal p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #666; /* Cinza para o texto descritivo */
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 900;
+    border-bottom: 1.5px solid #fff;
+}
+
+.card-icon {
+    width: 18px;  /* Ajuste este valor (ex: de 25px para 20px) */
+    height: 18px; /* Mantenha igual à largura */
+} 
+
+
+.mini-estrela {
+    width: 14px !important;
+    height: 14px !important;
+    margin-left: 2px; /* Um pequeno toque para não encostar na letra */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+@media (min-width: 1024px) {
+    /* Centraliza o container dos cards */
+    .carrossel-container {
+        
+        max-width: 1200px; /* Alinhe com a largura do seu grid uminimo */
+        margin: 0 auto 20px auto;
+        justify-content: center; /* Centraliza os cards se houver poucos na tela */
+        padding: 0;
+    }
+
+    /* Centraliza o cabeçalho (setas e título) */
+    .cards-header {
+        max-width: 1200px;
+        margin: 0 auto 20px auto;
+        padding: 0 20px;
+    }
+}
+
 /* Responsividade do Grid */
 @media (max-width: 1024px) {
   .grid-container {
