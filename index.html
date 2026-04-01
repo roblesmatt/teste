@@ -88,60 +88,187 @@
     </section>
 
     <section class="bloco-cards">
-    <div class="cards-header">
+      <div class="cards-header">
         <div class="nav-controls">
-            <button class="nav-btn prev" onclick="scrollCarrossel(-1)">
-                <lottie-player src="lotties/icon.json" class="mini-estrela" background="transparent" speed="1" loop autoplay muted></lottie-player>
-            </button>
-            <button class="nav-btn next" onclick="scrollCarrossel(1)">
-                <lottie-player src="lotties/icon.json" class="mini-estrela" background="transparent" speed="1" loop autoplay muted></lottie-player>
-            </button>
+          <button class="nav-btn prev" onclick="scrollCarrossel(-1)">
+            <lottie-player
+              src="lotties/icon.json"
+              class="mini-estrela"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </button>
+          <button class="nav-btn next" onclick="scrollCarrossel(1)">
+            <lottie-player
+              src="lotties/icon.json"
+              class="mini-estrela"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </button>
         </div>
-    </div>
+      </div>
 
-    <div class="carrossel-container" id="carrossel">
-        <div class="card-jornal">
-            <div class="card-icon"><lottie-player src="lotties/icon.json" background="transparent" speed="1" loop autoplay muted></lottie-player></div>
-            <h3>Quem é Robles Matt?</h3>
-            <p>O responsável pelos layouts incríveis e suas fantásticas animações.</p>
-            <div class="card-footer">
-                <a href="#" class="card-link">Descobrir</a>
-                <lottie-player src="lotties/icon.json" class="mini-estrela" background="transparent" speed="1" loop autoplay muted></lottie-player>
-            </div>
+      <div class="carrossel-container" id="carrossel">
+        <div class="card-jornal" data-modal="modal-descobrir">
+          <div class="card-icon">
+            <lottie-player
+              src="lotties/icon.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </div>
+          <h3>Quem é Robles Matt?</h3>
+          <p>
+            O responsável pelos layouts incríveis e suas fantásticas animações.
+          </p>
+          <div class="card-footer">
+            <a href="#" class="card-link" data-modal="modal-descobrir"
+              >Descobrir</a
+            >
+            <lottie-player
+              src="lotties/icon.json"
+              class="mini-estrela"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </div>
         </div>
 
-        <div class="card-jornal">
-            <div class="card-icon"><lottie-player src="lotties/icon.json" background="transparent" speed="1" loop autoplay muted></lottie-player></div>
-            <h3>Serviços que faço ...</h3>
-            <p>O responsável pelos layouts incríveis e suas fantásticas animações.</p>
-            <div class="card-footer">
-                <a href="#" class="card-link">Conferir</a>
-                <lottie-player src="lotties/icon.json" class="mini-estrela" background="transparent" speed="1" loop autoplay muted></lottie-player>
-            </div>
+        <div class="card-jornal" data-modal="modal-conferir">
+          <div class="card-icon">
+            <lottie-player
+              src="lotties/icon.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </div>
+          <h3>Serviços que faço ...</h3>
+          <p>
+            O responsável pelos layouts incríveis e suas fantásticas animações.
+          </p>
+          <div class="card-footer">
+            <a href="#" class="card-link" data-modal="modal-conferir"
+              >Conferir</a
+            >
+            <lottie-player
+              src="lotties/icon.json"
+              class="mini-estrela"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </div>
         </div>
 
-        <div class="card-jornal">
-            <div class="card-icon"><lottie-player src="lotties/icon.json" background="transparent" speed="1" loop autoplay muted></lottie-player></div>
-            <h3>Do papel à realidade.</h3>
-            <p>O responsável pelos layouts incríveis e suas fantásticas animações.</p>
-            <div class="card-footer">
-                <a href="#" class="card-link">Conhecer</a>
-                <lottie-player src="lotties/icon.json" class="mini-estrela" background="transparent" speed="1" loop autoplay muted></lottie-player>
-            </div>
+        <div class="card-jornal" data-modal="modal-conhecer">
+          <div class="card-icon">
+            <lottie-player
+              src="lotties/icon.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </div>
+          <h3>Do papel à realidade.</h3>
+          <p>
+            O responsável pelos layouts incríveis e suas fantásticas animações.
+          </p>
+          <div class="card-footer">
+            <a href="#" class="card-link" data-modal="modal-conhecer"
+              >Conhecer</a
+            >
+            <lottie-player
+              src="lotties/icon.json"
+              class="mini-estrela"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </div>
         </div>
 
-        <div class="card-jornal">
-            <div class="card-icon"><lottie-player src="lotties/icon.json" background="transparent" speed="1" loop autoplay muted></lottie-player></div>
-            <h3>Hobbie em crochê!</h3>
-            <p>O responsável pelos layouts incríveis e suas fantásticas animações.</p>
-            <div class="card-footer">
-                <a href="#" class="card-link">Ver</a>
-                <lottie-player src="lotties/icon.json" class="mini-estrela" background="transparent" speed="1" loop autoplay muted></lottie-player>
-            </div>
+        <div class="card-jornal" data-modal="modal-ver">
+          <div class="card-icon">
+            <lottie-player
+              src="lotties/icon.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </div>
+          <h3>Hobbie em crochê!</h3>
+          <p>
+            O responsável pelos layouts incríveis e suas fantásticas animações.
+          </p>
+          <div class="card-footer">
+            <a href="#" class="card-link" data-modal="modal-ver">Ver</a>
+            <lottie-player
+              src="lotties/icon.json"
+              class="mini-estrela"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              muted
+            ></lottie-player>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
 
+      <!-- Modais dos cards -->
+      <div id="modal-descobrir" class="modal-card">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Descobrir</h2>
+          <p>Conteúdo do modal Descobrir.</p>
+        </div>
+      </div>
+      <div id="modal-conferir" class="modal-card">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Conferir</h2>
+          <p>Conteúdo do modal Conferir.</p>
+        </div>
+      </div>
+      <div id="modal-conhecer" class="modal-card">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Conhecer</h2>
+          <p>Conteúdo do modal Conhecer.</p>
+        </div>
+      </div>
+      <div id="modal-ver" class="modal-card">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Ver</h2>
+          <p>Conteúdo do modal Ver.</p>
+        </div>
+      </div>
+    </section>
 
     <section class="bloco-email">
       <div class="email-container">
@@ -308,21 +435,56 @@
         el.style.setProperty("outline", "none", "important");
         el.style.setProperty("box-shadow", "none", "important");
       });
+
+      // MODAIS DOS CARDS
+      // Permite abrir modal tanto pelo card quanto pelo link
+      function openModalByDataAttr(element) {
+        const modalId = element.getAttribute("data-modal");
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.style.display = "flex";
+          document.body.style.overflow = "hidden";
+        }
+      }
+      document.querySelectorAll(".card-link[data-modal]").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          openModalByDataAttr(this);
+        });
+      });
+      document.querySelectorAll(".card-jornal[data-modal]").forEach((card) => {
+        card.addEventListener("click", function (e) {
+          // Evita conflito se clicar no link interno
+          if (e.target.closest(".card-link")) return;
+          openModalByDataAttr(this);
+        });
+      });
+      document.querySelectorAll(".modal-card .close-modal").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const modal = this.closest(".modal-card");
+          if (modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "";
+          }
+        });
+      });
+      window.addEventListener("click", function (e) {
+        if (e.target.classList.contains("modal-card")) {
+          e.target.style.display = "none";
+          document.body.style.overflow = "";
+        }
+      });
     </script>
 
-
-<script>
-function scrollCarrossel(direction) {
-    const carrossel = document.getElementById('carrossel');
-    const scrollAmount = 295; // Largura do card + gap
-    carrossel.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-    });
-}
-</script>
-
-
-
+    <script>
+      function scrollCarrossel(direction) {
+        const carrossel = document.getElementById("carrossel");
+        const scrollAmount = 295; // Largura do card + gap
+        carrossel.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    </script>
   </body>
 </html>
