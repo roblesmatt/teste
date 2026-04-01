@@ -1,3 +1,13 @@
+.seo-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
 .bloco-rodape {
   font-family: "Open Sans";
@@ -409,4 +419,19 @@ footer {
 .email-button:hover {
   background-color: #ffffff;
   color: #000000;
+}
+
+/* Estado inicial: Pausado */
+.projeto-item {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.projeto-item.ativado {
+    opacity: 1;
+}
+
+.projeto-animado {
+    width: 100%;
+    pointer-events: none; /* Garante que o hover pegue na div */
 }
