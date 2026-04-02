@@ -19,6 +19,34 @@
   animation: fadeInModal 0.2s;
 }
 
+.close-modal {
+    position: sticky;
+    top: 0px;       /* Distância do topo */
+    left: 100%;     /* Distância da direita */
+    width: 50px;     /* Largura do círculo */
+    height: 50px;    /* Altura do círculo */
+    background-color: #fff; /* Fundo branco como na imagem */
+    color: #000;     /* Cor do "X" */
+    border-radius: 50%; /* Faz o círculo perfeito */
+    
+    /* Centraliza o "X" dentro do círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 10;     /* Garante que fique acima de tudo */
+    transition: transform 0.2s ease;
+
+    
+}
+
+.close-modal:hover {
+    transform: scale(1.1); /* Efeito sutil ao passar o mouse */
+}
+
 .modal-card .modal-content {
   background: #000000;
   color: rgba(255, 255, 255, 0.5);
