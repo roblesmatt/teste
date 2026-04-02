@@ -46,10 +46,7 @@
 
   }
 
-/* Esconde a barra de rolagem do modal-content (Webkit e Firefox) */
-.modal-card .modal-content::-webkit-scrollbar {
-  display: none;
-}
+
 
 /* Espaço entre título e parágrafo no modal */
 .modal-card .modal-content h2 {
