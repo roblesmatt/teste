@@ -22,7 +22,7 @@
 .modal-card .modal-content {
   background: #000000;
   color: rgba(255, 255, 255, 0.5);
-  padding: 0rem 1.7rem 0rem 1rem;
+  padding: 0rem 1rem 0rem 1rem;
   border-radius: 18px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   min-width: 280px;
@@ -46,7 +46,10 @@
 
   }
 
-
+/* Esconde a barra de rolagem do modal-content (Webkit e Firefox) */
+.modal-card .modal-content::-webkit-scrollbar {
+  display: none;
+}
 
 /* Espaço entre título e parágrafo no modal */
 .modal-card .modal-content h2 {
