@@ -70,11 +70,19 @@
 
   /* Aumenta o tamanho da fonte das descrições do modal */
   .modal-card .modal-content p {
-    font-size: 1.3rem;
-    line-height: 1.3;
+    font-size: 16px;
+    line-height: 1.4;
     font-weight: 600;
-
   }
+
+  @media (min-width: 720px) {
+    .modal-card .modal-content p {
+  font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+}
 
 /* Esconde a barra de rolagem do modal-content (Webkit e Firefox) */
 .modal-card .modal-content::-webkit-scrollbar {
@@ -88,6 +96,7 @@
   font-size: 2.4rem;
   line-height: 1;
 }
+
 
 
 .destaque {
