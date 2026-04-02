@@ -13,16 +13,16 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.75);
+  background: rgb(0, 0, 0);
   justify-content: center;
   align-items: center;
   animation: fadeInModal 0.2s;
 }
 
 .modal-card .modal-content {
-  background: #181818;
-  color: #fff;
-  padding: 2.5rem 2rem 2rem 2rem;
+  background: #000000;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0rem 1.7rem 0rem 1rem;
   border-radius: 18px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   min-width: 280px;
@@ -30,16 +30,20 @@
   max-height: 80vh;
   overflow-y: auto;
   position: relative;
-  text-align: left;
+  text-align: justify;
+  hyphens: auto;
   font-family: "Inter", sans-serif;
+  font-weight: 900;
   -ms-overflow-style: none;  /* IE e Edge */
   scrollbar-width: none;     /* Firefox */
 }
 
   /* Aumenta o tamanho da fonte das descrições do modal */
   .modal-card .modal-content p {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    font-weight: 600;
+
   }
 
 /* Esconde a barra de rolagem do modal-content (Webkit e Firefox) */
@@ -49,9 +53,17 @@
 
 /* Espaço entre título e parágrafo no modal */
 .modal-card .modal-content h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  font-size: 2.4rem;
+  line-height: 1;
 }
 
+
+.destaque {
+    color: #ffffff; /* Ou a cor exata do seu projeto */
+    font-weight: 700; /* Deixa a palavra um pouco mais "pesada" */
+}
 
 @keyframes fadeInModal {
   from { opacity: 0; }
@@ -578,4 +590,24 @@ footer {
 .projeto-animado {
     width: 100%;
     pointer-events: none; /* Garante que o hover pegue na div */
+}
+
+.foto-perfil {
+    /* 1. Força a proporção quadrada 1:1 */
+    aspect-ratio: 1 / 1; 
+    width: 100px; /* Ou o tamanho que você preferir no Mac mini */
+    height: 100px;
+    
+    /* 2. Garante que o SVG/Imagem não estique (preenche o quadrado) */
+    object-fit: cover; 
+    
+    /* 3. O Arredondamento (A moldura suave) */
+    border-radius: 8px; /* Valor que combina com seus cards de 25px */
+    
+    /* 4. O Contorno (Opcional - para dar destaque no fundo preto) */
+    border: 1px solid #333; 
+    
+    /* 5. Alinhamento com o texto que você já tem */
+    float: left;
+    margin-right: 15px;
 }
