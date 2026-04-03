@@ -496,7 +496,7 @@ footer {
 .card-jornal h3 {
     font-family: 'Inter', sans-serif;
     font-weight: 900;
-    color: #fff;
+    color: #000000;
     font-size: 1.7rem;
     margin: 15px 0 10px;
     line-height: 1.2;
@@ -505,11 +505,24 @@ footer {
 .card-jornal p {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.4);    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 1);    font-size: 1.5rem;
     font-size: 1.2rem;
     line-height: 1.2;
     margin-bottom: 25px;
     flex-grow: 1;
+}
+
+.card-jornal-descobrir {
+  background: linear-gradient(90deg, #f5f4c8 0%, #858c25 100%);
+}
+.card-jornal-conferir {
+  background: linear-gradient(90deg, #c8f5eb 0%, #258c3b 100%);
+}
+.card-jornal-conhecer {
+  background: linear-gradient(90deg, #c8e8f5 0%, #25838c 100%);
+}
+.card-jornal-ver {
+  background: linear-gradient(90deg, #f5c8e5 0%, #7b258c 100%);
 }
 
 .card-footer {
@@ -522,7 +535,7 @@ footer {
     font-family: 'Inter', sans-serif;
     font-weight: 900;
     font-size: 1.2rem;
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     font-weight: 900;
     border-bottom: 1.5px solid #fff;
@@ -598,7 +611,7 @@ footer {
     width: 200px; 
     height: 60px; 
     
-    border: 1px solid #ffffff !important;
+    border: none !important;
     border-radius: 100px;
     
     color: #ffffff;
@@ -608,7 +621,7 @@ footer {
     /* Estilo da Fonte */
     font-family: 'Inter', sans-serif; /* Ou sua fonte limpa preferida */
     font-weight: 900;
-    font-size: 13px;
+    font-size: 1.5rem;
     transition: all 0.1s ease;
 }
 
@@ -617,6 +630,7 @@ footer {
 .email-button:hover {
   background-color: #ffffff;
   color: #000000;
+  border: none !important;
 }
 
 /* Estado inicial: Pausado */
