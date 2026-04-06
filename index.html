@@ -22,6 +22,20 @@
     </section>
 
     <script>
+      // Função para rolar o carrossel de cards
+      function scrollCarrossel(direction) {
+        const carrossel = document.getElementById('carrossel');
+        if (!carrossel) return;
+        // Calcula o tamanho de um card
+        const card = carrossel.querySelector('.card-jornal');
+        if (!card) return;
+        const cardWidth = card.offsetWidth + 24; // 24px de gap/margin se houver
+        // Faz o scroll
+        carrossel.scrollBy({
+          left: direction * cardWidth,
+          behavior: 'smooth'
+        });
+      }
       document.addEventListener("DOMContentLoaded", function () {
         const lottie = document.getElementById("hero-lottie");
         let hasPlayedOnce = false;
@@ -238,7 +252,6 @@
                   text-decoration: underline;
                   text-decoration-thickness: 3px;
                 "
-                >Descobrir</span
               ></a
             >
             <lottie-player
@@ -259,7 +272,7 @@
         >
           <p>
             <br /><br /><br /><br /><br /><br /><br /><br />
-            Realizo ilustrações, design e animações.
+            Realizo ilustrações,<br>design e animações.
           </p>
           <div class="card-footer">
             <a href="#" class="card-link" data-modal="modal-conferir"
@@ -268,9 +281,7 @@
                   text-decoration: underline;
                   text-decoration-thickness: 3px;
                 "
-                >Conferir</span
-              >
-              +</a
+              ></a
             >
             <lottie-player
               src="lotties/icon.json"
@@ -290,7 +301,7 @@
         >
           <p>
             <br /><br /><br /><br /><br /><br /><br /><br />
-            Etapas de criação até a entrega.
+            Confira todos os <br>meus trabalhos.
           </p>
           <div class="card-footer">
             <a href="#" class="card-link" data-modal="modal-conhecer"
@@ -299,7 +310,6 @@
                   text-decoration: underline;
                   text-decoration-thickness: 3px;
                 "
-                >Conhecer</span
               ></a
             >
             <lottie-player
@@ -317,7 +327,7 @@
         <div class="card-jornal card-jornal-ver" data-modal="modal-ver">
           <p>
             <br /><br /><br /><br /><br /><br /><br /><br />
-            Confira todos os trabalhos que já criei.
+            Etapas de criação <br>até a entrega.
           </p>
           <div class="card-footer">
             <a href="#" class="card-link" data-modal="modal-ver"
@@ -326,7 +336,6 @@
                   text-decoration: underline;
                   text-decoration-thickness: 3px;
                 "
-                >Ver</span
               ></a
             >
             <lottie-player
@@ -344,104 +353,29 @@
 
       <!-- Modais dos cards -->
       <div id="modal-descobrir" class="modal-card">
-        <div class="modal-content">
-          <a href="#jornal" class="close-modal">&times;</a>
-          <h2>Sobre mim</h2>
-          <p>
-            <img
-              src="images/robles-matt.svg"
-              class="foto-perfil"
-              alt="Robles Matt"
-            />
+    <div class="modal-content">
+        <a href="#jornal" class="close-modal">&times;</a>
+        <div id="conteudo-dinamico-sobre">
+            </div>
+    </div>
+</div>
 
-            Olá! Bem-vindo ao meu portfólio, meu nome é
-            <span class="destaque">Robles Matt</span>. O que começou com
-            rabiscos na infância evoluiu para o
-            <span class="destaque">domínio</span>
-            técnico movido pela curiosidade. Sou cativado pelo cinema de
-            <span class="destaque">ficção científica</span>, por temas de
-            entropia e pela construção de mundos utópicos. Como entusiasta de
-            <span class="destaque">tecnologia</span>, me espanta o quão rápido a
-            mente humana consegue evoluir suas engenhocas, e nela busco sempre
-            transformar essa complexidade em algo essencial e
-            <span class="destaque">extraordinário</span> na minha vida.
-          </p>
-
-          <p>
-            <br />
-            Meus projetos são <span class="destaque">minimalistas</span>, evito
-            criar trabalhos exagerados. Layouts em vetor facilitando
-            <span class="destaque">produtividade</span>, tornando flexíveis para
-            alteracões. Utilizo tipografia precisa, plaetas de cores controladas
-            e <span class="destaque">alinhamento</span> que priorizem suas
-            funções. A filosifia do design para mim é refinar, desenvolvo marcas
-            <span class="destaque">atemporais</span> para meus clientes, elas
-            não gritam mas sussurram com autoridade. Lorem Ipsum is simply dummy
-            text of the printing and typesetting industry. Lorem Ipsum has been
-            the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a
-            type specimen book. It has survived not only five centuries, but
-            also the leap into electronic typesetting, remaining essentially
-            unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently
-            with desktop publishing software like Aldus PageMaker including
-            versions of Lorem Ipsum.
-          </p>
-        </div>
-      </div>
       <div id="modal-conferir" class="modal-card">
         <div class="modal-content">
           <a href="#jornal" class="close-modal">&times;</a>
-
-          <h2>Serviços</h2>
-          <p>
-            What is Lorem Ipsum?<br />
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </p>
         </div>
       </div>
+
       <div id="modal-conhecer" class="modal-card">
         <div class="modal-content">
           <a href="#jornal" class="close-modal">&times;</a>
-          <h2>Processo</h2>
-          <p>
-            What is Lorem Ipsum?<br />
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </p>
         </div>
       </div>
+      
       <div id="modal-ver" class="modal-card">
         <div class="modal-content">
           <a href="#jornal" class="close-modal">&times;</a>
-          <h2>Projetos</h2>
-          <p>
-            What is Lorem Ipsum?<br />
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </p>
+          
         </div>
       </div>
     </section>
@@ -625,19 +559,7 @@
           document.body.style.overflow = "hidden";
         }
       }
-      document.querySelectorAll(".card-link[data-modal]").forEach((link) => {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          openModalByDataAttr(this);
-        });
-      });
-      document.querySelectorAll(".card-jornal[data-modal]").forEach((card) => {
-        card.addEventListener("click", function (e) {
-          // Evita conflito se clicar no link interno
-          if (e.target.closest(".card-link")) return;
-          openModalByDataAttr(this);
-        });
-      });
+      // Removido: listeners genéricos de .card-link[data-modal] e .card-jornal[data-modal] para evitar conflito com modais dinâmicos
       document.querySelectorAll(".modal-card .close-modal").forEach((btn) => {
         btn.addEventListener("click", function () {
           const modal = this.closest(".modal-card");
@@ -677,14 +599,90 @@
     </script>
 
     <script>
-      function scrollCarrossel(direction) {
-        const carrossel = document.getElementById("carrossel");
-        const scrollAmount = 295; // Largura do card + gap
-        carrossel.scrollBy({
-          left: direction * scrollAmount,
-          behavior: "smooth",
+function carregarSobre() {
+    fetch('sobre.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('conteudo-dinamico-sobre').innerHTML = html;
+            document.getElementById('modal-descobrir').style.display = 'flex';
+        })
+        .catch(err => console.error("Erro no uminimo:", err));
+}
+
+function carregarServicos() {
+    fetch('servicos.html')
+      .then(res => res.text())
+      .then(html => {
+        let modal = document.getElementById('modal-conferir');
+        let content = modal.querySelector('.modal-content');
+        content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // Reatribui evento ao botão fechar
+        modal.querySelector('.close-modal').addEventListener('click', function () {
+          modal.style.display = 'none';
+          document.body.style.overflow = '';
         });
-      }
-    </script>
+      })
+      .catch(err => console.error("Erro no uminimo:", err));
+}
+
+function carregarProjetos() {
+  fetch('projetos.html')
+    .then(res => res.text())
+    .then(html => {
+      let modal = document.getElementById('modal-conhecer');
+      let content = modal.querySelector('.modal-content');
+      content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      // Reatribui evento ao botão fechar
+      modal.querySelector('.close-modal').addEventListener('click', function () {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+    })
+    .catch(err => console.error("Erro no uminimo:", err));
+}
+
+function carregarProcesso() {
+  fetch('processo.html')
+    .then(res => res.text())
+    .then(html => {
+      let modal = document.getElementById('modal-ver');
+      let content = modal.querySelector('.modal-content');
+      content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      // Reatribui evento ao botão fechar
+      modal.querySelector('.close-modal').addEventListener('click', function () {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+    })
+    .catch(err => console.error("Erro no uminimo:", err));
+}
+
+// Ativa o clique no card descobrir para sobre.html
+document.querySelector('.card-jornal-descobrir').addEventListener('click', function(e) {
+  e.preventDefault();
+  carregarSobre();
+});
+// Ativa o clique no card ver para processo.html
+document.querySelector('.card-jornal-ver').addEventListener('click', function(e) {
+  e.preventDefault();
+  carregarProcesso();
+});
+// Ativa o clique no card conferir para servicos.html
+document.querySelector('.card-jornal-conferir').addEventListener('click', function(e) {
+  e.preventDefault();
+  carregarServicos();
+});
+// Ativa o clique no card conhecer para projetos.html
+document.querySelector('.card-jornal-conhecer').addEventListener('click', function(e) {
+  e.preventDefault();
+  carregarProjetos();
+});
+</script>
   </body>
 </html>
