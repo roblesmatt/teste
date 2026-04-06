@@ -80,7 +80,7 @@
 .modal-card .modal-content {
   background: #000000;
   color: rgba(255, 255, 255, 0.5);
-  padding: 40px 50px 40px 40px;
+  padding: 40px 40px 40px 40px;
   border-radius: 0px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   width: 100vw;         /* Garante 100% da largura da tela */
