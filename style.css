@@ -4,6 +4,36 @@
   font-weight: 100 900;
   font-style: normal;
 }
+
+
+ 
+@media screen and (min-width: 1024px) {
+    .hero-container {
+        width: 100vw;
+        height: 100dvh; /* dvh é ótimo para mobile, mas no desktop 100vh resolve bem */
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+    }
+
+    #hero-lottie {
+        /* A MÁGICA ESTÁ AQUI: */
+        height: 100dvh !important; /* Força a altura a ser IGUAL à tela */
+        width: 100dvh !important;  /* Como é quadrado, a largura recebe o valor da altura */
+        
+        max-width: none; 
+        max-height: 100dvh;
+        display: block;
+        
+        /* Garante que o navegador não tente "esticar" além da conta */
+        object-fit: contain; 
+    }
+}
+
+
 /* MODAIS DOS CARDS */
 .modal-card {
   display: none;
