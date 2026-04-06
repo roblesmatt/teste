@@ -604,22 +604,37 @@
 
     <script>
 function carregarSobre() {
-    fetch('sobre.html')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('conteudo-dinamico-sobre').innerHTML = html;
-            document.getElementById('modal-descobrir').style.display = 'flex';
-        })
-        .catch(err => console.error("Erro no uminimo:", err));
+  const container = document.getElementById('conteudo-dinamico-sobre');
+  if (container) {
+    // Limpeza prévia
+    container.innerHTML = '';
+    // Reset universal do scroll
+    container.scrollTop = 0;
+  }
+  fetch('sobre.html')
+    .then(res => res.text())
+    .then(html => {
+      if (container) {
+        container.innerHTML = html;
+        container.scrollTop = 0;
+      }
+      document.getElementById('modal-descobrir').style.display = 'flex';
+    })
+    .catch(err => console.error("Erro no uminimo:", err));
 }
 
 function carregarServicos() {
+    let modal = document.getElementById('modal-conferir');
+    let content = modal.querySelector('.modal-content');
+    // Limpeza prévia
+    content.innerHTML = '';
+    // Reset universal do scroll
+    content.scrollTop = 0;
     fetch('servicos.html')
       .then(res => res.text())
       .then(html => {
-        let modal = document.getElementById('modal-conferir');
-        let content = modal.querySelector('.modal-content');
         content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
+        content.scrollTop = 0;
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         // Reatribui evento ao botão fechar
@@ -632,12 +647,17 @@ function carregarServicos() {
 }
 
 function carregarProjetos() {
+  let modal = document.getElementById('modal-conhecer');
+  let content = modal.querySelector('.modal-content');
+  // Limpeza prévia
+  content.innerHTML = '';
+  // Reset universal do scroll
+  content.scrollTop = 0;
   fetch('projetos.html')
     .then(res => res.text())
     .then(html => {
-      let modal = document.getElementById('modal-conhecer');
-      let content = modal.querySelector('.modal-content');
       content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
+      content.scrollTop = 0;
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       // Reatribui evento ao botão fechar
@@ -650,12 +670,17 @@ function carregarProjetos() {
 }
 
 function carregarProcesso() {
+  let modal = document.getElementById('modal-ver');
+  let content = modal.querySelector('.modal-content');
+  // Limpeza prévia
+  content.innerHTML = '';
+  // Reset universal do scroll
+  content.scrollTop = 0;
   fetch('processo.html')
     .then(res => res.text())
     .then(html => {
-      let modal = document.getElementById('modal-ver');
-      let content = modal.querySelector('.modal-content');
       content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
+      content.scrollTop = 0;
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       // Reatribui evento ao botão fechar
@@ -694,26 +719,32 @@ document.querySelector('.card-jornal-conhecer').addEventListener('click', functi
 <script>
 // 1. Seleciona todos os Lotties do grid
 document.querySelectorAll('.card-lottie').forEach(card => {
-    card.addEventListener('click', function() {
-        const nomeProjeto = this.getAttribute('data-projeto'); 
-        const modal = document.getElementById('modal-descobrir');
-        const container = document.getElementById('conteudo-dinamico-sobre');
+  card.addEventListener('click', function() {
+    const nomeProjeto = this.getAttribute('data-projeto'); 
+    const modal = document.getElementById('modal-descobrir');
+    const container = document.getElementById('conteudo-dinamico-sobre');
 
-        // AJUSTE AQUI: Adicionamos o caminho da pasta onde estão seus 48 arquivos
-        const caminhoFinal = `images/projetos/${nomeProjeto}.html`;
+    // Limpeza prévia
+    container.innerHTML = '';
+    // Reset universal do scroll
+    container.scrollTop = 0;
 
-        fetch(caminhoFinal)
-            .then(response => {
-                if (!response.ok) throw new Error('Arquivo não encontrado em images/projetos/');
-                return response.text();
-            })
-            .then(html => {
-                container.innerHTML = html;
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; 
-            })
-            .catch(err => console.error('Erro no uminimo:', err));
-    });
+    // AJUSTE AQUI: Adicionamos o caminho da pasta onde estão seus 48 arquivos
+    const caminhoFinal = `images/projetos/${nomeProjeto}.html`;
+
+    fetch(caminhoFinal)
+      .then(response => {
+        if (!response.ok) throw new Error('Arquivo não encontrado em images/projetos/');
+        return response.text();
+      })
+      .then(html => {
+        container.innerHTML = html;
+        container.scrollTop = 0;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; 
+      })
+      .catch(err => console.error('Erro no uminimo:', err));
+  });
 });
 
 // 2. Função para fechar o modal
