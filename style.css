@@ -309,38 +309,28 @@ footer {
 .email-container {
   display: flex;
   justify-content: center;
-  padding: 60px 20px;
-  background-color: #000000;
+  padding: 60px;
 }
-
 .email-button {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Tamanho Fixo para todas as versões */
-  width: 200px;
+  width: 300px;
   height: 60px;
-
-  border: none !important;
+  border: 1px solid #ffffff !important;
   border-radius: 100px;
-
   color: #ffffff;
+  background-color: #000000;
   text-decoration: none;
-  background-color: transparent;
-
-  /* Estilo da Fonte */
   font-family: "Inter", sans-serif; /* Ou sua fonte limpa preferida */
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   transition: all 0.1s ease;
 }
-
-/* Hover para todos os dispositivos */
 .email-button:hover {
   background-color: #ffffff;
   color: #000000;
-  border: none !important;
+  border: 1px solid #ffffff !important;
 }
 
 /* Estado inicial: Pausado */
