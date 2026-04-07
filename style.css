@@ -420,9 +420,10 @@ footer {
 .btn-email {
     display: inline-block;
     padding: 12px 30px;
-    border: 1px solid #333;
+    border: 1px solid #ffffff !important;
     border-radius: 50px;
-    color: #fff;
+    color: #000000;
+    background: #fff;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 700;
@@ -430,8 +431,9 @@ footer {
 }
 
 .btn-email:hover {
-    background: #fff;
-    color: #000;
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff !important;
 }
 
 .sobre-imagem img {
