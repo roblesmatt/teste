@@ -24,16 +24,16 @@
     <script>
       // Função para rolar o carrossel de cards
       function scrollCarrossel(direction) {
-        const carrossel = document.getElementById('carrossel');
+        const carrossel = document.getElementById("carrossel");
         if (!carrossel) return;
         // Calcula o tamanho de um card
-        const card = carrossel.querySelector('.card-jornal');
+        const card = carrossel.querySelector(".card-jornal");
         if (!card) return;
         const cardWidth = card.offsetWidth + 24; // 24px de gap/margin se houver
         // Faz o scroll
         carrossel.scrollBy({
           left: direction * cardWidth,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
       document.addEventListener("DOMContentLoaded", function () {
@@ -162,227 +162,81 @@
 
     <section class="bloco-projetos">
       <main class="grid-container">
-        <lottie-player
-          class="card-lottie"
-          src="lotties/projeto1.json"
-          data-projeto="projeto1"
-          background="transparent"
-          speed="1"
-          loop
-          autoplay
-          muted
-          preserveAspectRatio="xMidYMid slice"
-        ></lottie-player>
+        <a
+          href="images/projetos/projeto1.html"
+          target="_blank"
+          style="display: inline-block"
+        >
+          <lottie-player
+            class="card-lottie"
+            src="lotties/projeto1.json"
+            data-projeto="projeto1"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            muted
+            preserveAspectRatio="xMidYMid slice"
+          ></lottie-player>
+        </a>
 
-        <lottie-player
-          class="card-lottie"
-          src="lotties/projeto2.json"
-          data-projeto="projeto2"
-          background="transparent"
-          speed="1"
-          loop
-          autoplay
-          muted
-          preserveAspectRatio="xMidYMid slice"
-        ></lottie-player>
+        <a
+          href="images/projetos/projeto2.html"
+          target="_blank"
+          style="display: inline-block"
+        >
+          <lottie-player
+            class="card-lottie"
+            src="lotties/projeto2.json"
+            data-projeto="projeto2"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            muted
+            preserveAspectRatio="xMidYMid slice"
+          ></lottie-player>
+        </a>
 
-        <lottie-player
-          class="card-lottie"
-          src="lotties/projeto3.json"
-          data-projeto="projeto3"
-          background="transparent"
-          speed="1"
-          loop
-          autoplay
-          muted
-          preserveAspectRatio="xMidYMid slice"
-        ></lottie-player>
+        <a
+          href="images/projetos/projeto3.html"
+          target="_blank"
+          style="display: inline-block"
+        >
+          <lottie-player
+            class="card-lottie"
+            src="lotties/projeto3.json"
+            data-projeto="projeto3"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            muted
+            preserveAspectRatio="xMidYMid slice"
+          ></lottie-player>
+        </a>
 
-        <lottie-player
-          class="card-lottie"
-          src="lotties/projeto4.json"
-          data-projeto="projeto4"
-          background="transparent"
-          speed="1"
-          loop
-          autoplay
-          muted
-          preserveAspectRatio="xMidYMid slice"
-        ></lottie-player>
+        <a
+          href="images/projetos/projeto4.html"
+          target="_blank"
+          style="display: inline-block"
+        >
+          <lottie-player
+            class="card-lottie"
+            src="lotties/projeto4.json"
+            data-projeto="projeto4"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            muted
+            preserveAspectRatio="xMidYMid slice"
+          ></lottie-player>
+        </a>
       </main>
     </section>
 
-    <section id="jornal" class="bloco-cards">
-      <div class="cards-header">
-        <div class="nav-controls">
-          <button class="nav-btn prev" onclick="scrollCarrossel(-1)">
-            <lottie-player
-              src="lotties/icon.json"
-              class="mini-estrela"
-              background="transparent"
-              speed="1"
-              loop
-              autoplay
-              muted
-            ></lottie-player>
-          </button>
-          <button class="nav-btn next" onclick="scrollCarrossel(1)">
-            <lottie-player
-              src="lotties/icon.json"
-              class="mini-estrela"
-              background="transparent"
-              speed="1"
-              loop
-              autoplay
-              muted
-            ></lottie-player>
-          </button>
-        </div>
-      </div>
-
-      <div class="carrossel-container" id="carrossel">
-        <div
-          class="card-jornal card-jornal-descobrir"
-          data-modal="modal-descobrir"
-        >
-          <p>
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            Quem é<br />Robles Matt?
-          </p>
-          <div class="card-footer">
-            <a href="#" class="card-link" data-modal="modal-descobrir"
-              ><span
-                style="
-                  text-decoration: underline;
-                  text-decoration-thickness: 3px;
-                "
-              ></a
-            >
-            <lottie-player
-              src="lotties/icon.json"
-              class="mini-estrela"
-              background="transparent"
-              speed="1"
-              loop
-              autoplay
-              muted
-            ></lottie-player>
-          </div>
-        </div>
-
-        <div
-          class="card-jornal card-jornal-conferir"
-          data-modal="modal-conferir"
-        >
-          <p>
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            Realizo ilustrações,<br>design e animações.
-          </p>
-          <div class="card-footer">
-            <a href="#" class="card-link" data-modal="modal-conferir"
-              ><span
-                style="
-                  text-decoration: underline;
-                  text-decoration-thickness: 3px;
-                "
-              ></a
-            >
-            <lottie-player
-              src="lotties/icon.json"
-              class="mini-estrela"
-              background="transparent"
-              speed="1"
-              loop
-              autoplay
-              muted
-            ></lottie-player>
-          </div>
-        </div>
-
-        <div
-          class="card-jornal card-jornal-conhecer"
-          data-modal="modal-conhecer"
-        >
-          <p>
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            Confira todos os <br>meus trabalhos.
-          </p>
-          <div class="card-footer">
-            <a href="#" class="card-link" data-modal="modal-conhecer"
-              ><span
-                style="
-                  text-decoration: underline;
-                  text-decoration-thickness: 3px;
-                "
-              ></a
-            >
-            <lottie-player
-              src="lotties/icon.json"
-              class="mini-estrela"
-              background="transparent"
-              speed="1"
-              loop
-              autoplay
-              muted
-            ></lottie-player>
-          </div>
-        </div>
-
-        <div class="card-jornal card-jornal-ver" data-modal="modal-ver">
-          <p>
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            Etapas de criação <br>até a entrega.
-          </p>
-          <div class="card-footer">
-            <a href="#" class="card-link" data-modal="modal-ver"
-              ><span
-                style="
-                  text-decoration: underline;
-                  text-decoration-thickness: 3px;
-                "
-              ></a
-            >
-            <lottie-player
-              src="lotties/icon.json"
-              class="mini-estrela"
-              background="transparent"
-              speed="1"
-              loop
-              autoplay
-              muted
-            ></lottie-player>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modais dos cards -->
-      <div id="modal-descobrir" class="modal-card">
-    <div class="modal-content">
-        <a href="#jornal" class="close-modal">&times;</a>
-        <div id="conteudo-dinamico-sobre">
-            </div>
-    </div>
-</div>
-
-      <div id="modal-conferir" class="modal-card">
-        <div class="modal-content">
-          <a href="#jornal" class="close-modal">&times;</a>
-        </div>
-      </div>
-
-      <div id="modal-conhecer" class="modal-card">
-        <div class="modal-content">
-          <a href="#jornal" class="close-modal">&times;</a>
-        </div>
-      </div>
-      
-      <div id="modal-ver" class="modal-card">
-        <div class="modal-content">
-          <a href="#jornal" class="close-modal">&times;</a>
-          
-        </div>
-      </div>
-    </section>
+    <!-- bloco-cards (carrossel) removido conforme solicitado -->
 
     <section class="bloco-email">
       <div class="email-container">
@@ -553,182 +407,8 @@
         el.style.setProperty("box-shadow", "none", "important");
       });
 
-      // MODAIS DOS CARDS
-      // Permite abrir modal tanto pelo card quanto pelo link
-      function openModalByDataAttr(element) {
-        const modalId = element.getAttribute("data-modal");
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          modal.style.display = "flex";
-          document.body.style.overflow = "hidden";
-        }
-      }
-      // Removido: listeners genéricos de .card-link[data-modal] e .card-jornal[data-modal] para evitar conflito com modais dinâmicos
-      document.querySelectorAll(".modal-card .close-modal").forEach((btn) => {
-        btn.addEventListener("click", function () {
-          const modal = this.closest(".modal-card");
-          if (modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "";
-          }
-        });
-      });
-      window.addEventListener("click", function (e) {
-        if (e.target.classList.contains("modal-card")) {
-          e.target.style.display = "none";
-          document.body.style.overflow = "";
-        }
-      });
-
-      // Impede scroll da página principal ao rolar o modal (mesmo no fim/início)
-      document
-        .querySelectorAll(".modal-card .modal-content")
-        .forEach(function (modalContent) {
-          modalContent.addEventListener(
-            "wheel",
-            function (e) {
-              const scrollTop = modalContent.scrollTop;
-              const scrollHeight = modalContent.scrollHeight;
-              const offsetHeight = modalContent.offsetHeight;
-              const deltaY = e.deltaY;
-              const atTop = scrollTop === 0;
-              const atBottom = scrollTop + offsetHeight >= scrollHeight - 1;
-              if ((atTop && deltaY < 0) || (atBottom && deltaY > 0)) {
-                e.preventDefault();
-              }
-            },
-            { passive: false },
-          );
-        });
     </script>
 
-    <script>
-function carregarSobre() {
-    fetch('sobre.html')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('conteudo-dinamico-sobre').innerHTML = html;
-            document.getElementById('modal-descobrir').style.display = 'flex';
-        })
-        .catch(err => console.error("Erro no uminimo:", err));
-}
-
-function carregarServicos() {
-    fetch('servicos.html')
-      .then(res => res.text())
-      .then(html => {
-        let modal = document.getElementById('modal-conferir');
-        let content = modal.querySelector('.modal-content');
-        content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        // Reatribui evento ao botão fechar
-        modal.querySelector('.close-modal').addEventListener('click', function () {
-          modal.style.display = 'none';
-          document.body.style.overflow = '';
-        });
-      })
-      .catch(err => console.error("Erro no uminimo:", err));
-}
-
-function carregarProjetos() {
-  fetch('projetos.html')
-    .then(res => res.text())
-    .then(html => {
-      let modal = document.getElementById('modal-conhecer');
-      let content = modal.querySelector('.modal-content');
-      content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-      // Reatribui evento ao botão fechar
-      modal.querySelector('.close-modal').addEventListener('click', function () {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-      });
-    })
-    .catch(err => console.error("Erro no uminimo:", err));
-}
-
-function carregarProcesso() {
-  fetch('processo.html')
-    .then(res => res.text())
-    .then(html => {
-      let modal = document.getElementById('modal-ver');
-      let content = modal.querySelector('.modal-content');
-      content.innerHTML = '<a href="#jornal" class="close-modal">&times;</a>' + html;
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-      // Reatribui evento ao botão fechar
-      modal.querySelector('.close-modal').addEventListener('click', function () {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-      });
-    })
-    .catch(err => console.error("Erro no uminimo:", err));
-}
-
-// Ativa o clique no card descobrir para sobre.html
-document.querySelector('.card-jornal-descobrir').addEventListener('click', function(e) {
-  e.preventDefault();
-  carregarSobre();
-});
-// Ativa o clique no card ver para processo.html
-document.querySelector('.card-jornal-ver').addEventListener('click', function(e) {
-  e.preventDefault();
-  carregarProcesso();
-});
-// Ativa o clique no card conferir para servicos.html
-document.querySelector('.card-jornal-conferir').addEventListener('click', function(e) {
-  e.preventDefault();
-  carregarServicos();
-});
-// Ativa o clique no card conhecer para projetos.html
-document.querySelector('.card-jornal-conhecer').addEventListener('click', function(e) {
-  e.preventDefault();
-  carregarProjetos();
-});
-</script>
-
-
-
-<script>
-// 1. Seleciona todos os Lotties do grid
-document.querySelectorAll('.card-lottie').forEach(card => {
-    card.addEventListener('click', function() {
-        const nomeProjeto = this.getAttribute('data-projeto'); 
-        const modal = document.getElementById('modal-descobrir');
-        const container = document.getElementById('conteudo-dinamico-sobre');
-
-        // AJUSTE AQUI: Adicionamos o caminho da pasta onde estão seus 48 arquivos
-        const caminhoFinal = `images/projetos/${nomeProjeto}.html`;
-
-        fetch(caminhoFinal)
-            .then(response => {
-                if (!response.ok) throw new Error('Arquivo não encontrado em images/projetos/');
-                return response.text();
-            })
-            .then(html => {
-                container.innerHTML = html;
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; 
-            })
-            .catch(err => console.error('Erro no uminimo:', err));
-    });
-});
-
-// 2. Função para fechar o modal
-document.querySelector('.close-modal').addEventListener('click', function(e) {
-    e.preventDefault();
-    const modal = document.getElementById('modal-descobrir');
-    const container = document.getElementById('conteudo-dinamico-sobre');
     
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-    container.innerHTML = ''; // Limpa para manter o iPad leve
-});
-</script>
-
-
-
   </body>
 </html>

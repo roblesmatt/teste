@@ -1,152 +1,64 @@
 @font-face {
   font-family: "Inter";
   src: url("fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
-  font-weight: 100 900;
+  font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
 
-
- 
 @media screen and (min-width: 1024px) {
-    .hero-container {
-        width: 100vw;
-        height: 100dvh; /* dvh é ótimo para mobile, mas no desktop 100vh resolve bem */
-        overflow: hidden;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #000;
-    }
-
-    #hero-lottie {
-        /* A MÁGICA ESTÁ AQUI: */
-        height: 100dvh !important; /* Força a altura a ser IGUAL à tela */
-        width: 100dvh !important;  /* Como é quadrado, a largura recebe o valor da altura */
-        
-        max-width: none; 
-        max-height: 100dvh;
-        display: block;
-        
-        /* Garante que o navegador não tente "esticar" além da conta */
-        object-fit: contain; 
-    }
-}
-
-
-/* MODAIS DOS CARDS */
-.modal-card {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgb(0, 0, 0);
-  justify-content: center;
-  align-items: center;
-  animation: fadeInModal 0.2s;
-}
-
-.close-modal {
-    position: sticky;
-    top: 0px;       /* Distância do topo */
-    left: 100%;     /* Distância da direita */
-    width: 50px;     /* Largura do círculo */
-    height: 50px;    /* Altura do círculo */
-    background-color: #fff; /* Fundo branco como na imagem */
-    color: #000;     /* Cor do "X" */
-    border-radius: 50%; /* Faz o círculo perfeito */
-    
-    /* Centraliza o "X" dentro do círculo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 10;     /* Garante que fique acima de tudo */
-    transition: transform 0.2s ease;
-
-    
-}
-
-.close-modal:hover {
-    transform: scale(1.1); /* Efeito sutil ao passar o mouse */
-}
-
-.modal-card .modal-content {
-  background: #000000;
-  color: rgba(255, 255, 255, 0.5);
-  padding: 40px 40px 40px 40px;
-  border-radius: 0px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-  width: 100vw;         /* Garante 100% da largura da tela */
-  height: 100vh;
-  min-width: 100vw;
-  max-width: 100vw;
-  max-height: 100vh;
-  overflow-y: auto;
-  position: relative;
-  text-align: justify;
-  hyphens: auto;
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
-  -ms-overflow-style: none;  /* IE e Edge */
-  scrollbar-width: none;     /* Firefox */
-}
-
-  /* Aumenta o tamanho da fonte das descrições do modal */
-  .modal-card .modal-content p {
-    font-size: 16px;
-    line-height: 1.4;
-    font-weight: 600;
-  }
-
-  @media (min-width: 720px) {
-    .modal-card .modal-content p {
-  font-size: 20px;
-    line-height: 1.4;
-    font-weight: 600;
-  }
-
-}
-
-/* Esconde a barra de rolagem do modal-content (Webkit e Firefox) */
-.modal-card .modal-content::-webkit-scrollbar {
-  display: none;
-}
-
-/* Espaço entre título e parágrafo no modal */
-.modal-card .modal-content h2 {
-  margin-bottom: 3rem;
-  color: #ffffff;
-  font-size: 2.4rem;
-  line-height: 100px;
-}
-
-
-
-.destaque {
-    color: #ffffff; /* Ou a cor exata do seu projeto */
-    font-weight: 700; /* Deixa a palavra um pouco mais "pesada" */
-}
-
-@keyframes fadeInModal {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-.seo-text {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+  .hero-container {
+    width: 100vw;
+    height: 100dvh; /* dvh é ótimo para mobile, mas no desktop 100vh resolve bem */
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+  }
+
+  #hero-lottie {
+    /* A MÁGICA ESTÁ AQUI: */
+    height: 100dvh !important; /* Força a altura a ser IGUAL à tela */
+    width: 100dvh !important; /* Como é quadrado, a largura recebe o valor da altura */
+
+    max-width: none;
+    max-height: 100dvh;
+    display: block;
+
+    /* Garante que o navegador não tente "esticar" além da conta */
+    object-fit: contain;
+  }
+}
+
+.seo-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .bloco-rodape {
@@ -184,67 +96,6 @@
   font-family: "Open Sans", sans-serif;
   font-style: italic;
 }
-/* Colagem animada de perfil (SVG + Lottie) */
-.profile-collage {
-  position: relative;
-  width: 55vw;
-  max-width: 650px;
-  min-width: 280px;
-  aspect-ratio: 1 / 1;
-  margin: 60px auto 40px auto;
-  display: block;
-}
-.profile-collage img,
-.profile-collage lottie-player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-}
-.profile-collage img,
-.profile-collage lottie-player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.profile-collage img {
-  z-index: 5;
-}
-.profile-collage lottie-player {
-  z-index: 10;
-  pointer-events: none;
-}
-@media (max-width: 768px) {
-  .profile-collage {
-    margin-bottom: 15px;
-    width: 280px;
-    min-width: 0;
-    max-width: 90vw;
-    aspect-ratio: 1 / 1;
-  }
-}
-
-
-@font-face {
-  font-family: "Inter";
-  src: url("fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
-
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("fonts/OpenSans.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 
 * {
   margin: 0;
@@ -340,12 +191,6 @@ lottie-player:focus {
   width: 100%;
 }
 
-/* Fim do bloco de media queries e grid-container corrigido */
-
-/* Responsividade do Grid */
-    margin-right: 0;
-  }
-
 .card-projeto {
   width: 100vw;
   aspect-ratio: 1 / 1;
@@ -380,8 +225,6 @@ lottie-player:focus {
   overflow: hidden;
   position: relative;
   opacity: 1 !important;
-
-
 }
 
 .card-projeto:focus {
@@ -400,9 +243,6 @@ lottie-player:focus {
   opacity: 1 !important;
   filter: none !important;
 }
-
-
-
 
 /* Seção de Texto - CORRIGIDA COM CLAMP */
 .info-sessao {
@@ -434,8 +274,6 @@ lottie-player:focus {
   opacity: 1;
 }
 
-
-
 /* Rodapé */
 footer {
   padding: 20px 0 25px 0;
@@ -443,167 +281,11 @@ footer {
   margin-top: 0 !important;
 }
 
-/* Removido para evitar conflito de cor no hover */
-}
-
 .copyright {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.5);
   margin-top: 20px;
   font-family: "Open Sans", sans-serif;
-}
-
-
-.bloco-cards {
-    padding: 60px 0;
-    background-color: #000;
-}
-
-/* Cabeçalho e Controles das Setas */
-.cards-header {
-    max-width: 1200px;
-    margin: 0 auto 25px auto;
-    display: flex;
-    justify-content: flex-end; /* Fixa as setas à direita */
-    padding: 0 20px;
-}
-
-.nav-controls {
-    display: flex;
-    gap: 12px;
-}
-
-.nav-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #111; /* Fundo escuro do círculo conforme layout */
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.nav-btn:hover { background-color: #222; }
-
-.nav-btn lottie-player {
-    width: 50px;
-    height: 50px;
-    display: block;
-    margin: 0;
-}
-
-/* Container do Carrossel */
-.carrossel-container {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-left: 5vw;  /* Usa 5% da largura da tela como margem esquerda */
-    padding-right: 5vw; /* Garante que o último card também tenha respiro */
-    padding-bottom: 30px;    
-    scrollbar-width: none; /* Esconde barra no Firefox */
-    scroll-behavior: smooth;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.carrossel-container::-webkit-scrollbar { display: none; } /* Esconde barra no Chrome */
-
-/* Estilo do Card Individual */
-.card-jornal {
-    flex: 0 0 280px; /* Largura fixa para manter o alinhamento lado a lado */
-    background-color: #0d0d0d;
-    padding: 35px;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    scroll-snap-align: start;
-}
-
-.card-jornal h3 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    color: #000000;
-    font-size: 1.7rem;
-    margin: 15px 0 10px;
-    line-height: 1.2;
-}
-
-.card-jornal p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 1);    font-size: 1.5rem;
-    font-size: 1.2rem;
-    line-height: 1.2;
-    margin-bottom: 25px;
-    flex-grow: 1;
-}
-
-.card-jornal-descobrir {
-  background: linear-gradient(90deg, #f5f4c8 0%, #858c25 100%);
-}
-.card-jornal-conferir {
-  background: linear-gradient(90deg, #c8f5eb 0%, #258c3b 100%);
-}
-.card-jornal-conhecer {
-  background: linear-gradient(90deg, #c8e8f5 0%, #25838c 100%);
-}
-.card-jornal-ver {
-  background: linear-gradient(90deg, #f5c8e5 0%, #7b258c 100%);
-}
-
-.card-footer {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.card-link {
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    font-size: 1.2rem;
-    color: #000000;
-    text-decoration: none;
-    font-weight: 900;
-    border-bottom: 1.5px solid #fff;
-}
-
-.card-icon {
-    width: 18px;  /* Ajuste este valor (ex: de 25px para 20px) */
-    height: 18px; /* Mantenha igual à largura */
-    width: 50px;
-    height: 50px;
-} 
-
-
-.mini-estrela {
-    width: 10px !important;
-    height: 14px !important;
-    margin-left: 2px; /* Um pequeno toque para não encostar na letra */
-    display: inline-block;
-    vertical-align: middle;
-}
-
-
-@media (min-width: 1024px) {
-    /* Centraliza o container dos cards */
-    .carrossel-container {
-        
-        max-width: 1200px; /* Alinhe com a largura do seu grid uminimo */
-        margin: 0 auto 20px auto;
-        justify-content: center; /* Centraliza os cards se houver poucos na tela */
-        padding: 0;
-    }
-
-    /* Centraliza o cabeçalho (setas e título) */
-    .cards-header {
-        max-width: 1200px;
-        margin: 0 auto 20px auto;
-        padding: 0 20px;
-    }
 }
 
 /* Responsividade do Grid */
@@ -622,39 +304,37 @@ footer {
     max-width: 100%;
     box-sizing: border-box;
   }
-
 }
 
 .email-container {
-    display: flex;
-    justify-content: center;
-    padding: 60px 20px;
-    background-color: #000000;
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #000000;
 }
 
 .email-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* Tamanho Fixo para todas as versões */
-    width: 200px; 
-    height: 60px; 
-    
-    border: none !important;
-    border-radius: 100px;
-    
-    color: #ffffff;
-    text-decoration: none;
-    background-color: transparent;
-    
-    /* Estilo da Fonte */
-    font-family: 'Inter', sans-serif; /* Ou sua fonte limpa preferida */
-    font-weight: 900;
-    font-size: 1.5rem;
-    transition: all 0.1s ease;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  /* Tamanho Fixo para todas as versões */
+  width: 200px;
+  height: 60px;
+
+  border: none !important;
+  border-radius: 100px;
+
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+
+  /* Estilo da Fonte */
+  font-family: "Inter", sans-serif; /* Ou sua fonte limpa preferida */
+  font-weight: 900;
+  font-size: 1.5rem;
+  transition: all 0.1s ease;
+}
 
 /* Hover para todos os dispositivos */
 .email-button:hover {
@@ -665,35 +345,35 @@ footer {
 
 /* Estado inicial: Pausado */
 .projeto-item {
-    opacity: 0;
-    transition: opacity 0.6s ease;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
 .projeto-item.ativado {
-    opacity: 1;
+  opacity: 1;
 }
 
 .projeto-animado {
-    width: 100%;
-    pointer-events: none; /* Garante que o hover pegue na div */
+  width: 100%;
+  pointer-events: none; /* Garante que o hover pegue na div */
 }
 
 .foto-perfil {
-    /* 1. Força a proporção quadrada 1:1 */
-    aspect-ratio: 1 / 1; 
-    width: 100px; /* Ou o tamanho que você preferir no Mac mini */
-    height: 100px;
-    
-    /* 2. Garante que o SVG/Imagem não estique (preenche o quadrado) */
-    object-fit: cover; 
-    
-    /* 3. O Arredondamento (A moldura suave) */
-    border-radius: 8px; /* Valor que combina com seus cards de 25px */
-    
-    /* 4. O Contorno (Opcional - para dar destaque no fundo preto) */
-    border: 1px solid #333; 
-    
-    /* 5. Alinhamento com o texto que você já tem */
-    float: left;
-    margin-right: 15px;
+  /* 1. Força a proporção quadrada 1:1 */
+  aspect-ratio: 1 / 1;
+  width: 100px; /* Ou o tamanho que você preferir no Mac mini */
+  height: 100px;
+
+  /* 2. Garante que o SVG/Imagem não estique (preenche o quadrado) */
+  object-fit: cover;
+
+  /* 3. O Arredondamento (A moldura suave) */
+  border-radius: 8px; /* Valor que combina com seus cards de 25px */
+
+  /* 4. O Contorno (Opcional - para dar destaque no fundo preto) */
+  border: 1px solid #333;
+
+  /* 5. Alinhamento com o texto que você já tem */
+  float: left;
+  margin-right: 15px;
 }
