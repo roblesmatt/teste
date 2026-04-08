@@ -398,8 +398,7 @@ footer {
 .sobre-conteudo {
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  background-color: #000; /* Fundo preto conforme o layout */
-  color: #999;
+  color: #c0c0c0;
   width: 100%; /* Ajuste conforme a largura do seu container */
   padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
   margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
@@ -410,7 +409,7 @@ footer {
     font-family: "Inter", sans-serif;
     font-weight: 900;
     font-size: 5vw;
-    color: #cecece;
+    color: #c0c0c0;
   }
 }
 
@@ -427,7 +426,7 @@ footer {
 .sobre-texto {
   font-size: 1.7rem;
   line-height: 1.5;
-  color: #999; /* Cinza médio para baixo contraste */
+  color: #c0c0c0; /* Cinza médio para baixo contraste */
 }
 
 @media (max-width: 1024px) {
