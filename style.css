@@ -402,8 +402,8 @@ footer {
   color: #fff;
   width: 100%; /* Ajuste conforme a largura do seu container */
   padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
-  margin-top: 80px; /* Afasta o bloco para baixo do elemento anterior */
-  margin-bottom: 80px;
+  margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
+  margin-bottom: 40px;
 
   /* Nome: Branco Puro e Negrito */
   .sobre-nome {
@@ -413,34 +413,33 @@ footer {
     margin-bottom: 0.5rem;
     color: #fff;
   }
+}
 
-  /* Título: Cinza Escuro e Impactante */
-  .sobre-titulo {
-    font-size: 7vw;
-    font-weight: 900;
-    line-height: 1.1;
-    color: #444; /* Cinza escuro da referência */
-    margin-bottom: 2.5rem;
-  }
+/* Título: Cinza Escuro e Impactante */
+.sobre-titulo {
+  font-size: 7vw;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #777; /* Cinza escuro da referência */
+  margin-bottom: 3rem;
+}
 
-  /* Corpo do Texto: Cinza Médio para Leitura */
+/* Corpo do Texto: Cinza Médio para Leitura */
+.sobre-texto {
+  font-size: 1.7rem;
+  line-height: 1.5;
+  color: #555; /* Cinza médio para baixo contraste */
+}
+
+@media (max-width: 1024px) {
   .sobre-texto {
-    font-size: 2rem;
+    font-size: 1.2rem; /* Valor menor para encaixar nas 6 linhas */
     line-height: 1.3;
-    color: #888; /* Cinza médio para baixo contraste */
-    text-align: justify;
   }
+}
 
-  @media (max-width: 1024px) {
-    .sobre-texto {
-      font-size: 1.4rem; /* Valor menor para encaixar nas 6 linhas */
-      line-height: 1.3;
-    }
-  }
-
-  /* Destaques (Strong): Branco para saltar aos olhos */
-  .sobre-texto strong {
-    color: #fff;
-    font-weight: 600;
-  }
+/* Destaques (Strong): Branco para saltar aos olhos */
+.sobre-texto strong {
+  color: #fff;
+  font-weight: 600;
 }
