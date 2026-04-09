@@ -1,3 +1,20 @@
+.apresentacao-lottie-servicos {
+  left: 0;
+  top: -40px;
+  width: 10px;
+  height: 10px;
+  z-index: 99;
+  opacity: 1 !important;
+  transition: opacity 0.3s ease-in-out;
+  border: 2px dashed red;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.apresentacao-lottie-servicos.active {
+  opacity: 1;
+  width: 10px !important;
+  height: 10px !important;
+}
 /* Centralizar bloco-email */
 .bloco-email {
   display: flex;
