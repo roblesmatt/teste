@@ -1,3 +1,36 @@
+/* Botão circular no topo direito dos cards Lottie */
+.card-projeto-link {
+  position: relative;
+  display: inline-block;
+}
+
+.card-btn-top-right {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.card-btn-top-right:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* SVG da seta dentro do botão */
+.arrow-svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
 
 .bloco-email {
   display: flex;
@@ -432,8 +465,6 @@ footer {
   margin-bottom: 10vw;
 }
 
-
-
 .sobre-conteudo {
   margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
   margin-bottom: 40px;
@@ -442,8 +473,6 @@ footer {
   margin-top: 0vw; /* Afasta o bloco para baixo do elemento anterior */
   margin-bottom: 40px;
 }
-
-
 
 .sobre-titulo1 {
   font-size: 5vw;
@@ -467,50 +496,49 @@ footer {
   color: #c0c0c0;
 }
 
-
 .sobre-texto strong,
 .descricao-texto strong {
   color: #fff;
   font-weight: 600;
 }
 
-
 .menu-navegacao {
-    position: fixed; /* Mantém o menu fixo na tela ao rolar */
-    width: 280px;
-    height: 60px;
-    background-color: #ffffff;
-    border-radius: 30px; /* Cria o efeito arredondado do seu layout */
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    z-index: 1000; /* Garante que fique acima de tudo */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  position: fixed; /* Mantém o menu fixo na tela ao rolar */
+  width: 280px;
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: 30px; /* Cria o efeito arredondado do seu layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1000; /* Garante que fique acima de tudo */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Estilo dos Links e Texto */
-.menu-navegacao a, .paginacao {
-    color: #000000;
-    font-family: "Inter", sans-serif;
-    font-weight: 900;
-    text-decoration: none;
-    font-size: 1.2rem;
+.menu-navegacao a,
+.paginacao {
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 1.2rem;
 }
 
 /* POSICIONAMENTO DESKTOP: Lado Direito */
 @media (min-width: 481px) {
-    .menu-navegacao {
-        right: 40px;
-        bottom: 40px; /* Ou ajuste para o centro vertical se preferir */
-    }
+  .menu-navegacao {
+    right: 40px;
+    bottom: 40px; /* Ou ajuste para o centro vertical se preferir */
+  }
 }
 
 /* POSICIONAMENTO TABLET E MOBILE: Superior Centro */
 @media (max-width: 480px) {
-    .menu-navegacao {
-        right: 40px;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%); /* Centraliza perfeitamente no topo */
-    }
+  .menu-navegacao {
+    right: 40px;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza perfeitamente no topo */
+  }
 }
