@@ -383,15 +383,16 @@ footer {
 
 .btn-email {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 20px 30px;
   border: 1px solid #ffffff !important;
   border-radius: 50px;
   color: #000000;
   background: #fff;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 900;
   transition: all 0.3s ease;
+  margin-top: -1vw;
 }
 
 .btn-email:hover {
@@ -424,22 +425,55 @@ footer {
   font-weight: 900;
   line-height: 1.1;
   color: #ffffff; /* Cinza escuro da referência */
-  margin-bottom: 3rem;
+  margin-bottom: 10vw;
 }
 
 /* Corpo do Texto: Cinza Médio para Leitura */
 .sobre-texto {
-  font-size: 1.7rem;
-  line-height: 1.5;
+  font-size: clamp(1rem, 5vw, 2rem);
+  line-height: 1.3;
   color: #c0c0c0;
-  margin-bottom: -2vw;
 }
 
-@media (max-width: 1024px) {
-  .sobre-texto {
-    font-size: 1.2rem; /* Valor menor para encaixar nas 6 linhas */
-    line-height: 1.3;
+.bloco-descricao {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: #c0c0c0;
+  width: 100%; /* Ajuste conforme a largura do seu container */
+  padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
+  margin-top: 0vw; /* Afasta o bloco para baixo do elemento anterior */
+  margin-bottom: 40px;
+
+  /* Nome: Branco Puro e Negrito */
+  .sobre-nome {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 5vw;
+    color: #c0c0c0;
   }
+}
+
+/* Título: Cinza Escuro e Impactante */
+.sobre-titulo1 {
+  font-size: 5vw;
+  font-weight: 900;
+  line-height: 3.2;
+  color: #c0c0c0; /* Cinza escuro da referência */
+}
+
+.sobre-titulo2 {
+  font-size: 7vw;
+  line-height: 1;
+  color: #fff;
+  margin-top: -5vw;
+  margin-bottom: 40px;
+}
+
+/* Corpo do Texto: Cinza Médio para Leitura */
+.descricao .sobre-texto {
+  font-size: clamp(1rem, 5vw, 2rem);
+  line-height: 1.3;
+  color: #c0c0c0;
 }
 
 /* Destaques (Strong): Branco para saltar aos olhos */
