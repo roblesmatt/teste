@@ -407,7 +407,7 @@ footer {
   font-weight: 600;
   color: #c0c0c0;
   width: 100%; /* Ajuste conforme a largura do seu container */
-  padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
+  padding: 10vw 8vw !important; /* Cria um espaço de 40px em todos os lados */
 }
 
 .sobre-nome {
