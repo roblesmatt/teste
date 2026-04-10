@@ -401,13 +401,20 @@ footer {
   border: 1px solid #ffffff !important;
 }
 
-.sobre-conteudo, 
+.sobre-conteudo, {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: #c0c0c0;
+  width: 100%; /* Ajuste conforme a largura do seu container */
+  padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
+}
+
 .descricao {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   color: #c0c0c0;
   width: 100%; /* Ajuste conforme a largura do seu container */
-  padding: 10vw 8vw !important; /* Cria um espaço de 40px em todos os lados */
+  padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
 }
 
 .sobre-nome {
@@ -431,7 +438,7 @@ footer {
   margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
   margin-bottom: 40px;
 }
-.descricao {
+.descricao-texto {
   margin-top: 0vw; /* Afasta o bloco para baixo do elemento anterior */
   margin-bottom: 40px;
 }
