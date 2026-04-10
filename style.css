@@ -473,3 +473,44 @@ footer {
   color: #fff;
   font-weight: 600;
 }
+
+
+.menu-navegacao {
+    position: fixed; /* Mantém o menu fixo na tela ao rolar */
+    width: 280px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 30px; /* Cria o efeito arredondado do seu layout */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1000; /* Garante que fique acima de tudo */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Estilo dos Links e Texto */
+.menu-navegacao a, .paginacao {
+    color: #000000;
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* POSICIONAMENTO DESKTOP: Lado Direito */
+@media (min-width: 481px) {
+    .menu-navegacao {
+        right: 40px;
+        bottom: 40px; /* Ou ajuste para o centro vertical se preferir */
+    }
+}
+
+/* POSICIONAMENTO TABLET E MOBILE: Superior Centro */
+@media (max-width: 480px) {
+    .menu-navegacao {
+        right: 40px;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza perfeitamente no topo */
+    }
+}
