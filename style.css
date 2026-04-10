@@ -470,7 +470,7 @@ footer {
 }
 
 /* Corpo do Texto: Cinza Médio para Leitura */
-.descricao {
+.descricao-texto {
   font-size: clamp(1rem, 5vw, 2rem);
   line-height: 1.3;
   color: #c0c0c0;
