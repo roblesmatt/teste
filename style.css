@@ -428,12 +428,12 @@ footer {
 
 
 .sobre-conteudo {
-margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
-margin-bottom: 40px;
+  margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
+  margin-bottom: 40px;
 }
-.descricao {adding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
-margin-top: 0vw; /* Afasta o bloco para baixo do elemento anterior */
-margin-bottom: 40px;
+.descricao {
+  margin-top: 0vw; /* Afasta o bloco para baixo do elemento anterior */
+  margin-bottom: 40px;
 }
 
 
