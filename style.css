@@ -401,14 +401,13 @@ footer {
   border: 1px solid #ffffff !important;
 }
 
-.sobre-conteudo {
+.sobre-conteudo, 
+.descricao {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   color: #c0c0c0;
   width: 100%; /* Ajuste conforme a largura do seu container */
   padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
-  margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
-  margin-bottom: 40px;
 }
 
 .sobre-nome {
@@ -426,15 +425,18 @@ footer {
   margin-bottom: 10vw;
 }
 
-.descricao {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  color: #c0c0c0;
-  width: 100%; /* Ajuste conforme a largura do seu container */
-  padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
-  margin-top: 0vw; /* Afasta o bloco para baixo do elemento anterior */
-  margin-bottom: 40px;
+
+
+.sobre-conteudo {
+margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
+margin-bottom: 40px;
 }
+.descricao {adding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
+margin-top: 0vw; /* Afasta o bloco para baixo do elemento anterior */
+margin-bottom: 40px;
+}
+
+
 
 .sobre-titulo1 {
   font-size: 5vw;
