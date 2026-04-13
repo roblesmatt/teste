@@ -1,3 +1,8 @@
+/* Bordas arredondadas para imagens do grid de projeto */
+.img-borda {
+  border-radius: 10px;
+  overflow: hidden;
+}
 /* Alinha os ícones do menu de navegação com o texto */
 .menu-navegacao img {
   display: inline-block;
@@ -407,7 +412,7 @@ footer {
 .email-container {
   display: flex;
   justify-content: center;
-  padding: 60px;
+  border-radius: 10px;
 }
 .email-button {
   display: flex;
