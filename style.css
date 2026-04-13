@@ -112,8 +112,7 @@
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf")
-    format("truetype");
+  src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
 }
@@ -364,6 +363,7 @@ lottie-player:focus {
   transition: opacity 0.3s ease-in-out;
   font-family: "Inter", sans-serif;
   font-weight: 900;
+  margin-left: -2vw;
 }
 
 .op-logic.active {
@@ -537,8 +537,8 @@ footer {
   font-size: 7vw;
   line-height: 1;
   color: #fff;
-  margin-top: -5vw;
-  margin-bottom: 40px;
+  margin-top: 0vw;
+  margin-bottom: 8vw;
 }
 
 .sobre-texto,
