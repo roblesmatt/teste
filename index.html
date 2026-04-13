@@ -431,7 +431,7 @@
             lottie.style.opacity = "1";
           });
         } else {
-          // Mobile/tablet: play/pause conforme o card centraliza na tela, mas SEM alterar opacidade
+          // Mobile/tablet: play/pause conforme o card centraliza na tela, e ativa o botão junto
           function handleLottieScrollPlay() {
             const screenCenter = window.innerHeight / 2;
             let closest = null;
@@ -446,11 +446,14 @@
               }
             });
             lotties.forEach((lottie) => {
+              const cardLink = lottie.closest('.card-projeto-link');
               if (lottie === closest) {
                 lottie.play();
+                if(cardLink) cardLink.classList.add('ativo');
               } else {
                 lottie.pause();
                 lottie.seek(0);
+                if(cardLink) cardLink.classList.remove('ativo');
               }
             });
           }
@@ -501,6 +504,28 @@
         el.style.setProperty("outline", "none", "important");
         el.style.setProperty("box-shadow", "none", "important");
       });
+    </script>
+
+    <!-- Exibe botões dos cards Lottie apenas quando o card está visível na tela (mobile/tablet) -->
+    <script>
+      if (window.matchMedia('(max-width: 1024px)').matches) {
+        document.addEventListener('DOMContentLoaded', function () {
+          const cards = document.querySelectorAll('.card-projeto-link');
+          const observer = new window.IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('ativo');
+                } else {
+                  entry.target.classList.remove('ativo');
+                }
+              });
+            },
+            { threshold: 0.5 }
+          );
+          cards.forEach((card) => observer.observe(card));
+        });
+      }
     </script>
   </body>
 </html>

@@ -1,3 +1,31 @@
+/* Mostra botões só quando ativado por scroll/touch em mobile/tablet */
+@media (max-width: 1024px) {
+  .card-btn-bottom-right,
+  .card-btn-top-right {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s;
+  }
+  .card-projeto-link.ativo .card-btn-bottom-right,
+  .card-projeto-link.ativo .card-btn-top-right {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+.card-btn-bottom-right,
+.card-btn-top-right {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.card-projeto-link:hover .card-btn-bottom-right,
+.card-projeto-link:hover .card-btn-top-right {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .card-btn-bottom-right {
   position: absolute;
   bottom: 18px;
@@ -217,7 +245,7 @@ body {
 
 /* Limita o logo a 220px de largura, centralizado e proporcional */
 #logo-uminimo {
-  width: 300px !important;
+  width: 180px !important;
   max-width: 85vw;
   height: auto !important;
   display: block;
