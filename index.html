@@ -95,22 +95,6 @@
           lottie.pause();
         });
 
-        // Intersection Observer para detectar quando a hero entra na viewport
-        const heroSection = document.querySelector(".hero-container");
-        let observer = new window.IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                playOnce();
-              } else {
-                hasPlayedOnce = false;
-              }
-            });
-          },
-          { threshold: 0.5 },
-        );
-        observer.observe(heroSection);
-
         // Play uma vez ao carregar a página
         lottie.addEventListener("ready", playOnce);
         // fallback caso o evento 'ready' não dispare
@@ -448,8 +432,17 @@
             lotties.forEach((lottie) => {
               const cardLink = lottie.closest('.card-projeto-link');
               if (lottie === closest) {
-                lottie.play();
-                if(cardLink) cardLink.classList.add('ativo');
+                // Só ativa se o centro do card está dentro da viewport
+                const rect = lottie.getBoundingClientRect();
+                const center = rect.top + rect.height / 2;
+                if (center > 0 && center < window.innerHeight) {
+                  lottie.play();
+                  if(cardLink) cardLink.classList.add('ativo');
+                } else {
+                  lottie.pause();
+                  lottie.seek(0);
+                  if(cardLink) cardLink.classList.remove('ativo');
+                }
               } else {
                 lottie.pause();
                 lottie.seek(0);
@@ -458,6 +451,7 @@
             });
           }
           window.addEventListener("scroll", handleLottieScrollPlay);
+          window.addEventListener("resize", handleLottieScrollPlay);
           // Inicializa o estado correto ao carregar
           setTimeout(handleLottieScrollPlay, 100);
           // Garante opacidade sempre 1

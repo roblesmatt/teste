@@ -1,3 +1,8 @@
+/* Alinha os ícones do menu de navegação com o texto */
+.menu-navegacao img {
+  display: inline-block;
+  vertical-align: middle;
+}
 /* Mostra botões só quando ativado por scroll/touch em mobile/tablet */
 @media (max-width: 1024px) {
   .card-btn-bottom-right,
