@@ -44,7 +44,7 @@
   width: 64px;
   height: 64px;
   background: #000000;
-  border-radius: 10%;
+  border-radius: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -563,7 +563,7 @@ footer {
   position: fixed; /* Mantém o menu fixo na tela ao rolar */
   width: 280px;
   height: 60px;
-  background-color: #ffffff;
+  background-color: #000000;
   border-radius: 10px; /* Cria o efeito arredondado do seu layout */
   display: flex;
   align-items: center;
@@ -575,9 +575,9 @@ footer {
 /* Estilo dos Links e Texto */
 .menu-navegacao a,
 .paginacao {
-  color: #000000;
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
   text-decoration: none;
   font-size: 1.2rem;
 }
