@@ -599,3 +599,17 @@ footer {
     transform: translateX(-50%); /* Centraliza perfeitamente no topo */
   }
 }
+
+
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    padding: 0 20px;
+}
+
+
+.espaco {
+    height: 150px; /* Ajuste a altura conforme necessário */
+}
