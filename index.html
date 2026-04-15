@@ -9,48 +9,6 @@
   </head>
   <body>
     <section class="hero-container">
-      <h1 class="seo-text">
-        <span
-          style="font-family: &quot;Inter&quot;, sans-serif; font-weight: 900"
-          >Robles Matt - </span
-        ><span
-            style="
-              font-family: &quot;Inter&quot;, sans-serif;
-              font-weight: 900;
-              color: #fff;
-              background: none;
-              -webkit-background-clip: initial;
-              -webkit-text-fill-color: initial;
-              background-clip: initial;
-            "
-          >Designer,</span
-        >
-        <span
-          style="
-            font-family: &quot;Inter&quot;, sans-serif;
-            font-weight: 900;
-            background: linear-gradient(90deg, #c8f5eb 0%, #256b8c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-          "
-          >Animador</span
-        >
-        <span
-          style="
-            font-family: &quot;Inter&quot;, sans-serif;
-            font-weight: 900;
-            background: linear-gradient(90deg, #f4c6c6 0%, #843027 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-          "
-          >& Ilustrador.</span
-        >
-      </h1>
-
       <lottie-player
         id="hero-lottie"
         src="images/apresentacao.json"
@@ -63,45 +21,6 @@
 
 
     
-    <script>
-      // Função para rolar o carrossel de cards
-      function scrollCarrossel(direction) {
-        const carrossel = document.getElementById("carrossel");
-        if (!carrossel) return;
-        // Calcula o tamanho de um card
-        const card = carrossel.querySelector(".card-jornal");
-        if (!card) return;
-        const cardWidth = card.offsetWidth + 24; // 24px de gap/margin se houver
-        // Faz o scroll
-        carrossel.scrollBy({
-          left: direction * cardWidth,
-          behavior: "smooth",
-        });
-      }
-      document.addEventListener("DOMContentLoaded", function () {
-        const lottie = document.getElementById("hero-lottie");
-        let hasPlayedOnce = false;
-
-        // Função para dar play uma vez
-        function playOnce() {
-          if (!lottie) return;
-          lottie.stop();
-          lottie.play();
-          hasPlayedOnce = true;
-        }
-
-        // Quando a animação terminar, para no último frame
-        lottie.addEventListener("complete", () => {
-          lottie.pause();
-        });
-
-        // Play uma vez ao carregar a página
-        lottie.addEventListener("ready", playOnce);
-        // fallback caso o evento 'ready' não dispare
-        if (lottie.readyState === "complete") playOnce();
-      });
-    </script>
-
 
 
     <section class="bloco-servicos">
@@ -188,21 +107,24 @@
             Modelagem em 3D.
           </span>
         </p>
+        <div class="espaco1"></div>
       </div>
     </section>
+
+
 
     
 
     <section class="bloco-projetos">
       <main class="grid-container">
-        <a href="projeto1.html" class="card-projeto-link">
+        <a href="totor.html" class="card-projeto-link">
           <div class="card-btn-bottom-right">
             <img class="arrow-svg" src="images/link.svg" alt="Seta" width="32" height="32" />
           </div>
           <lottie-player
             class="card-lottie"
             src="images/projeto1.json"
-            data-projeto="projeto1"
+            data-projeto="totor"
             background="transparent"
             speed="1"
             loop
@@ -267,6 +189,8 @@
 
 
 
+
+
     <section id="bloco-sobre1" class="bloco-sobre1">
       <img
         src="images/robles-matt.svg"
@@ -308,6 +232,8 @@
 
 
 
+
+
     <section class="bloco-email">
           <a href="mailto:uminimo@hotmail.com" class="btn-email">
             <span
@@ -321,6 +247,7 @@
         </div>
       </div>
     </section>
+
 
 
 

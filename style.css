@@ -1,102 +1,3 @@
-/* Bordas arredondadas para imagens do grid de projeto */
-.img-borda {
-  border-radius: 10px;
-  overflow: hidden;
-}
-/* Alinha os ícones do menu de navegação com o texto */
-.menu-navegacao img {
-  display: inline-block;
-  vertical-align: middle;
-}
-/* Mostra botões só quando ativado por scroll/touch em mobile/tablet */
-@media (max-width: 1024px) {
-  .card-btn-bottom-right,
-  .card-btn-top-right {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transition: opacity 0.2s;
-  }
-  .card-projeto-link.ativo .card-btn-bottom-right,
-  .card-projeto-link.ativo .card-btn-top-right {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-}
-
-.card-btn-bottom-right,
-.card-btn-top-right {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-
-.card-projeto-link:hover .card-btn-bottom-right,
-.card-projeto-link:hover .card-btn-top-right {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.card-btn-bottom-right {
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  z-index: 2;
-  width: 64px;
-  height: 64px;
-  background: #000000;
-  border-radius: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: box-shadow 0.2s;
-}
-.card-btn-bottom-right:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-}
-/* Botão circular no topo direito dos cards Lottie */
-.card-projeto-link {
-  position: relative;
-  display: inline-block;
-}
-
-.card-btn-top-right {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 2;
-  width: 64px;
-  height: 64px;
-  background: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: box-shadow 0.2s;
-}
-
-.card-btn-top-right:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-}
-
-/* SVG da seta dentro do botão */
-.arrow-svg {
-  width: 32px;
-  height: 32px;
-  display: block;
-}
-
-.bloco-email {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 40px 0;
-  margin-top: -3vw;
-}
 @font-face {
   font-family: "Inter";
   src: url("Inter-VariableFont_slnt,wght.ttf") format("truetype");
@@ -122,6 +23,18 @@
   font-style: italic;
 }
 
+
+
+
+
+.espaco {
+  height: 120px; /* Ajuste a altura conforme necessário */
+}
+
+
+
+
+
 @media screen and (min-width: 1024px) {
   .hero-container {
     width: 100vw;
@@ -138,34 +51,18 @@
     /* A MÁGICA ESTÁ AQUI: */
     height: 100dvh !important; /* Força a altura a ser IGUAL à tela */
     width: 100dvh !important; /* Como é quadrado, a largura recebe o valor da altura */
-
     max-width: none;
     max-height: 100dvh;
     display: block;
-
-    /* Garante que o navegador não tente "esticar" além da conta */
     object-fit: contain;
   }
 }
 
-.seo-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
 
-.bloco-rodape {
-  font-family: "Open Sans";
-  font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
-  font-size: 13px;
-  text-align: center;
-  margin-bottom: 30px;
-}
+
+
+
+
 
 @media (min-width: 1024px) {
   .perfil-line {
@@ -377,19 +274,7 @@ lottie-player:focus {
 }
 
 /* Rodapé */
-footer {
-  padding: 20px 0 25px 0;
-  text-align: center;
-  margin-top: 0 !important;
-}
 
-.copyright {
-  font-size: 12px;
-  color: #c0c0c0;
-  margin-top: -2px;
-  margin-bottom: 20px;
-  font-family: "Open Sans", sans-serif;
-}
 
 /* Responsividade do Grid */
 @media (max-width: 1024px) {
@@ -409,32 +294,7 @@ footer {
   }
 }
 
-.email-container {
-  display: flex;
-  justify-content: center;
-  border-radius: 10px;
-}
-.email-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 60px;
-  border: 1px solid #ffffff !important;
-  border-radius: 100px;
-  color: #ffffff;
-  background-color: #000000;
-  text-decoration: none;
-  font-family: "Inter", sans-serif; /* Ou sua fonte limpa preferida */
-  font-weight: 900;
-  font-size: 1.2rem;
-  transition: all 0.1s ease;
-}
-.email-button:hover {
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #ffffff !important;
-}
+
 
 /* Estado inicial: Pausado */
 .projeto-item {
@@ -451,45 +311,9 @@ footer {
   pointer-events: none; /* Garante que o hover pegue na div */
 }
 
-.foto-perfil {
-  /* 1. Força a proporção quadrada 1:1 */
-  aspect-ratio: 1 / 1;
-  width: 100px; /* Ou o tamanho que você preferir no Mac mini */
-  height: 100px;
 
-  /* 2. Garante que o SVG/Imagem não estique (preenche o quadrado) */
-  object-fit: cover;
 
-  /* 3. O Arredondamento (A moldura suave) */
-  border-radius: 8px; /* Valor que combina com seus cards de 25px */
 
-  /* 4. O Contorno (Opcional - para dar destaque no fundo preto) */
-  border: 1px solid #333;
-
-  /* 5. Alinhamento com o texto que você já tem */
-  float: left;
-  margin-right: 15px;
-}
-
-.btn-email {
-  display: inline-block;
-  padding: 20px 30px;
-  border: 1px solid #ffffff !important;
-  border-radius: 10px;
-  color: #000000;
-  background: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 900;
-  transition: all 0.3s ease;
-  margin-top: -1vw;
-}
-
-.btn-email:hover {
-  background: #000000;
-  color: #ffffff;
-  border: 1px solid #ffffff !important;
-}
 
 .sobre-conteudo {
   font-family: "Inter", sans-serif;
@@ -559,6 +383,95 @@ footer {
   font-weight: 600;
 }
 
+
+
+
+
+
+
+
+
+.bloco-email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 40px 0;
+  margin-top: -3vw;
+}
+
+.email-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+.email-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 60px;
+  border: 1px solid #ffffff !important;
+  border-radius: 100px;
+  color: #ffffff;
+  background-color: #000000;
+  text-decoration: none;
+  font-family: "Inter", sans-serif; /* Ou sua fonte limpa preferida */
+  font-weight: 900;
+  font-size: 1.2rem;
+  transition: all 0.1s ease;
+}
+.email-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff !important;
+}
+.btn-email {
+  display: inline-block;
+  padding: 20px 30px;
+  border: 1px solid #ffffff !important;
+  border-radius: 10px;
+  color: #000000;
+  background: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 900;
+  transition: all 0.3s ease;
+  margin-top: -1vw;
+}
+.btn-email:hover {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff !important;
+}
+
+
+
+
+
+.bloco-rodape {
+  font-family: "Open Sans";
+  font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+footer {
+  padding: 20px 0 25px 0;
+  text-align: center;
+  margin-top: 0 !important;
+}
+.copyright {
+  font-size: 12px;
+  color: #c0c0c0;
+  margin-top: -2px;
+  margin-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
+
+
+
 .menu-navegacao {
   position: fixed; /* Mantém o menu fixo na tela ao rolar */
   width: 280px;
@@ -600,6 +513,93 @@ footer {
   }
 }
 
+.menu-navegacao img {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* Mostra botões só quando ativado por scroll/touch em mobile/tablet */
+@media (max-width: 1024px) {
+  .card-btn-bottom-right,
+  .card-btn-top-right {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s;
+  }
+  .card-projeto-link.ativo .card-btn-bottom-right,
+  .card-projeto-link.ativo .card-btn-top-right {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+.card-btn-bottom-right,
+.card-btn-top-right {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.card-projeto-link:hover .card-btn-bottom-right,
+.card-projeto-link:hover .card-btn-top-right {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card-btn-bottom-right {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background: #000000;
+  border-radius: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.card-btn-bottom-right:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+/* Botão circular no topo direito dos cards Lottie */
+.card-projeto-link {
+  position: relative;
+  display: inline-block;
+}
+
+.card-btn-top-right {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.card-btn-top-right:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* SVG da seta dentro do botão */
+.arrow-svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+
+
 .grid-projetos {
   display: grid;
   grid-template-columns: 1fr;
@@ -607,6 +607,7 @@ footer {
   padding: 0 20px;
 }
 
-.espaco {
-  height: 150px; /* Ajuste a altura conforme necessário */
+.img-borda {
+  border-radius: 10px;
+  overflow: hidden;
 }
