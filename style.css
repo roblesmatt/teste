@@ -1,8 +1,338 @@
-/* Bordas arredondadas para imagens do grid de projeto */
-.img-borda {
+@font-face {
+  font-family: "Inter";
+  src: url("Inter-VariableFont_slnt,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+
+
+
+
+html,
+body {
+  background-color: #000000;
+  color: #ffffff;
+  width: 100%;
+  height: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+
+
+
+lottie-player {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto;
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+lottie-player:focus {
+  outline: none;
+}
+
+
+
+
+
+@media screen and (min-width: 1024px) {
+  .hero-container {
+    width: 100vw;
+    height: 100dvh; /* dvh é ótimo para mobile, mas no desktop 100vh resolve bem */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+  }
+
+  #hero-lottie {
+    /* A MÁGICA ESTÁ AQUI: */
+    height: 100dvh !important; /* Força a altura a ser IGUAL à tela */
+    width: 100dvh !important; /* Como é quadrado, a largura recebe o valor da altura */
+
+    max-width: none;
+    max-height: 100dvh;
+    display: block;
+
+    /* Garante que o navegador não tente "esticar" além da conta */
+    object-fit: contain;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-text-stroke: 0px transparent;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+
+
+
+
+.info-sessao {
+  padding: 20vw 10%; /* Espaçamento grande para o scroll funcionar bem */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin-top: -20vw;
+}
+
+.op-logic {
+  font-size: 7vw;
+  line-height: 1.1;
+  /* text-transform: uppercase; */
+  margin-bottom: 25px !important; /* 25px de espaço entre as tags */
+  color: #ffffff;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  margin-left: -2vw;
+}
+
+.op-logic.active {
+  color: #ffffff;
+  opacity: 1;
+}
+
+
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  padding: 0 25px;
+  margin-bottom: 50px;
+  min-height: 400px;
+  width: 100%;
+  margin-top: -10vw;
+  margin-bottom: 10vw;
+}
+.card-projeto {
+  width: 100vw;
+  aspect-ratio: 1 / 1;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100vw;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.card-projeto lottie-player,
+.card-lottie {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0;
+  min-height: 0;
+  display: block;
+}
+.card-projeto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  /* Garante que o lottie-player dentro do grid ocupe todo o card */
+  .lottie-grid {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+  }
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  opacity: 1 !important;
+}
+.card-projeto:focus {
+  outline: none;
+}
+
+.card-lottie {
+  width: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 10px;
   overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+  cursor: pointer;
+  will-change: transform;
+  opacity: 1 !important;
+  filter: none !important;
 }
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    padding: 0 25px;
+    width: 100%;
+  }
+  .card-projeto {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-left: 25;
+    margin-right: 25px;
+    /* Remove qualquer max-width ou restrição */
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* Estado inicial: Pausado */
+.projeto-item {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.projeto-item.ativado {
+  opacity: 1;
+}
+
+.projeto-animado {
+  width: 100%;
+  pointer-events: none; /* Garante que o hover pegue na div */
+}
+
+
+
+
+
+
+
+.sobre-conteudo, .descricao {
+  font-family: "Inter", sans-serif;
+  width: 100%; /* Ajuste conforme a largura do seu container */
+  padding: 10vw 8vw 5vw 8vw; /* Cria um espaço de 40px em todos os lados */
+}
+.sobre-nome {
+  font-weight: 900;
+  font-size: 5vw;
+  color: #c0c0c0;
+  margin-top: -40vw;
+}
+.sobre-titulo, .sobre-titulo2 {
+  font-size: 7vw;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff; /* Cinza escuro da referência */
+}
+.sobre-texto,
+.descricao-texto {
+  font-weight: 600;
+  font-size: clamp(1rem, 5vw, 3rem);
+  line-height: 1.3;
+  color: #c0c0c0;
+  margin-top: 10vw;
+}
+.sobre-texto strong,
+.descricao-texto strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+
+
+
+
+.btn-email {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #ffffff !important;
+  border-radius: 10px;
+  color: #000000;
+  background: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 900;
+  transition: all 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  margin: 4rem auto;
+  
+}
+
+.btn-email:hover {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff !important;
+}
+
+
+
+
+
+
+.logo-uminimo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  overflow: hidden;
+  max-width: 85vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+.copyright {
+  font-size: 12px;
+  color: #c0c0c0;
+  margin-top: -2px;
+  margin-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
+  text-align: center;
+}
+
+
+
+
+
 /* Alinha os ícones do menu de navegação com o texto */
 .menu-navegacao img {
   display: inline-block;
@@ -89,475 +419,8 @@
   display: block;
 }
 
-.bloco-email {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 40px 0;
-  margin-top: -3vw;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("Inter-VariableFont_slnt,wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
 
-@media screen and (min-width: 1024px) {
-  .hero-container {
-    width: 100vw;
-    height: 100dvh; /* dvh é ótimo para mobile, mas no desktop 100vh resolve bem */
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-  }
 
-  #hero-lottie {
-    /* A MÁGICA ESTÁ AQUI: */
-    height: 100dvh !important; /* Força a altura a ser IGUAL à tela */
-    width: 100dvh !important; /* Como é quadrado, a largura recebe o valor da altura */
-
-    max-width: none;
-    max-height: 100dvh;
-    display: block;
-
-    /* Garante que o navegador não tente "esticar" além da conta */
-    object-fit: contain;
-  }
-}
-
-.seo-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-.bloco-rodape {
-  font-family: "Open Sans";
-  font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
-  font-size: 13px;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-@media (min-width: 1024px) {
-  .perfil-line {
-    font-size: clamp(3.2rem, 7vw, 5.5rem);
-  }
-}
-.perfil-line img {
-  height: 0.9em;
-  width: auto;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.perfil-line lottie-player {
-  width: 1.2em !important;
-  height: 1.2em !important;
-  display: inline-flex !important;
-  vertical-align: middle !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: content-box !important;
-}
-
-/* Estilo para o span do copyright em Open Sans itálico */
-.copyright span {
-  font-family: "Open Sans", sans-serif;
-  font-style: italic;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-text-stroke: 0px transparent;
-  -webkit-tap-highlight-color: transparent !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-  user-select: none;
-  -webkit-touch-callout: none;
-  box-shadow: none !important;
-  border: none !important;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-*::-webkit-tap-highlight-color {
-  background-color: transparent !important;
-}
-
-*:active,
-*:focus,
-*:visited,
-*:focus-visible,
-*::after,
-*::before {
-  -webkit-tap-highlight-color: transparent !important;
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-}
-
-html,
-body {
-  background-color: #000000;
-  color: #ffffff;
-  width: 100%;
-  height: auto;
-  font-family: "Anton", sans-serif; /* SUA FONTE ATUAL */
-  font-weight: 400 !important;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-/* --- HEADER: PROTOCOLO TÓPICO 2 --- */
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Limita o logo a 220px de largura, centralizado e proporcional */
-#logo-uminimo {
-  width: 180px !important;
-  max-width: 85vw;
-  height: auto !important;
-  display: block;
-  margin: 0 auto;
-}
-
-lottie-player {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 auto;
-  opacity: 1 !important;
-  filter: none !important;
-  -webkit-filter: none !important;
-  transition: none !important;
-  -webkit-transition: none !important;
-  -webkit-tap-highlight-color: transparent;
-}
-
-lottie-player:focus {
-  outline: none;
-}
-
-/* --- GRID DE PROJETOS --- */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  padding: 0 25px;
-  margin-bottom: 50px;
-  min-height: 400px;
-  width: 100%;
-  margin-top: -10vw;
-  margin-bottom: 10vw;
-}
-
-.card-projeto {
-  width: 100vw;
-  aspect-ratio: 1 / 1;
-  margin-left: 0;
-  margin-right: 0;
-  max-width: 100vw;
-  min-width: 0;
-  box-sizing: border-box;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-}
-.card-projeto lottie-player,
-.card-lottie {
-  width: 100% !important;
-  height: 100% !important;
-  min-width: 0;
-  min-height: 0;
-  display: block;
-}
-.card-projeto {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  /* Garante que o lottie-player dentro do grid ocupe todo o card */
-  .lottie-grid {
-    width: 100% !important;
-    height: 100% !important;
-    display: block;
-  }
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  opacity: 1 !important;
-}
-
-.card-projeto:focus {
-  outline: none;
-}
-
-/* Novo: Card é o próprio lottie-player */
-.card-lottie {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.2, 1, 0.3, 1);
-  cursor: pointer;
-  will-change: transform;
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-/* Seção de Texto - CORRIGIDA COM CLAMP */
-.info-sessao {
-  padding: 20vw 10%; /* Espaçamento grande para o scroll funcionar bem */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  margin-top: -20vw;
-}
-
-.op-logic {
-  font-size: 7vw;
-  line-height: 1.1;
-  /* text-transform: uppercase; */
-  margin-bottom: 25px !important; /* 25px de espaço entre as tags */
-  color: #ffffff;
-  text-align: left;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
-  margin-left: -2vw;
-}
-
-.op-logic.active {
-  color: #ffffff;
-  opacity: 1;
-}
-
-/* Rodapé */
-footer {
-  padding: 20px 0 25px 0;
-  text-align: center;
-  margin-top: 0 !important;
-}
-
-.copyright {
-  font-size: 12px;
-  color: #c0c0c0;
-  margin-top: -2px;
-  margin-bottom: 20px;
-  font-family: "Open Sans", sans-serif;
-}
-
-/* Responsividade do Grid */
-@media (max-width: 1024px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-    padding: 0 25px;
-    width: 100%;
-  }
-  .card-projeto {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    margin-left: 25;
-    margin-right: 25px;
-    /* Remove qualquer max-width ou restrição */
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-}
-
-.email-container {
-  display: flex;
-  justify-content: center;
-  border-radius: 10px;
-}
-.email-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 60px;
-  border: 1px solid #ffffff !important;
-  border-radius: 100px;
-  color: #ffffff;
-  background-color: #000000;
-  text-decoration: none;
-  font-family: "Inter", sans-serif; /* Ou sua fonte limpa preferida */
-  font-weight: 900;
-  font-size: 1.2rem;
-  transition: all 0.1s ease;
-}
-.email-button:hover {
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #ffffff !important;
-}
-
-/* Estado inicial: Pausado */
-.projeto-item {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.projeto-item.ativado {
-  opacity: 1;
-}
-
-.projeto-animado {
-  width: 100%;
-  pointer-events: none; /* Garante que o hover pegue na div */
-}
-
-.foto-perfil {
-  /* 1. Força a proporção quadrada 1:1 */
-  aspect-ratio: 1 / 1;
-  width: 100px; /* Ou o tamanho que você preferir no Mac mini */
-  height: 100px;
-
-  /* 2. Garante que o SVG/Imagem não estique (preenche o quadrado) */
-  object-fit: cover;
-
-  /* 3. O Arredondamento (A moldura suave) */
-  border-radius: 8px; /* Valor que combina com seus cards de 25px */
-
-  /* 4. O Contorno (Opcional - para dar destaque no fundo preto) */
-  border: 1px solid #333;
-
-  /* 5. Alinhamento com o texto que você já tem */
-  float: left;
-  margin-right: 15px;
-}
-
-.btn-email {
-  display: inline-block;
-  padding: 20px 30px;
-  border: 1px solid #ffffff !important;
-  border-radius: 10px;
-  color: #000000;
-  background: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 900;
-  transition: all 0.3s ease;
-  margin-top: -1vw;
-}
-
-.btn-email:hover {
-  background: #000000;
-  color: #ffffff;
-  border: 1px solid #ffffff !important;
-}
-
-.sobre-conteudo {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  color: #c0c0c0;
-  width: 100%; /* Ajuste conforme a largura do seu container */
-  padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
-}
-
-.descricao {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  color: #c0c0c0;
-  width: 100%; /* Ajuste conforme a largura do seu container */
-  padding: 10vw 8vw; /* Cria um espaço de 40px em todos os lados */
-}
-
-.sobre-nome {
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
-  font-size: 5vw;
-  color: #c0c0c0;
-}
-
-.sobre-titulo {
-  font-size: 7vw;
-  font-weight: 900;
-  line-height: 1.1;
-  color: #fff; /* Cinza escuro da referência */
-  margin-bottom: 10vw;
-}
-
-.sobre-conteudo {
-  margin-top: -40vw; /* Afasta o bloco para baixo do elemento anterior */
-  margin-bottom: 40px;
-}
-.descricao-texto {
-  margin-top: 0vw; /* Afasta o bloco para baixo do elemento anterior */
-  margin-bottom: 18vw;
-}
-
-.sobre-titulo1 {
-  font-size: 5vw;
-  font-weight: 900;
-  line-height: 3.2;
-  color: #c0c0c0; /* Cinza escuro da referência */
-}
-
-.sobre-titulo2 {
-  font-size: 7vw;
-  line-height: 1;
-  color: #fff;
-  margin-top: 0vw;
-  margin-bottom: 8vw;
-}
-
-.sobre-texto,
-.descricao-texto {
-  font-size: clamp(1rem, 5vw, 3rem);
-  line-height: 1.3;
-  color: #c0c0c0;
-}
-
-.sobre-texto strong,
-.descricao-texto strong {
-  color: #fff;
-  font-weight: 600;
-}
 
 .menu-navegacao {
   position: fixed; /* Mantém o menu fixo na tela ao rolar */
@@ -581,16 +444,12 @@ footer {
   text-decoration: none;
   font-size: 1.2rem;
 }
-
-/* POSICIONAMENTO DESKTOP: Lado Direito */
 @media (min-width: 481px) {
   .menu-navegacao {
     right: 40px;
     bottom: 40px; /* Ou ajuste para o centro vertical se preferir */
   }
 }
-
-/* POSICIONAMENTO TABLET E MOBILE: Superior Centro */
 @media (max-width: 480px) {
   .menu-navegacao {
     right: 40px;
@@ -600,13 +459,20 @@ footer {
   }
 }
 
+
+
+
+
 .grid-projetos {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
   padding: 0 20px;
 }
-
+.img-borda {
+  border-radius: 10px;
+  overflow: hidden;
+}
 .espaco {
   height: 120px; /* Ajuste a altura conforme necessário */
 }

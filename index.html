@@ -9,10 +9,6 @@
   </head>
   <body>
     <section class="hero-container">
-    
-
-      
-
       <lottie-player
         id="hero-lottie"
         src="images/apresentacao.json"
@@ -24,7 +20,9 @@
     </section>
 
 
+
     
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const lottie = document.getElementById("hero-lottie");
@@ -49,6 +47,8 @@
         if (lottie.readyState === "complete") playOnce();
       });
     </script>
+
+
 
 
 
@@ -141,6 +141,8 @@
 
     
 
+
+
     <section class="bloco-projetos">
       <main class="grid-container">
         <a href="totor.html" class="card-projeto-link">
@@ -215,6 +217,8 @@
 
 
 
+
+
     <section id="bloco-sobre1" class="bloco-sobre1">
       <img
         src="images/robles-matt.svg"
@@ -256,6 +260,7 @@
 
 
 
+
     <section class="bloco-email">
           <a href="mailto:uminimo@hotmail.com" class="btn-email">
             <span
@@ -274,7 +279,7 @@
 
 
     <section class="bloco-rodape">
-      <header class="logo-container">
+      <header class="logo-uminimo">
         <lottie-player
           id="logo-uminimo"
           src="images/uminimo.json"
@@ -286,6 +291,8 @@
       </header>
       <div class="copyright">© UMINIMO 2027. Todos os direitos reservados.</div>
     </section>
+
+
 
 
 
@@ -323,20 +330,9 @@
           }
         });
 
-        // 3. VÍDEOS: hover play/pause
-        const cards = document.querySelectorAll(".card-projeto");
-        cards.forEach((card) => {
-          const video = card.querySelector("video");
-          if (video) {
-            video.pause();
-            video.currentTime = 0;
-            card.addEventListener("mouseenter", () => video.play());
-            card.addEventListener("mouseleave", () => {
-              video.pause();
-              video.currentTime = 0;
-            });
-          }
-        });
+
+
+        
 
         // 4. LOTTIE-PLAYER: Desktop (hover) x Mobile (scroll, sem resize)
         const lotties = document.querySelectorAll(".card-lottie");
