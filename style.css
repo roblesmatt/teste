@@ -23,10 +23,6 @@
   font-style: italic;
 }
 
-
-
-
-
 html,
 body {
   background-color: #000000;
@@ -213,10 +209,6 @@ lottie-player:focus {
   pointer-events: none; /* Garante que o hover pegue na div */
 }
 
-
-
-
-
 .sobre-conteudo,
 .descricao {
   font-family: "Inter", sans-serif;
@@ -224,7 +216,7 @@ lottie-player:focus {
   padding: 10vw 8vw 5vw 8vw; /* Cria um espaço de 40px em todos os lados */
 }
 .sobre-nome {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 900;
   font-size: 5vw;
   color: #c0c0c0;
@@ -232,14 +224,15 @@ lottie-player:focus {
 }
 .sobre-titulo,
 .sobre-titulo2 {
-  font-family: 'Inter', sans-serif;font-size: 7vw;
+  font-family: "Inter", sans-serif;
+  font-size: 7vw;
   font-weight: 900;
   line-height: 1.1;
   color: #fff; /* Cinza escuro da referência */
 }
 .sobre-texto,
 .descricao-texto {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 5vw, 3rem);
   line-height: 1.3;
@@ -252,24 +245,20 @@ lottie-player:focus {
   font-weight: 600;
 }
 
-
-
-
-
 .link {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 900;
   font-size: clamp(1rem, 5vw, 3rem);
   color: #ffffff;
   padding: 0px;
   margin-top: 40px auto;
-  text-decoration: none;      /* Remove o sublinhado padrão que fica grudado */
+  text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
   border-bottom: 0.6vw solid #ffffff; /* Cria o novo "sublinhado" */
-  padding-bottom: 0px;        /* AQUI É A MÁGICA: controla a distância do traço */
+  padding-bottom: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
   display: inline-flex;
   align-items: center;
 }
-.link:hover{
+.link:hover {
   color: #c0c0c0;
   border-bottom: 0.6vw solid #c0c0c0;
   transition: all 0.3s ease;
@@ -282,28 +271,32 @@ lottie-player:focus {
   margin-left: 0px;
 }
 
-
-
-
-
 .logo-uminimo {
-  width: 50vw;            /* Tamanho fixo menor ou use % */
+  width: 50vw; /* Tamanho fixo menor ou use % */
   height: auto;
-  display: block;          /* Necessário para o margin auto funcionar */
+  display: block; /* Necessário para o margin auto funcionar */
   margin-left: 3vw;
   margin-top: -8vw;
 }
 .logo-uminimo1 {
-  width: 50vw;            /* Tamanho fixo menor ou use % */
+  width: 50vw; /* Tamanho fixo menor ou use % */
   height: auto;
-  display: block;          /* Necessário para o margin auto funcionar */
+  display: block; /* Necessário para o margin auto funcionar */
   margin: 0 auto;
-  margin-bottom: clamp(110px, 8vw, 110px); /* Ajusta o espaço inferior de forma responsiva */
+  margin-bottom: clamp(
+    110px,
+    8vw,
+    110px
+  ); /* Ajusta o espaço inferior de forma responsiva */
   margin-top: 10px;
 }
 @media (max-width: 1024px) {
   .logo-uminimo1 {
-    margin-bottom: clamp(110px, 8vw, 110px); /* Ajusta o espaço inferior de forma responsiva */
+    margin-bottom: clamp(
+      110px,
+      8vw,
+      110px
+    ); /* Ajusta o espaço inferior de forma responsiva */
     margin-top: 10px; /* Reduz o espaço inferior para telas menores */
   }
 }
@@ -313,9 +306,6 @@ lottie-player:focus {
     margin-bottom: 20px; /* Reduz o espaço inferior para telas menores */
   }
 }
-
-
-
 
 .copyright {
   font-size: clamp(12px, 1.5vw, 20px);
@@ -327,9 +317,6 @@ lottie-player:focus {
   font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
   margin-text-align: left;
 }
-
-
-
 
 /* Alinha os ícones do menu de navegação com o texto */
 .menu-navegacao img {
@@ -465,9 +452,8 @@ lottie-player:focus {
   overflow: hidden;
 }
 .espaco {
-  margin-bottom: 10vw;          /* Força a centralização horizontal */
+  margin-bottom: 10vw; /* Força a centralização horizontal */
 }
 .robles {
   margin-top: 28vw;
-
 }
