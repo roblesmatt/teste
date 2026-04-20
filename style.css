@@ -271,14 +271,10 @@ lottie-player:focus {
   margin-left: 0px;
 }
 
+
+
+
 .logo-uminimo {
-  width: 50vw; /* Tamanho fixo menor ou use % */
-  height: auto;
-  display: block; /* Necessário para o margin auto funcionar */
-  margin-left: 3vw;
-  margin-top: -8vw;
-}
-.logo-uminimo1 {
   width: 50vw; /* Tamanho fixo menor ou use % */
   height: auto;
   display: block; /* Necessário para o margin auto funcionar */
