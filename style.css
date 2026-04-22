@@ -1,37 +1,95 @@
 @font-face {
   font-family: "Inter";
-  src: url("Inter-VariableFont_slnt,wght.ttf") format("truetype");
-  font-weight: normal;
+  src: url("inter-v20-latin-700.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
-  font-weight: normal;
+  src: url("open-sans-v44-latin-regular.woff2") format("truetype");
+  font-weight: 400;
   font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
+  font-display: swap;
 }
 
 html,
 body {
   background-color: #000000;
+}
+
+.sobre-conteudo,
+.descricao {
+  font-family: "Inter", sans-serif;
+  width: 100%; /* Ajuste conforme a largura do seu container */
+  padding: 10vw 8vw 5vw 8vw; /* Cria um espaço de 40px em todos os lados */
+}
+.sobre-nome {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 5vw;
+  color: #c0c0c0;
+  margin-top: -44vw;
+}
+.sobre-titulo,
+.sobre-titulo2 {
+  font-family: "Inter", sans-serif;
+  font-size: 7vw;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff; /* Cinza escuro da referência */
+}
+.sobre-texto,
+.descricao-texto {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 5vw, 3rem);
+  line-height: 1.3;
+  color: #c0c0c0;
+  margin-top: 10vw;
+}
+.sobre-texto strong,
+.descricao-texto strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.link {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 5vw, 3rem);
   color: #ffffff;
-  width: 100%;
-  height: auto;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  overflow-y: auto;
+  padding: 0px;
+  text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
+  border-bottom: 0.5vw solid #ffffff; /* Cria o novo "sublinhado" */
+  padding-top: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
+  display: inline-flex;
+  align-items: center;
+}
+.link:hover,
+.link-svg:hover + .link-svg {
+  color: #c0c0c0;
+  border-bottom: 0.5vw solid #c0c0c0;
+  transition: all 0.3s ease;
+}
+.link-svg {
+  width: 7vw;
+  height: 28vw;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0px;
+  margin-top: -1.3vw;
+}
+
+.copyright {
+  font-size: clamp(12px, 1.5vw, 20px);
+  color: #c0c0c0;
+  margin-left: 8vw;
+  margin-top: -3vw;
+  margin-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
+  margin-text-align: left;
 }
 
 lottie-player {
@@ -209,78 +267,6 @@ lottie-player:focus {
 .projeto-animado {
   width: 100%;
   pointer-events: none; /* Garante que o hover pegue na div */
-}
-
-.sobre-conteudo,
-.descricao {
-  font-family: "Inter", sans-serif;
-  width: 100%; /* Ajuste conforme a largura do seu container */
-  padding: 10vw 8vw 5vw 8vw; /* Cria um espaço de 40px em todos os lados */
-}
-.sobre-nome {
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
-  font-size: 5vw;
-  color: #c0c0c0;
-  margin-top: -40vw;
-}
-.sobre-titulo,
-.sobre-titulo2 {
-  font-family: "Inter", sans-serif;
-  font-size: 7vw;
-  font-weight: 900;
-  line-height: 1.1;
-  color: #fff; /* Cinza escuro da referência */
-}
-.sobre-texto,
-.descricao-texto {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: clamp(1rem, 5vw, 3rem);
-  line-height: 1.3;
-  color: #c0c0c0;
-  margin-top: 10vw;
-}
-.sobre-texto strong,
-.descricao-texto strong {
-  color: #fff;
-  font-weight: 600;
-}
-
-.link {
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
-  font-size: clamp(1rem, 5vw, 3rem);
-  color: #ffffff;
-  padding: 0px;
-  text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
-  border-bottom: 0.5vw solid #ffffff; /* Cria o novo "sublinhado" */
-  padding-top: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
-  display: inline-flex;
-  align-items: center;
-}
-.link:hover {
-  color: #c0c0c0;
-  border-bottom: 0.5vw solid #c0c0c0;
-  transition: all 0.3s ease;
-}
-.link-svg {
-  width: 7vw;
-  height: 28vw;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0px;
-}
-
-.copyright {
-  font-size: clamp(12px, 1.5vw, 20px);
-  color: #c0c0c0;
-  margin-left: 8vw;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
-  margin-text-align: left;
 }
 
 /* Alinha os ícones do menu de navegação com o texto */
