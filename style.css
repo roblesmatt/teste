@@ -118,7 +118,7 @@ lottie-player:focus {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 25px;
   padding: 0 25px;
   margin-bottom: 50px;
@@ -128,7 +128,7 @@ lottie-player:focus {
   margin-bottom: 10vw;
 }
 .card-projeto {
-  width: 100vw;
+  width: 1000vw;
   aspect-ratio: 1 / 1;
   margin-left: 0;
   margin-right: 0;
@@ -140,13 +140,6 @@ lottie-player:focus {
   justify-content: stretch;
 }
 .card-projeto lottie-player,
-.card-lottie {
-  width: 100% !important;
-  height: 100% !important;
-  min-width: 0;
-  min-height: 0;
-  display: block;
-}
 .card-projeto {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -165,24 +158,33 @@ lottie-player:focus {
 .card-projeto:focus {
   outline: none;
 }
+@media screen and (min-width: 1024px) {
+  .card-lottie {
+    width: 240px; /* Tamanho fixo que planeaste */
+    height: 135px; /* Altura para manter o 16:9 */
+    aspect-ratio: 16 / 9;
+    display: block;
+  }
+}
 
 .card-lottie {
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.2, 1, 0.3, 1);
   cursor: pointer;
-  will-change: transform;
-  opacity: 1 !important;
-  filter: none !important;
+  transition: transform 0.35s cubic-bezier(0.2, 1, 0.3, 1);
 }
-@media (max-width: 1024px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-    padding: 0 25px;
-    width: 100%;
+
+/* 2. EXCEÇÃO PARA DESKTOP (16:9) */
+@media screen and (min-width: 1024px) {
+  .card-lottie {
+    width: 100%; /* O !important ajuda a vencer conflitos de grid */
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
   }
+
   .card-projeto {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -251,16 +253,15 @@ lottie-player:focus {
   font-size: clamp(1rem, 5vw, 3rem);
   color: #ffffff;
   padding: 0px;
-  margin-top: 40px auto;
   text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
-  border-bottom: 0.6vw solid #ffffff; /* Cria o novo "sublinhado" */
-  padding-bottom: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
+  border-bottom: 0.5vw solid #ffffff; /* Cria o novo "sublinhado" */
+  padding-top: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
   display: inline-flex;
   align-items: center;
 }
 .link:hover {
   color: #c0c0c0;
-  border-bottom: 0.6vw solid #c0c0c0;
+  border-bottom: 0.5vw solid #c0c0c0;
   transition: all 0.3s ease;
 }
 .link-svg {
@@ -269,38 +270,6 @@ lottie-player:focus {
   display: inline-block;
   vertical-align: middle;
   margin-left: 0px;
-}
-
-
-
-
-.logo-uminimo {
-  width: 50vw; /* Tamanho fixo menor ou use % */
-  height: auto;
-  display: block; /* Necessário para o margin auto funcionar */
-  margin: 0 auto;
-  margin-bottom: clamp(
-    110px,
-    8vw,
-    110px
-  ); /* Ajusta o espaço inferior de forma responsiva */
-  margin-top: 10px;
-}
-@media (max-width: 1024px) {
-  .logo-uminimo1 {
-    margin-bottom: clamp(
-      110px,
-      8vw,
-      110px
-    ); /* Ajusta o espaço inferior de forma responsiva */
-    margin-top: 10px; /* Reduz o espaço inferior para telas menores */
-  }
-}
-@media (min-width: 1024px) {
-  .logo-uminimo1 {
-    margin-top: 0px;
-    margin-bottom: 20px; /* Reduz o espaço inferior para telas menores */
-  }
 }
 
 .copyright {
@@ -452,4 +421,32 @@ lottie-player:focus {
 }
 .robles {
   margin-top: 28vw;
+}
+
+.card-projeto-novo {
+  width: calc(100% - 40px);
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 20px auto;
+}
+.card-projeto-novo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+@media screen and (max-width: 1024px) {
+  .card-projeto-novo {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.logo-uminimo {
+  width: 60vw;
+  height: auto;
+  overflow: hidden;
+  position: flex;
+  margin: 20px auto;
+  margin-bottom: 100px;
 }
