@@ -23,14 +23,7 @@
 
 
       document.addEventListener("DOMContentLoaded", () => {
-        // 1. LOGO LOTTIE
-        const logo = document.getElementById("logo-uminimo");
-        if (logo) {
-          setInterval(() => {
-            logo.seek(0);
-            logo.play();
-          }, 120000);
-        }
+        
 
         // 2. TEXTO (ÚNICA COISA COM SCROLL)
         const blocks = document.querySelectorAll(".op-logic");
@@ -126,6 +119,13 @@
         }
       });
 
+
+
+
+
+
+
+      
       // 5. DESATIVAR MENU DE CONTEXTO (BOTÃO DIREITO)
       document.addEventListener("contextmenu", (e) => {
         e.preventDefault();
@@ -183,3 +183,4 @@
           cards.forEach((card) => observer.observe(card));
         });
       }
+
