@@ -141,7 +141,7 @@ body {
 
 .copyright {
   font-size: clamp(12px, 1.5vw, 20px);
-  color: #cccccc;
+  color: #c0c0c0;
   margin-left: 8vw;
   margin-top: -3vw;
   margin-bottom: 20px;
