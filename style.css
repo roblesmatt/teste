@@ -54,7 +54,7 @@ body {
   line-height: 1.1;
   /* text-transform: uppercase; */
   margin-bottom: 25px !important; /* 25px de espaço entre as tags */
-  color: #dddddd;
+  color: #eeeeee;
   text-align: left;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -64,7 +64,7 @@ body {
 }
 
 .op-logic.active {
-  color: #dddddd;
+  color: #eeeeee;
   opacity: 1;
 }
 
@@ -91,7 +91,7 @@ body {
   font-size: 7vw;
   font-weight: 700;
   line-height: 1.2;
-  color: #dddddd; /* Cinza escuro da referência */
+  color: #eeeeee; /* Cinza escuro da referência */
 }
 .sobre-texto,
 .descricao-texto {
@@ -104,7 +104,7 @@ body {
 }
 .sobre-texto strong,
 .descricao-texto strong {
-  color: #dddddd;
+  color: #eeeeee;
   font-weight: 700;
 }
 
@@ -116,7 +116,7 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: clamp(1rem, 5vw, 3rem);
-  color: #dddddd;
+  color: #eeeeee;
   padding: 0px;
   text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
   border-bottom: 0.5vw solid #ffffff; /* Cria o novo "sublinhado" */
