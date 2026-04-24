@@ -13,9 +13,13 @@
   font-display: swap;
 }
 
+
+
+
+
 html,
 body {
-  background-color: #000000;
+  background-color: #010101;
   color: #ffffff;
   width: 100%;
   height: auto;
@@ -23,6 +27,50 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+
+.info-sessao {
+  padding: 20vw 10%; /* Espaçamento grande para o scroll funcionar bem */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin-top: -20vw;
+}
+
+.op-logic {
+  font-size: 7vw;
+  line-height: 1.1;
+  /* text-transform: uppercase; */
+  margin-bottom: 25px !important; /* 25px de espaço entre as tags */
+  color: #ffffff;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  margin-left: -2vw;
+}
+
+.op-logic.active {
+  color: #ffffff;
+  opacity: 1;
+}
+
+
+
+
 
 .sobre-conteudo,
 .descricao {
@@ -42,7 +90,7 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 7vw;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   color: #fff; /* Cinza escuro da referência */
 }
 .sobre-texto,
@@ -59,6 +107,10 @@ body {
   color: #fff;
   font-weight: 700;
 }
+
+
+
+
 
 .link {
   font-family: "Inter", sans-serif;
@@ -98,167 +150,13 @@ body {
   margin-text-align: left;
 }
 
-lottie-player {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 auto;
-  opacity: 1 !important;
-  filter: none !important;
-  -webkit-filter: none !important;
-  transition: none !important;
-  -webkit-transition: none !important;
-  -webkit-tap-highlight-color: transparent;
-}
 
-lottie-player:focus {
-  outline: none;
-}
 
-@media screen and (min-width: 1024px) {
-  .hero-container {
-    width: 100vw;
-    height: 100dvh; /* dvh é ótimo para mobile, mas no desktop 100vh resolve bem */
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-  }
 
-  #hero-lottie {
-    /* A MÁGICA ESTÁ AQUI: */
-    height: 100dvh !important; /* Força a altura a ser IGUAL à tela */
-    width: 100dvh !important; /* Como é quadrado, a largura recebe o valor da altura */
 
-    max-width: none;
-    max-height: 100dvh;
-    display: block;
 
-    /* Garante que o navegador não tente "esticar" além da conta */
-    object-fit: contain;
-  }
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-text-stroke: 0px transparent;
-  -webkit-tap-highlight-color: transparent !important;
-}
 
-.info-sessao {
-  padding: 20vw 10%; /* Espaçamento grande para o scroll funcionar bem */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  margin-top: -20vw;
-}
-
-.op-logic {
-  font-size: 7vw;
-  line-height: 1.1;
-  /* text-transform: uppercase; */
-  margin-bottom: 25px !important; /* 25px de espaço entre as tags */
-  color: #ffffff;
-  text-align: left;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
-  margin-left: -2vw;
-}
-
-.op-logic.active {
-  color: #ffffff;
-  opacity: 1;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 25px;
-  padding: 0 25px;
-  margin-bottom: 50px;
-  min-height: 400px;
-  width: 100%;
-  margin-top: 10vw;
-  margin-bottom: 10vw;
-}
-.card-projeto {
-  width: 1000vw;
-  aspect-ratio: 1 / 1;
-  margin-left: 0;
-  margin-right: 0;
-  max-width: 100vw;
-  min-width: 0;
-  box-sizing: border-box;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-}
-.card-projeto lottie-player,
-.card-projeto {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  /* Garante que o lottie-player dentro do grid ocupe todo o card */
-  .lottie-grid {
-    width: 100% !important;
-    height: 100% !important;
-    display: block;
-  }
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  opacity: 1 !important;
-}
-.card-projeto:focus {
-  outline: none;
-}
-@media screen and (min-width: 1024px) {
-  .card-lottie {
-    width: 240px; /* Tamanho fixo que planeaste */
-    height: 135px; /* Altura para manter o 16:9 */
-    aspect-ratio: 16 / 9;
-    display: block;
-  }
-}
-
-.card-lottie {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.2, 1, 0.3, 1);
-}
-
-/* 2. EXCEÇÃO PARA DESKTOP (16:9) */
-@media screen and (min-width: 1024px) {
-  .card-lottie {
-    width: 100%; /* O !important ajuda a vencer conflitos de grid */
-    height: 100%;
-    aspect-ratio: 16 / 9;
-    display: block;
-  }
-
-  .card-projeto {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    margin-left: 25;
-    margin-right: 25px;
-    /* Remove qualquer max-width ou restrição */
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-}
 
 /* Estado inicial: Pausado */
 .projeto-item {
@@ -274,6 +172,10 @@ lottie-player:focus {
   width: 100%;
   pointer-events: none; /* Garante que o hover pegue na div */
 }
+
+
+
+
 
 /* Alinha os ícones do menu de navegação com o texto */
 .menu-navegacao img {
@@ -398,6 +300,10 @@ lottie-player:focus {
   }
 }
 
+
+
+
+
 .grid-projetos {
   display: grid;
   grid-template-columns: 1fr;
@@ -414,6 +320,10 @@ lottie-player:focus {
 .robles {
   margin-top: 28vw;
 }
+
+
+
+
 
 .card-projeto-novo {
   width: calc(100% - 40px);
@@ -433,6 +343,10 @@ lottie-player:focus {
     aspect-ratio: 1 / 1;
   }
 }
+
+
+
+
 
 .logo-uminimo {
   width: 60vw;

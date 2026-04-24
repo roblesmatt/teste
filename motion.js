@@ -1,31 +1,7 @@
-    document.addEventListener("DOMContentLoaded", function () {
-        const lottie = document.getElementById("hero-lottie");
-        let hasPlayedOnce = false;
-
-        // Função para dar play uma vez
-        function playOnce() {
-          if (!lottie) return;
-          lottie.stop();
-          lottie.play();
-          hasPlayedOnce = true;
-        }
-
-        // Quando a animação terminar, para no último frame
-        lottie.addEventListener("complete", () => {
-          lottie.pause();
-        });
-
-        // Play uma vez ao carregar a página
-        lottie.addEventListener("ready", playOnce);
-        // fallback caso o evento 'ready' não dispare
-        if (lottie.readyState === "complete") playOnce();
-      });
 
 
+// 2. TEXTO (ÚNICA COISA COM SCROLL)
       document.addEventListener("DOMContentLoaded", () => {
-        
-
-        // 2. TEXTO (ÚNICA COISA COM SCROLL)
         const blocks = document.querySelectorAll(".op-logic");
         window.addEventListener("scroll", () => {
           const screenCenter = window.innerHeight / 2;
@@ -47,21 +23,6 @@
             closestBlock.classList.add("active");
           }
         });
-
-
-
-        
-
-        // 4. LOTTIE-PLAYER: Desktop (hover) x Mobile (scroll, sem resize)
-        const lotties = document.querySelectorAll(".card-lottie");
-        // Sempre inicia no frame 0 (estático)
-        lotties.forEach((lottie) => {
-          lottie.addEventListener("ready", () => {
-            lottie.pause();
-            lottie.seek(0);
-          });
-        });
-
         if (window.innerWidth >= 1024) {
           // Desktop/iPad Landscape: hover play, mouseleave seek(0)
           lotties.forEach((lottie) => {
@@ -151,18 +112,8 @@
         true,
       );
 
-      // Forçar todos os elementos a não ter seleção
-      document.querySelectorAll("*").forEach((el) => {
-        el.style.setProperty(
-          "-webkit-tap-highlight-color",
-          "transparent",
-          "important",
-        );
-        el.style.setProperty("-webkit-user-select", "none", "important");
-        el.style.setProperty("-webkit-touch-callout", "none", "important");
-        el.style.setProperty("outline", "none", "important");
-        el.style.setProperty("box-shadow", "none", "important");
-      });
+    
+      
 
     //!-- Exibe botões dos cards Lottie apenas quando o card está visível na tela (mobile/tablet) -->
       if (window.matchMedia('(max-width: 1024px)').matches) {
