@@ -13,10 +13,6 @@
   font-display: swap;
 }
 
-
-
-
-
 html,
 body {
   background-color: #000000;
@@ -32,10 +28,6 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
-
-
-
 
 .info-sessao {
   padding: 20vw 10%; /* Espaçamento grande para o scroll funcionar bem */
@@ -67,10 +59,6 @@ body {
   color: #eeeeee;
   opacity: 1;
 }
-
-
-
-
 
 .sobre-conteudo,
 .descricao {
@@ -107,10 +95,6 @@ body {
   color: #eeeeee;
   font-weight: 700;
 }
-
-
-
-
 
 .link {
   font-family: "Inter", sans-serif;
@@ -150,14 +134,6 @@ body {
   margin-text-align: left;
 }
 
-
-
-
-
-
-
-
-
 /* Estado inicial: Pausado */
 .projeto-item {
   opacity: 0;
@@ -172,10 +148,6 @@ body {
   width: 100%;
   pointer-events: none; /* Garante que o hover pegue na div */
 }
-
-
-
-
 
 /* Alinha os ícones do menu de navegação com o texto */
 .menu-navegacao img {
@@ -300,10 +272,6 @@ body {
   }
 }
 
-
-
-
-
 .grid-projetos {
   display: grid;
   grid-template-columns: 1fr;
@@ -320,10 +288,6 @@ body {
 .robles {
   margin-top: 28vw;
 }
-
-
-
-
 
 .card-projeto-novo {
   width: calc(100% - 40px);
@@ -343,10 +307,6 @@ body {
     aspect-ratio: 1 / 1;
   }
 }
-
-
-
-
 
 .logo-uminimo {
   width: 60vw;
