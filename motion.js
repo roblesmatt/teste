@@ -82,7 +82,18 @@
 
 
 
-
+// Forçar todos os elementos a não ter seleção
+      document.querySelectorAll("*").forEach((el) => {
+        el.style.setProperty(
+          "-webkit-tap-highlight-color",
+          "transparent",
+          "important",
+        );
+        el.style.setProperty("-webkit-user-select", "none", "important");
+        el.style.setProperty("-webkit-touch-callout", "none", "important");
+        el.style.setProperty("outline", "none", "important");
+        el.style.setProperty("box-shadow", "none", "important");
+      });
 
 
 
@@ -113,7 +124,7 @@
       );
 
     
-      
+
 
     //!-- Exibe botões dos cards Lottie apenas quando o card está visível na tela (mobile/tablet) -->
       if (window.matchMedia('(max-width: 1024px)').matches) {
