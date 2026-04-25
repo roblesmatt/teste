@@ -31,6 +31,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul ao tocar no mobile */
+  -webkit-touch-callout: none;            /* Impede o menu de "copiar imagem" ao segurar */
+  -webkit-user-select: none;              /* Desativa a seleção de texto no Chrome/Safari */
+  -moz-user-select: none;                 /* Desativa no Firefox */
+  -ms-user-select: none;                  /* Desativa no Edge antigo */
+  user-select: none;
 }
 
 
@@ -77,37 +83,6 @@ body {
 
 
 
-.link {
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1rem, 5vw, 3rem);
-  color: #eeeeee;
-  padding: 0px;
-  text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
-  border-bottom: 0.5vw solid #ffffff; /* Cria o novo "sublinhado" */
-  padding-top: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
-  display: inline-flex;
-  align-items: center;
-}
-.link:hover,
-.link-svg:hover + .link-svg {
-  color: #aaaaaa;
-  border-bottom: 0.5vw solid #aaaaaa;
-  transition: all 0.3s ease;
-}
-.link-svg {
-  width: 7vw;
-  height: 28vw;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0px;
-  margin-top: -1.3vw;
-}
-
-
-
-
-
 .copyright {
   font-size: clamp(12px, 1.5vw, 20px);
   color: #aaaaaa;
@@ -124,7 +99,7 @@ body {
   gap: 20px;
   padding: 0 20px;
 }
-.img-borda {
+.grid-projetos svg {
   border-radius: 10px;
   overflow: hidden;
 }
@@ -203,4 +178,35 @@ body {
     left: 50%;
     transform: translateX(-50%); /* Centraliza perfeitamente no topo */
   }
+}
+
+
+
+
+
+.link {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 5vw, 3rem);
+  color: #eeeeee;
+  padding: 0px;
+  text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
+  border-bottom: 0.5vw solid #ffffff; /* Cria o novo "sublinhado" */
+  padding-top: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
+  display: inline-flex;
+  align-items: center;
+}
+.link:hover,
+.link-svg:hover + .link-svg {
+  color: #aaaaaa;
+  border-bottom: 0.5vw solid #aaaaaa;
+  transition: all 0.3s ease;
+}
+.link-svg {
+  width: 7vw;
+  height: 28vw;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0px;
+  margin-top: -1.3vw;
 }
