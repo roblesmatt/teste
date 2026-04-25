@@ -13,6 +13,10 @@
   font-display: swap;
 }
 
+
+
+
+
 html,
 body {
   background-color: #000000;
@@ -29,36 +33,9 @@ body {
   box-sizing: border-box;
 }
 
-.info-sessao {
-  padding: 20vw 10%; /* Espaçamento grande para o scroll funcionar bem */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  margin-top: -20vw;
-}
 
-.op-logic {
-  font-size: 7vw;
-  line-height: 1.1;
-  /* text-transform: uppercase; */
-  margin-bottom: 25px !important; /* 25px de espaço entre as tags */
-  color: #eeeeee;
-  text-align: left;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  font-family: "Inter", sans-serif;
-  font-weight: 900;
-  margin-left: -2vw;
-}
 
-.op-logic.active {
-  color: #eeeeee;
-  opacity: 1;
-}
+
 
 .sobre-conteudo,
 .descricao {
@@ -96,6 +73,10 @@ body {
   font-weight: 700;
 }
 
+
+
+
+
 .link {
   font-family: "Inter", sans-serif;
   font-weight: 700;
@@ -123,6 +104,10 @@ body {
   margin-top: -1.3vw;
 }
 
+
+
+
+
 .copyright {
   font-size: clamp(12px, 1.5vw, 20px);
   color: #aaaaaa;
@@ -131,110 +116,60 @@ body {
   margin-bottom: 20px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
-  margin-text-align: left;
+  text-align: left;
 }
-
-/* Estado inicial: Pausado */
-.projeto-item {
-  opacity: 0;
-  transition: opacity 0.6s ease;
+.grid-projetos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0 20px;
 }
-
-.projeto-item.ativado {
-  opacity: 1;
+.img-borda {
+  border-radius: 10px;
+  overflow: hidden;
 }
-
-.projeto-animado {
+.espaco {
+  margin-bottom: 10vw; /* Força a centralização horizontal */
+}
+.espaco1 {
+  margin-bottom: 22vw; /* Força a centralização horizontal */
+}
+.card-projeto-novo {
+  width: calc(100% - 40px);
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 20px auto;
+}
+.card-projeto-novo svg {
   width: 100%;
-  pointer-events: none; /* Garante que o hover pegue na div */
+  height: 100%;
+  display: block;
 }
+@media screen and (max-width: 1024px) {
+  .card-projeto-novo {
+    aspect-ratio: 1 / 1;
+  }
+}
+.logo-uminimo {
+  width: 60vw;
+  height: auto;
+  overflow: hidden;
+  position: flex;
+  margin: 20px auto;
+  margin-bottom: 100px;
+}
+
+
+
+
 
 /* Alinha os ícones do menu de navegação com o texto */
 .menu-navegacao img {
   display: inline-block;
   vertical-align: middle;
 }
-/* Mostra botões só quando ativado por scroll/touch em mobile/tablet */
-@media (max-width: 1024px) {
-  .card-btn-bottom-right,
-  .card-btn-top-right {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transition: opacity 0.2s;
-  }
-  .card-projeto-link.ativo .card-btn-bottom-right,
-  .card-projeto-link.ativo .card-btn-top-right {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-}
-
-.card-btn-bottom-right,
-.card-btn-top-right {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-
-.card-projeto-link:hover .card-btn-bottom-right,
-.card-projeto-link:hover .card-btn-top-right {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.card-btn-bottom-right {
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  z-index: 2;
-  width: 64px;
-  height: 64px;
-  background: #000000;
-  border-radius: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: box-shadow 0.2s;
-}
-.card-btn-bottom-right:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-}
-/* Botão circular no topo direito dos cards Lottie */
-.card-projeto-link {
-  position: relative;
-  display: inline-block;
-}
-
-.card-btn-top-right {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 2;
-  width: 64px;
-  height: 64px;
-  background: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: box-shadow 0.2s;
-}
-
-.card-btn-top-right:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-}
-
-/* SVG da seta dentro do botão */
-.arrow-svg {
-  width: 32px;
-  height: 32px;
-  display: block;
-}
-
 .menu-navegacao {
   position: fixed; /* Mantém o menu fixo na tela ao rolar */
   width: 280px;
@@ -247,8 +182,6 @@ body {
   z-index: 1000; /* Garante que fique acima de tudo */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
-/* Estilo dos Links e Texto */
 .menu-navegacao a,
 .paginacao {
   color: #ffffff;
@@ -270,49 +203,4 @@ body {
     left: 50%;
     transform: translateX(-50%); /* Centraliza perfeitamente no topo */
   }
-}
-
-.grid-projetos {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  padding: 0 20px;
-}
-.img-borda {
-  border-radius: 10px;
-  overflow: hidden;
-}
-.espaco {
-  margin-bottom: 10vw; /* Força a centralização horizontal */
-}
-.robles {
-  margin-top: 28vw;
-}
-
-.card-projeto-novo {
-  width: calc(100% - 40px);
-  aspect-ratio: 16 / 9;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  margin: 20px auto;
-}
-.card-projeto-novo svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-@media screen and (max-width: 1024px) {
-  .card-projeto-novo {
-    aspect-ratio: 1 / 1;
-  }
-}
-
-.logo-uminimo {
-  width: 60vw;
-  height: auto;
-  overflow: hidden;
-  position: flex;
-  margin: 20px auto;
-  margin-bottom: 100px;
 }
