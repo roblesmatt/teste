@@ -51,7 +51,7 @@ body {
   font-weight: 700;
   font-size: 5vw;
   color: #aaaaaa;
-  margin-top: -32vw;
+  margin-top: -35vw;
 }
 .titulo {
   font-family: "Inter", sans-serif;
@@ -99,6 +99,14 @@ body {
 .espaco1 {
   margin-bottom: 22vw;
 }
+.hero {
+  width: 100vw;
+  height: 100dvh;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  margin: 0px 0px 20px 0px;
+}
 .projeto {
   width: calc(100% - 40px);
   aspect-ratio: 16 / 9;
@@ -107,13 +115,14 @@ body {
   position: relative;
   margin: 20px auto;
 }
-.projeto svg {
+.projeto svg, .hero svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 @media screen and (max-width: 1024px) {
-  .projeto {
+  .projeto, .hero{
+    height: 100%;
     aspect-ratio: 1 / 1;
   }
 }
