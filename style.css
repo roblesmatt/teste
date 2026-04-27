@@ -19,7 +19,7 @@
 
 html,
 body {
-  background-color: #050505;
+  background-color: #000000;
   color: #ffffff;
   width: 100%;
   height: auto;
@@ -53,14 +53,22 @@ body {
   font-weight: 700;
   font-size: 5vw;
   color: #aaaaaa;
+  
+}
+.nome1 {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 5vw;
+  color: #aaaaaa;
   margin-top: -44vw;
 }
 .titulo {
   font-family: "Inter", sans-serif;
-  font-size: 7vw;
+  font-size: 6vw;
   font-weight: 700;
   line-height: 1.2;
   color: #eeeeee;
+  margin-bottom: 10vw;
 }
 .descricao {
   font-family: "Inter", sans-serif;
