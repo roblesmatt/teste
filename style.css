@@ -122,7 +122,8 @@ body {
   display: block;
 }
 @media screen and (max-width: 1024px) {
-  .projeto, .hero {
+  .projeto,
+  .hero {
     height: 100%;
     aspect-ratio: 1 / 1;
   }
