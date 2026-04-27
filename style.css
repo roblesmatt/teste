@@ -100,7 +100,7 @@ body {
   margin-bottom: 22vw;
 }
 .hero {
-  width: 100%;
+  width: 100vw;
   height: 100dvh;
   aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -116,7 +116,7 @@ body {
   margin: 20px auto;
 }
 .hero svg {
-  width: 100%;
+  width: 100vw;
   height: 100dvh;
   display: block;
   object-fit: cover;
