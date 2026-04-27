@@ -13,10 +13,6 @@
   font-display: swap;
 }
 
-
-
-
-
 html,
 body {
   background-color: #000000;
@@ -32,28 +28,23 @@ body {
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;            
-  -webkit-user-select: none;              
-  -moz-user-select: none;                 
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-
-
-
-
 .texto {
   font-family: "Inter", sans-serif;
-  width: 100%; 
-  padding: 10vw 8vw 5vw 8vw; 
+  width: 100%;
+  padding: 10vw 8vw 5vw 8vw;
 }
 .nome {
   font-family: "Inter";
   font-weight: 700;
   font-size: 5vw;
   color: #aaaaaa;
-  
 }
 .nome1 {
   font-family: "Inter";
@@ -83,10 +74,6 @@ body {
   font-weight: 700;
 }
 
-
-
-
-
 .copyright {
   font-size: clamp(12px, 1.5vw, 20px);
   color: #aaaaaa;
@@ -94,7 +81,7 @@ body {
   margin-top: -3vw;
   margin-bottom: 20px;
   font-family: "Open Sans", sans-serif;
-  font-weight: normal; 
+  font-weight: normal;
   text-align: left;
 }
 .grid-projetos {
@@ -108,10 +95,10 @@ body {
   overflow: hidden;
 }
 .espaco {
-  margin-bottom: 10vw; 
+  margin-bottom: 10vw;
 }
 .espaco1 {
-  margin-bottom: 22vw; 
+  margin-bottom: 22vw;
 }
 .hero {
   width: 100vw;
@@ -125,10 +112,10 @@ body {
   display: block;
 }
 @media screen and (max-width: 1024px) {
-    .hero {
-        height: 100vh; 
-        aspect-ratio: 16 / 9;
-    }
+  .hero {
+    height: 100vh;
+    aspect-ratio: 16 / 9;
+  }
 }
 .projeto {
   width: calc(100% - 40px);
@@ -156,10 +143,6 @@ body {
   margin: 20px auto;
   margin-bottom: 100px;
 }
-
-
-
-
 
 /* Alinha os ícones do menu de navegação com o texto */
 .menu-navegacao img {
@@ -200,10 +183,6 @@ body {
     transform: translateX(-50%); /* Centraliza perfeitamente no topo */
   }
 }
-
-
-
-
 
 .link {
   font-family: "Inter", sans-serif;
