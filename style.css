@@ -105,7 +105,7 @@ body {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   position: relative;
-  margin: 20px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 .projeto {
   width: calc(100% - 40px);
@@ -122,7 +122,7 @@ body {
   display: block;
 }
 @media screen and (max-width: 1024px) {
-  .projeto {
+  .projeto, .hero {
     height: 100%;
     aspect-ratio: 1 / 1;
   }
