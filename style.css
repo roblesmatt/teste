@@ -102,14 +102,14 @@ body {
 .hero {
   width: 100vw;
   height: 100dvh;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
   overflow: hidden;
   position: relative;
   margin: 0px 0px 0px 0px;
 }
 .projeto {
   width: calc(100% - 40px);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
