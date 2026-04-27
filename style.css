@@ -19,7 +19,7 @@
 
 html,
 body {
-  background-color: #000000;
+  background-color: #050505;
   color: #ffffff;
   width: 100%;
   height: auto;
@@ -31,11 +31,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent; /* Remove o flash azul ao tocar no mobile */
-  -webkit-touch-callout: none;            /* Impede o menu de "copiar imagem" ao segurar */
-  -webkit-user-select: none;              /* Desativa a seleção de texto no Chrome/Safari */
-  -moz-user-select: none;                 /* Desativa no Firefox */
-  -ms-user-select: none;                  /* Desativa no Edge antigo */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;            
+  -webkit-user-select: none;              
+  -moz-user-select: none;                 
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -43,29 +43,26 @@ body {
 
 
 
-.sobre-conteudo,
-.descricao {
+.texto {
   font-family: "Inter", sans-serif;
-  width: 100%; /* Ajuste conforme a largura do seu container */
-  padding: 10vw 8vw 5vw 8vw; /* Cria um espaço de 40px em todos os lados */
+  width: 100%; 
+  padding: 10vw 8vw 5vw 8vw; 
 }
-.sobre-nome {
+.nome {
   font-family: "Inter";
   font-weight: 700;
   font-size: 5vw;
   color: #aaaaaa;
   margin-top: -44vw;
 }
-.sobre-titulo,
-.sobre-titulo2 {
+.titulo {
   font-family: "Inter", sans-serif;
   font-size: 7vw;
   font-weight: 700;
   line-height: 1.2;
-  color: #eeeeee; /* Cinza escuro da referência */
+  color: #eeeeee;
 }
-.sobre-texto,
-.descricao-texto {
+.descricao {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: clamp(1rem, 5vw, 3rem);
@@ -73,8 +70,7 @@ body {
   color: #aaaaaa;
   margin-top: 10vw;
 }
-.sobre-texto strong,
-.descricao-texto strong {
+.descricao strong {
   color: #eeeeee;
   font-weight: 700;
 }
@@ -90,7 +86,7 @@ body {
   margin-top: -3vw;
   margin-bottom: 20px;
   font-family: "Open Sans", sans-serif;
-  font-weight: normal; /* Isso vai puxar o arquivo OpenSans-Bold.ttf */
+  font-weight: normal; 
   text-align: left;
 }
 .grid-projetos {
@@ -104,12 +100,30 @@ body {
   overflow: hidden;
 }
 .espaco {
-  margin-bottom: 10vw; /* Força a centralização horizontal */
+  margin-bottom: 10vw; 
 }
 .espaco1 {
-  margin-bottom: 22vw; /* Força a centralização horizontal */
+  margin-bottom: 22vw; 
 }
-.card-projeto-novo {
+.hero {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+@media screen and (min-width: 1024px) {
+    .hero {
+        height: 100vh; 
+        aspect-ratio: 16 / 9;
+    }
+}
+.projeto {
   width: calc(100% - 40px);
   aspect-ratio: 16 / 9;
   border-radius: 10px;
@@ -117,13 +131,13 @@ body {
   position: relative;
   margin: 20px auto;
 }
-.card-projeto-novo svg {
+.projeto svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 @media screen and (max-width: 1024px) {
-  .card-projeto-novo {
+  .projeto {
     aspect-ratio: 1 / 1;
   }
 }
