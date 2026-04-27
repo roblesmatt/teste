@@ -120,21 +120,18 @@ body {
   height: 100dvh;
   display: block;
 }
-.projeto svg,
-.hero svg {
+.projeto svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 @media screen and (max-width: 1024px) {
   .hero {
-    height: 100;
     aspect-ratio: 9 / 16;
   }
 }
 @media screen and (max-width: 1024px) {
   .projeto {
-    height: 100%;
     aspect-ratio: 1 / 1;
   }
 }
