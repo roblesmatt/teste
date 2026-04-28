@@ -164,18 +164,18 @@ body {
 
 .link {
   font-size: clamp(1rem, 5vw, 3rem);
-  color: #eeeeee;
+  color: #dddddd;
   padding: 0px;
-  text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
-  border-bottom: 0.5vw solid #eeeeee; /* Cria o novo "sublinhado" */
-  padding-top: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
+  text-decoration: none; 
+  border-bottom: 0.5vw solid #dddddd; 
+  padding-top: 0px; 
   display: inline-flex;
   align-items: center;
 }
 .link:hover,
 .link-svg:hover + .link-svg {
   color: #aaaaaa;
-  border-bottom: 0.5vw solid #aaaaaa;
+  border-bottom: 0.5vw solid #dddddd;
   transition: all 0.3s ease;
 }
 .link-svg {
