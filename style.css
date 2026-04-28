@@ -62,7 +62,7 @@ body {
   margin-top: 10vw;
 }
 .descricao strong {
-  color: #eeeeee;
+  color: #dddddd;
   font-weight: 700;
 }
 
@@ -96,7 +96,6 @@ body {
   height: 100lvh;
   overflow: hidden;
   position: relative;
-  margin: 0px 0px 0px 0px;
 }
 .projeto {
   width: calc(100% - 40px);
@@ -165,10 +164,10 @@ body {
 
 .link {
   font-size: clamp(1rem, 5vw, 3rem);
-  color: #eeeeee;
+  color: #dddddd;
   padding: 0px;
   text-decoration: none; /* Remove o sublinhado padrão que fica grudado */
-  border-bottom: 0.5vw solid #eeeeee; /* Cria o novo "sublinhado" */
+  border-bottom: 0.5vw solid #dddddd; /* Cria o novo "sublinhado" */
   padding-top: 0px; /* AQUI É A MÁGICA: controla a distância do traço */
   display: inline-flex;
   align-items: center;
