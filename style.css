@@ -125,7 +125,7 @@ body {
   margin-bottom: 100px;
 }
 
-.menu-navegacao img {
+.menu-navegacao svg {
   display: inline-block;
   vertical-align: middle;
 }
@@ -161,6 +161,21 @@ body {
     transform: translateX(-50%);
   }
 }
+.botao-wrapper {
+  width: 14px;      
+  height: 14px;     
+  overflow: hidden; 
+  display: inline-block; 
+  vertical-align: middle;
+}
+.setas-container {
+  display: flex;
+  width: 294px;  
+  transition: transform 0.1s steps(20);
+}
+.botao-wrapper:hover .setas-container {
+  transform: translateX(-280px); 
+}
 
 .link {
   font-size: clamp(1rem, 5vw, 3rem);
@@ -186,3 +201,8 @@ body {
   margin-left: 0px;
   margin-top: -1.3vw;
 }
+
+
+
+
+
