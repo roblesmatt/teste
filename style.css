@@ -169,10 +169,12 @@ body {
 .setas-container {
   display: flex;
   width: 360px;
-  transition: transform 0.1s steps(5);
+  transform: translateX(0);
+  transition: transform 0s;
 }
 .botao-wrapper:hover .setas-container {
   transform: translateX(-300px);
+  transition: transform 0.2s steps(5);
 }
 
 .link {
