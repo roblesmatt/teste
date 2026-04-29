@@ -169,7 +169,7 @@ body {
 .setas-container {
   display: flex;
   width: 360px;  
-  transition: transform 0.2s steps(5);
+  transition: transform 0.1s steps(5);
 }
 .botao-wrapper:hover .setas-container {
   transform: translateX(-300px); 
