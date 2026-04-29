@@ -162,19 +162,17 @@ body {
   }
 }
 .botao-wrapper {
-  width: 14px;      
-  height: 14px;     
-  overflow: hidden; 
-  display: inline-block; 
-  vertical-align: middle;
+  width: 60px;      
+  height: 60px;     
+  overflow: hidden;
 }
 .setas-container {
   display: flex;
-  width: 294px;  
-  transition: transform 0.1s steps(20);
+  width: 360px;  
+  transition: transform 0.1s steps(5  );
 }
 .botao-wrapper:hover .setas-container {
-  transform: translateX(-280px); 
+  transform: translateX(-300px); 
 }
 
 .link {
