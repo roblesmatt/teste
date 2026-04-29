@@ -162,17 +162,17 @@ body {
   }
 }
 .botao-wrapper {
-  width: 60px;      
-  height: 60px;     
+  width: 60px;
+  height: 60px;
   overflow: hidden;
 }
 .setas-container {
   display: flex;
-  width: 360px;  
+  width: 360px;
   transition: transform 0.1s steps(5);
 }
 .botao-wrapper:hover .setas-container {
-  transform: translateX(-300px); 
+  transform: translateX(-300px);
 }
 
 .link {
@@ -199,8 +199,3 @@ body {
   margin-left: 0px;
   margin-top: -1.3vw;
 }
-
-
-
-
-
