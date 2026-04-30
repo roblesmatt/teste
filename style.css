@@ -128,10 +128,6 @@ body {
   margin-bottom: 100px;
 }
 
-.menu-navegacao svg {
-  display: inline-block;
-  vertical-align: middle;
-}
 .menu-navegacao {
   position: fixed;
   width: 280px;
@@ -164,42 +160,32 @@ body {
     transform: translateX(-50%);
   }
 }
+
 .botao-wrapper {
-  width: 60px;
-  height: 60px;
+  width: 1.2em;
+  height: 1.2em;
   overflow: hidden;
 }
-.setas-container {
-  display: flex;
-  width: 360px;
-  transform: translateX(0);
-  transition: transform 0s;
-}
-.botao-wrapper:hover .setas-container {
-  transform: translateX(-300px);
-  transition: transform 0.2s steps(5);
-}
-
 .botao-wrapper1 {
   width: 1.2em;
   height: 1.2em;
   overflow: hidden;
-  transform: translateY(6%);
+  transform: translateY(8%);
 }
-.setas-container1 {
+.setas-container {
   display: flex;
-  width: 7.2em;
+  width: 500%;
   transform: translateX(0);
   transition: transform 0s;
 }
-.setas-container1 svg {
-  width: 100%;
+.setas-container svg {
+  width: 6em;
   height: 100%;
   display: block;
 }
-.botao-wrapper1:hover .setas-container1 {
-  transform: translateX(-6em);
-  transition: transform 0.2s steps(5);
+.botao-wrapper:hover .setas-container {
+  transform: translateX(-4.8em);
+  transition: transform 0.1s steps(4);
 }
 .link {
   font-size: 6vw;
@@ -213,7 +199,7 @@ body {
 .link:hover {
   color: #aaaaaa;
 }
-.link:hover .setas-container1 {
-  transform: translateX(-6em);
-  transition: transform 0.2s steps(5);
+.link:hover .setas-container {
+  transform: translateX(-4.8em);
+  transition: transform 0.1s steps(4);
 }
