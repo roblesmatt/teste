@@ -181,7 +181,7 @@ body {
   width: 1.2em;
   height: 1.2em;
   overflow: hidden;
-  transform: translateY(2.5px);
+  transform: translateY(6%);
 }
 .setas-container1 {
   display: flex;
