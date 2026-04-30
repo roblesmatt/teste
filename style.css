@@ -69,7 +69,7 @@ body {
 .copyright {
   font-size: clamp(12px, 1.5vw, 20px);
   color: #aaaaaa;
-  margin-left: 8vw;
+  margin-left: 0vw;
   margin-bottom: 20px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
@@ -177,27 +177,39 @@ body {
   transition: transform 0.2s steps(5);
 }
 
+.botao-wrapper1 {
+  width: 1.2em;
+  height: 1.2em;
+  overflow: hidden;
+}
+.setas-container1 {
+  display: flex;
+  width: 7.2em;
+  transform: translateX(0);
+  transition: transform 0s;
+}
+.setas-container1 svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.botao-wrapper1:hover .setas-container1 {
+  transform: translateX(-6em);
+  transition: transform 0.2s steps(5);
+}
 .link {
-  font-size: clamp(1rem, 5vw, 3rem);
+  font-size: 6vw;
   color: #dddddd;
-  padding: 0px;
   text-decoration: none;
-  border-bottom: 0.5vw solid #dddddd;
+  padding: 0px;
   padding-top: 0px;
   display: inline-flex;
   align-items: center;
 }
-.link:hover,
-.link-svg:hover + .link-svg {
+.link:hover {
   color: #aaaaaa;
-  border-bottom: 0.5vw solid #dddddd;
-  transition: all 0.3s ease;
 }
-.link-svg {
-  width: 7vw;
-  height: 28vw;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0px;
-  margin-top: -1.3vw;
+.link:hover .setas-container1 {
+  transform: translateX(-6em);
+  transition: transform 0.2s steps(5);
 }
