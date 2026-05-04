@@ -77,11 +77,13 @@ body {
 }
 .grid-layouts {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat 1fr;
   gap: 20px;
   padding: 0 20px;
 }
 .grid-layouts svg {
+  width: 100%;
+  height: auto;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -161,16 +163,14 @@ body {
   }
 }
 
-.botao-wrapper {
+.botao-wrapper,
+.botao-wrapper1 {
   width: 1.2em;
   height: 1.2em;
   overflow: hidden;
 }
 .botao-wrapper1 {
-  width: 1.2em;
-  height: 1.2em;
-  overflow: hidden;
-  transform: translateY(8%);
+  margin-left: 10px;
 }
 .setas-container {
   display: flex;
@@ -188,7 +188,7 @@ body {
   transition: transform 0.1s steps(4);
 }
 .link {
-  font-size: 6vw;
+  font-size: clamp(1rem, 5vw, 3rem);
   color: #dddddd;
   text-decoration: none;
   padding: 0px;
@@ -196,10 +196,28 @@ body {
   display: inline-flex;
   align-items: center;
 }
+.texto-email {
+  border-bottom: 0.5vw solid #000000;
+}
 .link:hover {
   color: #aaaaaa;
+}
+.texto-email:hover {
+  border-bottom: 0.5vw solid #000000;
 }
 .link:hover .setas-container {
   transform: translateX(-4.8em);
   transition: transform 0.1s steps(4);
+}
+.container-links {
+  display: flex;
+  flex-direction: column;
+}
+.link2 {
+  text-decoration: none;
+  color: #aaaaaa;
+  font-size: 6vw;
+}
+.link2:hover {
+  color: #dddddd;
 }
