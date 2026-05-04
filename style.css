@@ -197,7 +197,7 @@ body {
   align-items: center;
 }
 .texto-email {
-  border-bottom: 0.5vw solid #000000;
+  border-bottom: 0.5vw solid #dddddd;
 }
 .link:hover {
   color: #aaaaaa;
@@ -220,4 +220,12 @@ body {
 }
 .link2:hover {
   color: #dddddd;
+}
+
+@media (min-width: 1025px) {
+  #totor-seta,
+  #projeto2-seta,
+  #projeto3-seta {
+    transform: translate(311px, 218px) scale(0.3);
+  }
 }
