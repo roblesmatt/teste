@@ -139,6 +139,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 10px 10px 10px 0px;
   z-index: 1000;
 }
 .menu-navegacao a,
@@ -212,13 +213,17 @@ body {
 .container-links {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
-.link2 {
+.container-links a {
+  flex: 1 0 40%;
+}
+.link1 {
   text-decoration: none;
   color: #aaaaaa;
   font-size: 6vw;
 }
-.link2:hover {
+.link1:hover {
   color: #dddddd;
 }
 
@@ -227,5 +232,19 @@ body {
   #projeto2-seta,
   #projeto3-seta {
     transform: translate(311px, 218px) scale(0.3);
+  }
+}
+@media (min-width: 720px) and (max-width: 1024px) {
+  #totor-seta,
+  #projeto2-seta,
+  #projeto3-seta {
+    transform: translate(218px, 218px) scale(0.3);
+  }
+}
+@media (max-width: 719px) {
+  #totor-seta,
+  #projeto2-seta,
+  #projeto3-seta {
+    transform: translate(198px, 198px) scale(0.6);
   }
 }
