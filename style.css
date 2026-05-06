@@ -96,12 +96,6 @@ body {
 .espaco2 {
   margin-bottom: 10vw;
 }
-.hero {
-  width: 100%;
-  height: 100lvh;
-  overflow: hidden;
-  position: relative;
-}
 .projeto {
   width: calc(100% - 40px);
   aspect-ratio: 16 / 9;
@@ -121,6 +115,24 @@ body {
     aspect-ratio: 1 / 1;
   }
 }
+.hero {
+  width: 60vw;
+  height: auto;
+  overflow: hidden;
+  position: flex;
+  margin-left: 3vw;
+  margin-top: -3vw; 
+  margin-bottom: 6vw;
+}
+@media (min-width: 1025px) {
+  .hero {
+  width: 50%;
+  height: 100lvh;  
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  }
+}  
 .logo-uminimo {
   width: 60vw;
   height: auto;
