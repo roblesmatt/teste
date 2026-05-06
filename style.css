@@ -116,22 +116,12 @@ body {
   }
 }
 .hero {
-  width: 60vw;
-  height: auto;
+  width: 50%;
+  height: 100dvh;
   overflow: hidden;
-  position: flex;
-  margin-left: 3vw;
-  margin-top: -3vw;
-  margin-bottom: 6vw;
+  position: relative;
+  margin: auto;
 }
-.hero {
-    width: 50%;
-    height: 100lvh;
-    overflow: hidden;
-    position: relative;
-    margin: auto;
-  }
-  
 .logo-uminimo {
   width: 60vw;
   height: auto;
