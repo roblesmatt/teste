@@ -121,18 +121,18 @@ body {
   overflow: hidden;
   position: flex;
   margin-left: 3vw;
-  margin-top: -3vw; 
+  margin-top: -3vw;
   margin-bottom: 6vw;
 }
 @media (min-width: 1025px) {
   .hero {
-  width: 50%;
-  height: 100lvh;  
-  overflow: hidden;
-  position: relative;
-  margin: auto;
+    width: 50%;
+    height: 100lvh;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
   }
-}  
+}
 .logo-uminimo {
   width: 60vw;
   height: auto;
