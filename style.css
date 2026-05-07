@@ -189,7 +189,7 @@ body {
   display: block;
 }
 .botao-wrapper1 {
-  margin-left: 10px;
+  margin-left: 2vw;
 }
 .setas-container {
   display: flex;
@@ -207,11 +207,11 @@ body {
   transition: transform 0.1s steps(4);
 }
 .link {
-  font-size: clamp(1rem, 5vw, 3rem);
+  font-size: 6vw;
   color: #dddddd;
   text-decoration: none;
   padding: 0px;
-  padding-top: 0px;
+  padding-bottom: 2vw;
   display: inline-flex;
   align-items: center;
 }
@@ -235,14 +235,6 @@ body {
 }
 .container-links a {
   flex: 1 0 40%;
-}
-.link1 {
-  text-decoration: none;
-  color: #aaaaaa;
-  font-size: 6vw;
-}
-.link1:hover {
-  color: #dddddd;
 }
 
 @media (min-width: 1025px) {
