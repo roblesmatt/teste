@@ -187,8 +187,12 @@ body {
   height: 1.2em;
   overflow: hidden;
   display: block;
+}
+.botao-wrapper {
   padding: 100% 0;
+  margin: 20px;
   box-sizing: content-box;
+  display: block;
 }
 .botao-wrapper1 {
   margin-left: 2vw;
