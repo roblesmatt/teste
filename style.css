@@ -48,7 +48,7 @@ body {
 .nome1 {
   font-size: 5vw;
   color: #aaaaaa;
-  margin-top: -35vw;
+  margin-top: -38vw;
 }
 .titulo {
   font-size: 6vw;
@@ -194,7 +194,6 @@ body {
 }
 .botao-wrapper {
   padding: 100% 0;
-  margin: 20px;
   box-sizing: content-box;
   display: block;
 }
@@ -232,7 +231,7 @@ body {
   color: #aaaaaa;
 }
 .texto-email:hover {
-  border-bottom: 0.5vw solid #000000;
+  border-bottom: 0.5vw solid transparent;
 }
 .link:hover .setas-container {
   transform: translateX(-4.8em);
