@@ -36,15 +36,6 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-.robles svg,
-.grid-layouts svg,
-.projeto svg,
-.hero svg,
-.logo-uminimo svg {
-  image-rendering: -webkit-optmize-contrast;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
-}
 
 .texto {
   width: 100%;
