@@ -36,7 +36,11 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-.robles svg, .grid-layouts svg, .projeto svg, .hero svg, .logo-uminimo svg {
+.robles svg,
+.grid-layouts svg,
+.projeto svg,
+.hero svg,
+.logo-uminimo svg {
   image-rendering: -webkit-optmize-contrast;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
@@ -191,13 +195,11 @@ body {
   height: 1.2em;
   overflow: hidden;
   display: block;
-
 }
 .botao-wrapper {
   padding: 100% 0;
   box-sizing: content-box;
   display: block;
-
 }
 .botao-wrapper1 {
   margin-left: 2vw;
