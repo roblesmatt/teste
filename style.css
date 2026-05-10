@@ -36,6 +36,11 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+.robles svg, .grid-layouts svg, .projeto svg, .hero svg {
+  image-rendering: -webkit-optmize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
 
 .texto {
   width: 100%;
@@ -239,7 +244,7 @@ body {
 }
 .container-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 .container-links a {
