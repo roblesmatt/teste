@@ -244,9 +244,9 @@ body {
   border-bottom: 0.5vw solid #dddddd;
   transition: border-color 0.1s;
 }
-.link:hover .texto-email {
+.link:hover .texto-email{
   color: #aaaaaa;
-  border-bottom-color: transparent;
+  border-bottom-color: transparent !important;
 }
 .texto-email:hover {
   border-bottom: 0.5vw solid transparent;
@@ -257,7 +257,7 @@ body {
 }
 .container-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 .container-links a {
