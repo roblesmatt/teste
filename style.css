@@ -256,7 +256,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0 50px;
+  gap: 0 20px;
 }
 .container-links a {
   flex: 1 0 40%;
