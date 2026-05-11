@@ -193,13 +193,7 @@ body {
     cursor: pointer;
     overflow: visible;
 }
-.botao-wrapper1 {
-  width: 1.2em;
-  height: 1.2em;
-  overflow: hidden;
-  display: inline-block;
-  margin-left: 2vw;
-}
+
 .botao-wrapper::after, .botao-wrapper1::after {
     content: "";
     position: absolute;
