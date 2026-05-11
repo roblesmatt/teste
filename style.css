@@ -236,6 +236,7 @@ body {
   font-size: 6vw;
   color: #dddddd;
   text-decoration: none;
+  padding: 1vw;
   display: inline-flex;
   align-items: center;
 }
@@ -256,9 +257,8 @@ body {
 }
 .container-links {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 2vw;
 }
 .container-links a {
   flex: 1 0 40%;
