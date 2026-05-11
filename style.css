@@ -17,7 +17,7 @@ html,
 body {
   background-color: #000000;
   color: #dddddd;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   font-family: "Inter", sans-serif;
   font-weight: 700;
@@ -35,6 +35,11 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+* {
+  outline: 1px solid red !important;
+  outline-offset: -1px;
 }
 
 .texto {
