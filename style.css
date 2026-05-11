@@ -218,7 +218,7 @@ body {
 }
 .setas-container {
     display: flex;
-    width: calc(var(--tamanho-seta) * 5);;
+    width: 500%;
     height: 100%;
 }
 .setas-container svg {
@@ -226,11 +226,7 @@ body {
     height: 100%;
     display: block;
 }
-.botao-wrapper:hover .setas-container,
-.botao-wrapper1:hover .setas-container {
-    transform: translateX(calc(-1 * var(--tamanho-seta) * 4)); 
-    transition: transform 0.1s steps(4);
-}
+
 .link {
   font-size: 6vw;
   color: #dddddd;
