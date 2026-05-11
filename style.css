@@ -236,11 +236,14 @@ body {
   font-size: 6vw;
   color: #dddddd;
   text-decoration: none;
+  padding: 0;
   display: inline-flex;
   align-items: center;
+  margin-bottom: 2vw;
 }
 .texto-email {
   border-bottom: 0.5vw solid #dddddd;
+  transition: border-color 0.1s;
 }
 .link:hover .texto-email {
   color: #aaaaaa;
