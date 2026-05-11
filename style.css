@@ -24,7 +24,6 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   overflow-y: auto;
-  position: relative;
 }
 * {
   margin: 0;
@@ -36,11 +35,6 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-* {
-  outline: 1px solid red !important;
-  outline-offset: -1px;
 }
 
 .texto {
@@ -244,12 +238,9 @@ body {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  margin-bottom: 2vw;
-  max-width: fit-content;
 }
 .texto-email {
   border-bottom: 0.5vw solid #dddddd;
-  transition: border-color 0.1s;
 }
 .link:hover .texto-email {
   color: #aaaaaa;
