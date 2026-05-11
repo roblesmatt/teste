@@ -193,38 +193,14 @@ body {
     cursor: pointer;
     overflow: visible;
 }
+.botao-wrapper1 {
+  width: 1.2em;
+  height: 1.2em;
+  overflow: hidden;
+  display: inline-block;
+  margin-left: 2vw;
+}
 
-.botao-wrapper::after, .botao-wrapper1::after {
-    content: "";
-    position: absolute;
-    top: -20px;
-    bottom: -20px;
-    left: -30px; 
-    right: -30px;
-    z-index: 10;
-}
-.setas-clip {
-    width: var(--tamanho-seta);
-    height: var(--tamanho-seta);
-    overflow: hidden;
-    position: relative;
-    display: block;
-}
-.setas-container {
-    display: flex;
-    width: 500%;
-    height: 100%;
-}
-.setas-container svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-.botao-wrapper:hover .setas-container,
-.botao-wrapper1:hover .setas-container {
-    transform: translateX(calc(-1 * var(--tamanho-seta) * 4)); 
-    transition: transform 0.1s steps(4);
-}
 .link {
   font-size: 6vw;
   color: #dddddd;
