@@ -258,7 +258,6 @@ body {
 .container-links {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
 }
 .container-links a {
   flex: 1 0 40%;
