@@ -180,6 +180,13 @@ body {
   }
 }
 
+.botao-wrapper1 {
+  width: 1.2em;
+  height: 1.2em;
+  overflow: hidden;
+  display: inline-block;
+  margin-left: 2vw;
+}
 :root {
   --tamanho-seta: 24px; 
 }
@@ -193,14 +200,7 @@ body {
     cursor: pointer;
     overflow: visible;
 }
-.botao-wrapper1 {
-  width: 1.2em;
-  height: 1.2em;
-  overflow: hidden;
-  display: inline-block;
-  margin-left: 2vw;
-}
-.botao-wrapper::after, .botao-wrapper1::after {
+.botao-wrapper::after {
     content: "";
     position: absolute;
     top: -20px;
@@ -226,7 +226,10 @@ body {
     height: 100%;
     display: block;
 }
-
+.botao-wrapper:hover .setas-container {
+    transform: translateX(calc(-1 * var(--tamanho-seta) * 4)); 
+    transition: transform 0.1s steps(4);
+}
 .link {
   font-size: 6vw;
   color: #dddddd;
@@ -238,9 +241,8 @@ body {
 }
 .texto-email {
   border-bottom: 0.5vw solid #dddddd;
-  transition: border-color 0.1s;
 }
-.link:hover .texto-email{
+.link:hover .texto-email {
   color: #aaaaaa;
   border-bottom-color: transparent;
 }
