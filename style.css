@@ -245,6 +245,7 @@ body {
   display: inline-flex;
   align-items: center;
   margin-bottom: 2vw;
+  max-width: fit-content;
 }
 .texto-email {
   border-bottom: 0.5vw solid #dddddd;
