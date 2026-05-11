@@ -236,9 +236,9 @@ body {
   font-size: 6vw;
   color: #dddddd;
   text-decoration: none;
-  padding: 1vw;
   display: inline-flex;
   align-items: center;
+  margin-bottom: 2vw;
 }
 .texto-email {
   border-bottom: 0.5vw solid #dddddd;
