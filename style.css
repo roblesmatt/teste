@@ -151,14 +151,14 @@ body {
 
 .menu-navegacao {
   position: fixed;
-  width: 280px;
+  width: 240px;
   height: 60px;
   background-color: #000000;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px 7px 10px 0px;
+  padding: 10px 8px 10px 0px;
   z-index: 1000;
 }
 .menu-navegacao a,
@@ -170,7 +170,7 @@ body {
 }
 @media (min-width: 481px) {
   .menu-navegacao {
-    right: 40px;
+    right: 60px;
     bottom: 40px;
   }
 }
