@@ -151,7 +151,7 @@ body {
 
 .menu-navegacao {
   position: fixed;
-  width: 240px;
+  width: 260px;
   height: 60px;
   background-color: #000000;
   border-radius: 10px;
@@ -206,10 +206,10 @@ body {
 .botao-wrapper::after {
   content: "";
   position: absolute;
-  top: -20px;
-  bottom: -20px;
-  left: -30px;
-  right: -30px;
+  top: -18px;
+  bottom: -18px;
+  left: -18px;
+  right: -18px;
   z-index: 10;
 }
 .setas-clip {
