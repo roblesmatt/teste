@@ -53,13 +53,11 @@ body {
 .titulo {
   font-size: 6vw;
   line-height: 1.2;
-  margin-bottom: 10vw;
 }
 .descricao {
   font-size: clamp(1rem, 5vw, 3rem);
   line-height: 1.3;
   color: #aaaaaa;
-  margin-top: 10vw;
 }
 .descricao strong {
   color: #dddddd;
