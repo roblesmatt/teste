@@ -15,7 +15,7 @@
 
 html,
 body {
-  background-color: #161616;
+  background-color: #141414;
   color: #dddddd;
   width: 100%;
   height: auto;
@@ -146,11 +146,11 @@ body {
 
 .menu-navegacao {
   position: fixed;
-  width: 270px;
+  width: 280px;
   height: 60px;
-  background-color: #161616;
+  background-color: #141414;
   border-radius: 10px;
-  border: 1px solid #ffffff1a;
+  border: 1px solid #ffffff30;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -166,14 +166,14 @@ body {
 }
 @media (min-width: 481px) {
   .menu-navegacao {
-    right: 60px;
-    bottom: 40px;
+    right: 40px;
+    bottom: 20px;
   }
 }
 @media (max-width: 480px) {
   .menu-navegacao {
     right: 40px;
-    bottom: 40px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
   }
