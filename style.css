@@ -141,16 +141,15 @@ body {
   overflow: hidden;
   position: flex;
   margin: 20px auto;
-  margin-bottom: 100px;
+  margin-bottom: 90px;
 }
 
 .menu-navegacao {
   position: fixed;
   width: 280px;
   height: 60px;
-  background-color: #141414;
+  background-color: #000000;
   border-radius: 10px;
-  border: 1px solid #ffffff30;
   display: flex;
   align-items: center;
   justify-content: space-around;
