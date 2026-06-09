@@ -264,20 +264,20 @@ body {
   #totor-seta,
   #projeto2-seta,
   #projeto3-seta {
-    transform: translate(311px, 218px) scale(0.3);
+    transform: translate(404px, 218px) scale(0.3);
   }
 }
 @media (min-width: 720px) and (max-width: 1024px) {
   #totor-seta,
   #projeto2-seta,
   #projeto3-seta {
-    transform: translate(218px, 218px) scale(0.3);
+    transform: translate(312px, 218px) scale(0.3);
   }
 }
 @media (max-width: 719px) {
   #totor-seta,
   #projeto2-seta,
   #projeto3-seta {
-    transform: translate(198px, 198px) scale(0.6);
+    transform: translate(292px, 198px) scale(0.6);
   }
 }
