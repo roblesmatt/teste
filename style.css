@@ -15,7 +15,7 @@
 
 html,
 body {
-  background-color: #000000;
+  background-color: #1c1c1c;
   color: #dddddd;
   width: 100%;
   height: auto;
@@ -148,7 +148,7 @@ body {
   position: fixed;
   width: 280px;
   height: 60px;
-  background-color: #1c1c1c;
+  background-color: #000000;
   border-radius: 10px;
   display: flex;
   align-items: center;
