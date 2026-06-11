@@ -243,25 +243,18 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
 
 <script>
 (function() {
-  // Seleciona todos os elementos que começam com "projeto" no data-traduzir
-  const elementosSvg = document.querySelectorAll('[data-traduzir^="projeto"]');
-
-  elementosSvg.forEach(textoSvg => {
-    const nomeProjeto = textoSvg.getAttribute('data-traduzir'); // Pega "projeto1", "projeto2"...
-    const textoHtml = document.getElementById(`fonte-${nomeProjeto}`); // Pega a div correspondente
-
-    if (textoSvg && textoHtml) {
-      // Cria o observador individual para cada card
-      const observer = new MutationObserver(() => {
-        textoSvg.textContent = textoHtml.textContent;
-      });
-
-      observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
-      
-      // Aplica o texto inicial/traduzido
-      textoSvg.textContent = textoHtml.textContent;
-    }
-  });
+const elementosSvg = document.querySelectorAll('[data-traduzir^="projeto"]');
+elementosSvg.forEach(textoSvg => {
+const nomeProjeto = textoSvg.getAttribute('data-traduzir'); // Pega "projeto1", "projeto2"...
+const textoHtml = document.getElementById(`fonte-${nomeProjeto}`); // Pega a div correspondente
+if (textoSvg && textoHtml) {
+const observer = new MutationObserver(() => {
+textoSvg.textContent = textoHtml.textContent;
+});
+observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
+textoSvg.textContent = textoHtml.textContent;
+}
+});
 })();
 </script>
 </body>
