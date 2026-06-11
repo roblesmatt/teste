@@ -100,7 +100,7 @@ var tl=ks.animate('#totor-fundo',[{p:'fill',t:[0,33],v:['#ffffff1a','#aa6a27'],e
 '#totor-quadrado',[{p:'anchorX',t:[0,3000,6000],v:[-50,-92,-51],e:[[0],[0],[0]]},{p:'anchorY',t:[0,3000,6000],v:[-50,-88,-53],e:[[0],[0],[0]]},{p:'visibility',t:[0,3000,6000,10000],v:['hidden','visible','hidden','hidden'],e:[[3,1],[3,1],[3,1],[3,1]],fill:[2,'hidden']},{p:'width',t:[0,3000,6000],v:[100,184,102],e:[[0],[0],[0]]},{p:'height',t:[0,3000,6000],v:[100,176,106],e:[[0],[0],[0]]}],
 '#totor-triangulo',[{p:'visibility',t:[0,6000,10000],v:['hidden','visible','visible'],e:[[3,1],[3,1],[3,1]],fill:[2,'hidden']},{p:'d',t:[0,6000,10000],v:[&quot;path('M0,0L50,100L-50,100Z')&quot;,&quot;path('M0,1.3L53.7,98.7L-53.7,98.7Z')&quot;,&quot;path('M9,10L47,79L-29,79Z')&quot;],e:[[0],[1,0,0,1,1],[0]]}],
 '#totor-seta',[{p:'visibility',t:[0,33,9967],v:['hidden','visible','hidden'],e:[[3,1],[3,1],[3,1]],fill:[2,'hidden']}],
-'#totor-_a1',[{p:'anchorX',t:[0,33,67,100,133],v:[-17.5,-17.9,-127.5,-207.5,-277.5],e:[[1,.6,0,.8,.5],[1,.2,.5,.3,1],[1,.6,0,.4,1],[1,.6,0,.4,1],[1,.6,0,.4,1]]},{p:'anchorY',t:[0,33,67,100,133],v:[-21.5,-21.5,-21.5,-21.5,-21.5],e:[[1,.6,0,.8,.5],[1,.2,.5,.3,1],[1,.6,0,.4,1],[1,.6,0,.4,1],[1,.6,0,.4,1]]},{p:'width',t:[0,33,67,100,133],v:[60,60.4,170,250,320],e:[[1,.6,0,.8,.5],[1,.2,.5,.3,1],[1,.6,0,.4,1],[1,.6,0,.4,1],[1,.6,0,.4,1]]}],
+'#totor-_a1',[{p:'anchorX',t:[0,33,67,100,133],v:[-17.5,-17.9,-127.5,-207.5,-287.5],e:[[1,.6,0,.8,.5],[1,.2,.5,.3,1],[1,.6,0,.4,1],[1,.6,0,.4,1],[1,.6,0,.4,1]]},{p:'anchorY',t:[0,33,67,100,133],v:[-21.5,-21.5,-21.5,-21.5,-21.5],e:[[1,.6,0,.8,.5],[1,.2,.5,.3,1],[1,.6,0,.4,1],[1,.6,0,.4,1],[1,.6,0,.4,1]]},{p:'width',t:[0,33,67,100,133],v:[60,60.4,170,250,330],e:[[1,.6,0,.8,.5],[1,.2,.5,.3,1],[1,.6,0,.4,1],[1,.6,0,.4,1],[1,.6,0,.4,1]]}],
 '#totor-_a2',[{p:'mpath',t:[0,133],v:['0%','100%'],e:[[1,.6,0,.4,1],[1,.6,0,.4,1]],mp:'M-7.6,9.3L-6,9.3'},{p:'visibility',t:[0,133],v:['hidden','visible'],e:[[3,1],[3,1]],fill:[2,'hidden']},{p:'fill',t:[0,33,133],v:['#000000','#aaaaaa','#ffffff'],e:[[1,.4,.1,.7,.4],[1,.4,.3,.3,1],[1,.6,0,.4,1]]}],
 '#totor-_a3',[{p:'visibility',t:[0,133],v:['hidden','visible'],e:[[3,1],[3,1]],fill:[2,'hidden']}],
 '#totor-_a4',[{p:'visibility',t:[0,133],v:['hidden','visible'],e:[[3,1],[3,1]],fill:[2,'hidden']}],
@@ -229,27 +229,21 @@ document.addEventListener('mousedown', () => {
 if (window.getSelection) window.getSelection().removeAllRanges();});
 </script>
 
-  <div id="fonte-traducao-projeto" style="display: none;">ver projeto</div>
+<div id="fonte-traducao-projeto" style="display: none;">ver projeto</div>
 
 <script>
-  (function() {
-    const textoSvg = document.querySelector('[data-traduzir="ver-projeto"]');
-    const textoHtml = document.getElementById('fonte-traducao-projeto');
+(function() {
+const textoSvg = document.querySelector('[data-traduzir="ver-projeto"]');
+const textoHtml = document.getElementById('fonte-traducao-projeto');
 
-    if (textoSvg && textoHtml) {
-      // Cria um observador que detecta quando o Google Tradutor altera o idioma da página
-      const observer = new MutationObserver(() => {
-        textoSvg.textContent = textoHtml.textContent;
-      });
-
-      observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
-      
-      // Executa uma vez no carregamento
-      textoSvg.textContent = textoHtml.textContent;
-    }
-  })();
-</script>
-
+if (textoSvg && textoHtml) {
+const observer = new MutationObserver(() => {
+textoSvg.textContent = textoHtml.textContent;
+});
+observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
+textoSvg.textContent = textoHtml.textContent;
+}
+})();
 </script>
 </body>
 </html>
