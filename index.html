@@ -248,66 +248,73 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
     elementosSvg.forEach(textoSvg => {
         const nomeProjeto = textoSvg.getAttribute('data-traduzir');
         const textoHtml = document.getElementById(`fonte-${nomeProjeto}`);
+        
         const svgPai = textoSvg.closest('svg');
+        const retangulo = svgPai ? svgPai.querySelector('.fundo-animado') : null;
 
-        if (textoSvg && textoHtml && svgPai) {
-            const retanguloOriginal = svgPai.querySelector('.fundo-animado');
-            const extensor = svgPai.querySelector('.extensor-idioma');
-
-            const calibrarExtensao = () => {
-                // 1. Mede o tamanho em Português
+        if (textoSvg && textoHtml) {
+            // Seus valores exatos do Keyshape no frame 0.133
+            const LARGURA_ORIGINAL_KEYSHAPE = 108.87; 
+            const X_ORIGINAL_KEYSHAPE = 311.63; 
+            
+            const ajustarWidthECoordenadas = () => {
+                // 1. Mede o tamanho base em Português
                 textoSvg.textContent = "ver projeto";
                 const larguraPt = textoSvg.getBBox().width;
 
                 // 2. Aplica o texto traduzido pelo Google
                 textoSvg.textContent = textoHtml.textContent;
                 
-                // 3. Mede o novo tamanho em tempo real
-                const visibilidadeOriginal = textoSvg.style.visibility;
-                textoSvg.style.visibility = 'visible';
-                const larguraTraduzido = textoSvg.getBBox().width;
-                textoSvg.style.visibility = visibilidadeOriginal;
+                if (retangulo) {
+                    const visibilidadeOriginal = textoSvg.style.visibility;
+                    textoSvg.style.visibility = 'visible';
+                    const larguraTraduzido = textoSvg.getBBox().width;
+                    textoSvg.style.visibility = visibilidadeOriginal;
 
-                // 4. Calcula a sobra necessária
-                const sobraPixels = larguraTraduzido - larguraPt;
+                    // 3. Calcula a diferença de pixels do novo idioma
+                    const diferencaDePixels = larguraTraduzido - larguraPt;
 
-                if (sobraPixels > 0 && retanguloOriginal && extensor) {
-                    // Pegamos a posição X e Y atuais do retângulo animado para alinhar o extensor
-                    const xOriginal = parseFloat(retanguloOriginal.getAttribute('x')) || 0;
-                    const yOriginal = parseFloat(retanguloOriginal.getAttribute('y')) || 0;
-                    
-                    // O extensor se posiciona exatamente à esquerda do botão original e cresce o necessário
-                    extensor.setAttribute('x', xOriginal - sobraPixels);
-                    extensor.setAttribute('y', yOriginal);
-                    extensor.setAttribute('width', sobraPixels + 15); // 15px de margem de segurança
-                    extensor.style.display = 'block';
-                } else if (extensor) {
-                    // Se estiver em português, o extensor some e fica com largura zero
-                    extensor.setAttribute('width', '0');
-                    extensor.style.display = 'none';
+                    if (diferencaDePixels > 0) {
+                        // O retângulo precisa ganhar o extra mais uma margem de segurança para o Stroke não colar nas letras
+                        const novaLarguraFinal = LARGURA_ORIGINAL_KEYSHAPE + diferencaDePixels + 16;
+                        
+                        // Para continuar centralizado, movemos o X para a esquerda pela metade do crescimento
+                        const novoXFinal = X_ORIGINAL_KEYSHAPE - ((diferencaDePixels + 16) / 2);
+
+                        // 4. ALTERAÇÃO DAS COORDENADAS INTERNAS DO KEYSHAPE (Frame 0.133 / Índice 4)
+                        // Modifica o Width no frame final
+                        if (retangulo.ks && retangulo.ks.width && retangulo.ks.width.keys && retangulo.ks.width.keys[4]) {
+                            retangulo.ks.width.keys[4].value = novaLarguraFinal;
+                        }
+                        // Modifica a posição X no frame final
+                        if (retangulo.ks && retangulo.ks.x && retangulo.ks.x.keys && retangulo.ks.x.keys[4]) {
+                            retangulo.ks.x.keys[4].value = novoXFinal;
+                        }
+
+                        // Força os atributos do SVG caso a timeline já tenha renderizado o fim
+                        retangulo.setAttribute('width', novaLarguraFinal);
+                        retangulo.setAttribute('x', novoXFinal);
+
+                    } else {
+                        // Se voltar para o Português, restaura os padrões exatos do Keyshape
+                        if (retangulo.ks && retangulo.ks.width && retangulo.ks.width.keys && retangulo.ks.width.keys[4]) {
+                            retangulo.ks.width.keys[4].value = LARGURA_ORIGINAL_KEYSHAPE;
+                        }
+                        if (retangulo.ks && retangulo.ks.x && retangulo.ks.x.keys && retangulo.ks.x.keys[4]) {
+                            retangulo.ks.x.keys[4].value = X_ORIGINAL_KEYSHAPE;
+                        }
+                        retangulo.setAttribute('width', LARGURA_ORIGINAL_KEYSHAPE);
+                        retangulo.setAttribute('x', X_ORIGINAL_KEYSHAPE);
+                    }
                 }
             };
 
-            // Monitora o Google Tradutor agir na página
-            const observer = new MutationObserver(calibrarExtensao);
+            // Monitora o Google Tradutor
+            const observer = new MutationObserver(ajustarWidthECoordenadas);
             observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
             
-            // Executa na hora que a página abre
-            calibrarExtensao();
-
-            // Sincroniza em tempo real com o movimento da timeline do Keyshape
-            if (retanguloOriginal) {
-                const atualizarNoLoop = () => {
-                    if (extensor && extensor.style.display === 'block') {
-                        const xOriginal = parseFloat(retanguloOriginal.getAttribute('x')) || 0;
-                        const widthOriginal = parseFloat(retanguloOriginal.getAttribute('width')) || 0;
-                        // Ajusta a posição para acompanhar o crescimento da barra
-                        extensor.setAttribute('x', xOriginal - (parseFloat(extensor.getAttribute('width')) - 15));
-                    }
-                    requestAnimationFrame(atualizarNoLoop);
-                };
-                requestAnimationFrame(atualizarNoLoop);
-            }
+            // Executa no carregamento
+            ajustarWidthECoordenadas();
         }
     });
 })();
