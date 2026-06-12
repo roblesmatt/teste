@@ -243,33 +243,72 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
 
 <script>
 (function() {
-    // 1. Captura todos os textos com o atributo data-traduzir correto
+    // 1. Captura os textos que serão monitorados
     const elementosSvg = document.querySelectorAll('[data-traduzir^="projeto"]');
     
     elementosSvg.forEach(textoSvg => {
-        const nomeProjeto = textoSvg.getAttribute('data-traduzir'); 
-        const textoHtml = document.getElementById(`fonte-${nomeProjeto}`); 
-
-        // [AQUI] O comando que encontra o retângulo com a classe 'fundo-animado' dentro do mesmo SVG
+        const nomeProjeto = textoSvg.getAttribute('data-traduzir');
+        const textoHtml = document.getElementById(`fonte-${nomeProjeto}`);
+        
         const svgPai = textoSvg.closest('svg');
+        // Localiza o retângulo com a classe fundo-animado
         const retangulo = svgPai ? svgPai.querySelector('.fundo-animado') : null;
 
         if (textoSvg && textoHtml) {
-            // 2. Função direta e leve que atualiza o texto no SVG
-            const traduzir = () => {
+            const LARGURA_ORIGINAL_KEYSHAPE = 108.87; // Seu valor exato no frame 0.133
+            
+            const ajustarWidthAnimado = () => {
+                // Mede o tamanho base em Português
+                textoSvg.textContent = "ver projeto";
+                const larguraPt = textoSvg.getBBox().width;
+
+                // Aplica a tradução vinda do Google
                 textoSvg.textContent = textoHtml.textContent;
                 
-                // Se um dia você precisar testar se o script está achando o retângulo,
-                // você pode descomentar a linha abaixo para ver no console do navegador:
-                // console.log('Retângulo encontrado:', retangulo);
+                if (retangulo) {
+                    // Força visibilidade rápida para o navegador conseguir medir os pixels
+                    const visibilidadeOriginal = textoSvg.style.visibility;
+                    textoSvg.style.visibility = 'visible';
+                    const larguraTraduzido = textoSvg.getBBox().width;
+                    textoSvg.style.visibility = visibilidadeOriginal;
+
+                    // Calcula a diferença gerada pelo novo idioma
+                    const diferencaDePixels = larguraTraduzido - larguraPt;
+
+                    if (diferencaDePixels > 0) {
+                        const novaLarguraFinal = LARGURA_ORIGINAL_KEYSHAPE + diferencaDePixels;
+
+                        // MÁGICA DO KEYSHAPE: Altera o atributo de animação interna do Keyshape para o frame final (0.133)
+                        // Isso altera o destino da timeline sem estragar os frames 0.000, 0.033 e 0.100!
+                        if (retangulo.ks && retangulo.ks.width) {
+                            // Se a API interna do Keyshape estiver exposta diretamente no elemento
+                            retangulo.ks.width.keys[3].value = novaLarguraFinal; 
+                        } else {
+                            // Backup de segurança via CSS inline persistente com prioridade máxima
+                            retangulo.style.setProperty('width', `${novaLarguraFinal}px`, 'important');
+                        }
+                        
+                        // Garante a renderização do SVG nativo
+                        retangulo.setAttribute('width', novaLarguraFinal);
+
+                    } else {
+                        // Se voltar para o idioma original (PT), restaura os 108.87px originais
+                        if (retangulo.ks && retangulo.ks.width) {
+                            retangulo.ks.width.keys[3].value = LARGURA_ORIGINAL_KEYSHAPE;
+                        } else {
+                            retangulo.style.removeProperty('width');
+                        }
+                        retangulo.setAttribute('width', LARGURA_ORIGINAL_KEYSHAPE);
+                    }
+                }
             };
 
-            // 3. Observador que detecta quando o Google Tradutor altera o idioma da DIV oculta
-            const observer = new MutationObserver(traduzir);
+            // Monitora o Google Tradutor agindo nas DIVs ocultas
+            const observer = new MutationObserver(ajustarWidthAnimado);
             observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
             
-            // 4. Executa imediatamente no carregamento da página
-            traduzir();
+            // Roda assim que a página carrega
+            ajustarWidthAnimado();
         }
     });
 })();
