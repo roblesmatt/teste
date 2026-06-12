@@ -281,3 +281,13 @@ body {
     transform: translate(292px, 198px) scale(0.6);
   }
 }
+
+/* Estado normal do retângulo (Mouse fora) - Volta com transição limpa */
+.fundo-animado {
+    transition: width 0.1s linear, x 0.1s linear !important;
+}
+
+/* Quando entra em Hover, desativa transições simples para aceitar o Keyframe forçado */
+svg:hover .fundo-animado {
+    transition: none !important;
+}

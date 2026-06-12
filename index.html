@@ -245,76 +245,71 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
 (function() {
     const elementosSvg = document.querySelectorAll('[data-traduzir^="projeto"]');
     
+    // Cria uma tag <style> interna para injetar os @keyframes dinamicamente
+    const estiloDinamico = document.createElement('style');
+    document.head.appendChild(estiloDinamico);
+    
     elementosSvg.forEach(textoSvg => {
         const nomeProjeto = textoSvg.getAttribute('data-traduzir');
         const textoHtml = document.getElementById(`fonte-${nomeProjeto}`);
-        
         const svgPai = textoSvg.closest('svg');
         const retangulo = svgPai ? svgPai.querySelector('.fundo-animado') : null;
 
-        if (textoSvg && textoHtml) {
-            // Seus valores exatos do Keyshape no frame 0.133
-            const LARGURA_ORIGINAL_KEYSHAPE = 108.87; 
-            const X_ORIGINAL_KEYSHAPE = 311.63; 
-            
-            const ajustarWidthECoordenadas = () => {
-                // 1. Mede o tamanho base em Português
+        if (textoSvg && textoHtml && retangulo) {
+            // Seus valores exatos colhidos da timeline do Keyshape
+            const X_INICIAL = 390.30;
+            const W_INICIAL = 30.20;
+            const X_FINAL_PT = 311.63;
+            const W_FINAL_PT = 108.87;
+
+            const recalcularAnimacaoCSS = () => {
+                // Mede o tamanho padrão em Português
                 textoSvg.textContent = "ver projeto";
                 const larguraPt = textoSvg.getBBox().width;
 
-                // 2. Aplica o texto traduzido pelo Google
+                // Aplica a tradução atual do Google
                 textoSvg.textContent = textoHtml.textContent;
                 
-                if (retangulo) {
-                    const visibilidadeOriginal = textoSvg.style.visibility;
-                    textoSvg.style.visibility = 'visible';
-                    const larguraTraduzido = textoSvg.getBBox().width;
-                    textoSvg.style.visibility = visibilidadeOriginal;
+                const visibilidadeOriginal = textoSvg.style.visibility;
+                textoSvg.style.visibility = 'visible';
+                const larguraTraduzido = textoSvg.getBBox().width;
+                textoSvg.style.visibility = visibilidadeOriginal;
 
-                    // 3. Calcula a diferença de pixels do novo idioma
-                    const diferencaDePixels = larguraTraduzido - larguraPt;
+                const diferencaDePixels = larguraTraduzido - larguraPt;
 
-                    if (diferencaDePixels > 0) {
-                        // O retângulo precisa ganhar o extra mais uma margem de segurança para o Stroke não colar nas letras
-                        const novaLarguraFinal = LARGURA_ORIGINAL_KEYSHAPE + diferencaDePixels + 16;
-                        
-                        // Para continuar centralizado, movemos o X para a esquerda pela metade do crescimento
-                        const novoXFinal = X_ORIGINAL_KEYSHAPE - ((diferencaDePixels + 16) / 2);
+                // Valores padrão se o idioma for o Português
+                let wFinalCalculado = W_FINAL_PT;
+                let xFinalCalculado = X_FINAL_PT;
 
-                        // 4. ALTERAÇÃO DAS COORDENADAS INTERNAS DO KEYSHAPE (Frame 0.133 / Índice 4)
-                        // Modifica o Width no frame final
-                        if (retangulo.ks && retangulo.ks.width && retangulo.ks.width.keys && retangulo.ks.width.keys[4]) {
-                            retangulo.ks.width.keys[4].value = novaLarguraFinal;
-                        }
-                        // Modifica a posição X no frame final
-                        if (retangulo.ks && retangulo.ks.x && retangulo.ks.x.keys && retangulo.ks.x.keys[4]) {
-                            retangulo.ks.x.keys[4].value = novoXFinal;
-                        }
-
-                        // Força os atributos do SVG caso a timeline já tenha renderizado o fim
-                        retangulo.setAttribute('width', novaLarguraFinal);
-                        retangulo.setAttribute('x', novoXFinal);
-
-                    } else {
-                        // Se voltar para o Português, restaura os padrões exatos do Keyshape
-                        if (retangulo.ks && retangulo.ks.width && retangulo.ks.width.keys && retangulo.ks.width.keys[4]) {
-                            retangulo.ks.width.keys[4].value = LARGURA_ORIGINAL_KEYSHAPE;
-                        }
-                        if (retangulo.ks && retangulo.ks.x && retangulo.ks.x.keys && retangulo.ks.x.keys[4]) {
-                            retangulo.ks.x.keys[4].value = X_ORIGINAL_KEYSHAPE;
-                        }
-                        retangulo.setAttribute('width', LARGURA_ORIGINAL_KEYSHAPE);
-                        retangulo.setAttribute('x', X_ORIGINAL_KEYSHAPE);
-                    }
+                // Se o idioma for maior (como o Inglês), calcula a expansão mantendo o centro
+                if (diferencaDePixels > 0) {
+                    wFinalCalculado = W_FINAL_PT + diferencaDePixels + 16; // 16px para o Stroke respirar nas bordas
+                    xFinalCalculado = X_FINAL_PT - ((diferencaDePixels + 16) / 2); // Recua o X na proporção exata
                 }
+
+                // Injeta as animações lineares baseadas na sua timeline de 0.133s
+                estiloDinamico.innerHTML += `
+                    @keyframes expandir-${nomeProjeto} {
+                        0% { width: ${W_INICIAL}px; x: ${X_INICIAL}px; }
+                        25% { width: ${W_INICIAL}px; x: ${X_INICIAL}px; }
+                        100% { width: ${wFinalCalculado}px; x: ${xFinalCalculado}px; }
+                    }
+                    
+                    /* Linka a classe de animação quando houver hover no SVG correspondente */
+                    svg:hover .fundo-animado[data-id="${nomeProjeto}"] {
+                        animation: expandir-${nomeProjeto} 0.133s linear forwards !important;
+                    }
+                `;
+                
+                // Vincula um atributo identificador no retângulo para o CSS encontrar
+                retangulo.setAttribute('data-id', nomeProjeto);
             };
 
-            // Monitora o Google Tradutor
-            const observer = new MutationObserver(ajustarWidthECoordenadas);
+            // Monitora o Google Tradutor agir
+            const observer = new MutationObserver(recalcularAnimacaoCSS);
             observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
             
-            // Executa no carregamento
-            ajustarWidthECoordenadas();
+            recalcularAnimacaoCSS();
         }
     });
 })();
