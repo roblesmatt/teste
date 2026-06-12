@@ -243,7 +243,6 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
 
 <script>
 (function() {
-    // 1. Captura os textos que serão monitorados
     const elementosSvg = document.querySelectorAll('[data-traduzir^="projeto"]');
     
     elementosSvg.forEach(textoSvg => {
@@ -251,63 +250,57 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
         const textoHtml = document.getElementById(`fonte-${nomeProjeto}`);
         
         const svgPai = textoSvg.closest('svg');
-        // Localiza o retângulo com a classe fundo-animado
         const retangulo = svgPai ? svgPai.querySelector('.fundo-animado') : null;
 
         if (textoSvg && textoHtml) {
-            const LARGURA_ORIGINAL_KEYSHAPE = 108.87; // Seu valor exato no frame 0.133
+            const LARGURA_ORIGINAL_KEYSHAPE = 108.87; // Seu frame 0.133 exato
             
             const ajustarWidthAnimado = () => {
-                // Mede o tamanho base em Português
+                // 1. Mede em Português
                 textoSvg.textContent = "ver projeto";
                 const larguraPt = textoSvg.getBBox().width;
 
-                // Aplica a tradução vinda do Google
+                // 2. Injeta a tradução do Google
                 textoSvg.textContent = textoHtml.textContent;
                 
                 if (retangulo) {
-                    // Força visibilidade rápida para o navegador conseguir medir os pixels
                     const visibilidadeOriginal = textoSvg.style.visibility;
                     textoSvg.style.visibility = 'visible';
                     const larguraTraduzido = textoSvg.getBBox().width;
                     textoSvg.style.visibility = visibilidadeOriginal;
 
-                    // Calcula a diferença gerada pelo novo idioma
                     const diferencaDePixels = larguraTraduzido - larguraPt;
+
+                    // Remove qualquer estilo antigo que possa travar os frames iniciais do Keyshape
+                    retangulo.style.removeProperty('width');
 
                     if (diferencaDePixels > 0) {
                         const novaLarguraFinal = LARGURA_ORIGINAL_KEYSHAPE + diferencaDePixels;
 
-                        // MÁGICA DO KEYSHAPE: Altera o atributo de animação interna do Keyshape para o frame final (0.133)
-                        // Isso altera o destino da timeline sem estragar os frames 0.000, 0.033 e 0.100!
-                        if (retangulo.ks && retangulo.ks.width) {
-                            // Se a API interna do Keyshape estiver exposta diretamente no elemento
-                            retangulo.ks.width.keys[3].value = novaLarguraFinal; 
+                        // CORREÇÃO DOS KEYFRAMES:
+                        // Seus frames: 0.000 (0), 0.033 (1), 0.067 (2), 0.100 (3), 0.133 (4)
+                        if (retangulo.ks && retangulo.ks.width && retangulo.ks.width.keys && retangulo.ks.width.keys[4]) {
+                            // Altera o valor diretamente no último ponto (índice 4) da API do Keyshape
+                            retangulo.ks.width.keys[4].value = novaLarguraFinal;
                         } else {
-                            // Backup de segurança via CSS inline persistente com prioridade máxima
-                            retangulo.style.setProperty('width', `${novaLarguraFinal}px`, 'important');
+                            // Alternativa se a animação já tiver sido processada e congelada no frame final
+                            retangulo.setAttribute('width', novaLarguraFinal);
                         }
-                        
-                        // Garante a renderização do SVG nativo
-                        retangulo.setAttribute('width', novaLarguraFinal);
-
                     } else {
-                        // Se voltar para o idioma original (PT), restaura os 108.87px originais
-                        if (retangulo.ks && retangulo.ks.width) {
-                            retangulo.ks.width.keys[3].value = LARGURA_ORIGINAL_KEYSHAPE;
-                        } else {
-                            retangulo.style.removeProperty('width');
+                        // Se voltar para o Português, restaura o valor padrão do frame final
+                        if (retangulo.ks && retangulo.ks.width && retangulo.ks.width.keys && retangulo.ks.width.keys[4]) {
+                            retangulo.ks.width.keys[4].value = LARGURA_ORIGINAL_KEYSHAPE;
                         }
                         retangulo.setAttribute('width', LARGURA_ORIGINAL_KEYSHAPE);
                     }
                 }
             };
 
-            // Monitora o Google Tradutor agindo nas DIVs ocultas
+            // Monitora as mutações do Google Tradutor
             const observer = new MutationObserver(ajustarWidthAnimado);
             observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
             
-            // Roda assim que a página carrega
+            // Dispara no load inicial
             ajustarWidthAnimado();
         }
     });
