@@ -281,3 +281,9 @@ body {
     transform: translate(292px, 198px) scale(0.6);
   }
 }
+
+/* Quando a animação do Keyshape terminar ou estiver ativa, o navegador aplica a matemática */
+.fundo-animado {
+    /* O navegador pega o width que o Keyshape está injetando e soma a diferença do idioma */
+    width: calc(100% + var(--extra-width, 0px)) !important;
+}
