@@ -281,17 +281,3 @@ body {
     transform: translate(292px, 198px) scale(0.6);
   }
 }
-
-/* 1. Alinhamento de Centro Absoluto para o Botão e para o Grupo do Texto */
-.fundo-animado, 
-[id^="seta"] > g > g {
-    transform-origin: center;
-    transform-box: fill-box; /* OBRIGATÓRIO: Força o navegador a calcular o centro com base no próprio objeto */
-    transition: transform 0.133s linear !important; /* Casado perfeitamente com a sua timeline do Keyshape */
-}
-
-/* 2. Aplicação do Ganho do Idioma Calculado pelo JavaScript */
-svg:hover .fundo-animado,
-svg:hover [id^="seta"] > g > g {
-    transform: scaleX(var(--ganho-idioma, 1)) !important;
-}
