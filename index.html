@@ -253,14 +253,14 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
         const retangulo = svgPai ? svgPai.querySelector('.fundo-animado') : null;
 
         if (textoSvg && textoHtml) {
-            const LARGURA_ORIGINAL_KEYSHAPE = 108.87; // Seu frame 0.133 exato
+            const LARGURA_ORIGINAL_KEYSHAPE = 108.87; 
             
             const ajustarWidthAnimado = () => {
                 // 1. Mede em Português
                 textoSvg.textContent = "ver projeto";
                 const larguraPt = textoSvg.getBBox().width;
 
-                // 2. Injeta a tradução do Google
+                // 2. Aplica a tradução nova
                 textoSvg.textContent = textoHtml.textContent;
                 
                 if (retangulo) {
@@ -271,37 +271,35 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
 
                     const diferencaDePixels = larguraTraduzido - larguraPt;
 
-                    // Remove qualquer estilo antigo que possa travar os frames iniciais do Keyshape
-                    retangulo.style.removeProperty('width');
-
                     if (diferencaDePixels > 0) {
                         const novaLarguraFinal = LARGURA_ORIGINAL_KEYSHAPE + diferencaDePixels;
 
-                        // CORREÇÃO DOS KEYFRAMES:
-                        // Seus frames: 0.000 (0), 0.033 (1), 0.067 (2), 0.100 (3), 0.133 (4)
-                        if (retangulo.ks && retangulo.ks.width && retangulo.ks.width.keys && retangulo.ks.width.keys[4]) {
-                            // Altera o valor diretamente no último ponto (índice 4) da API do Keyshape
-                            retangulo.ks.width.keys[4].value = novaLarguraFinal;
-                        } else {
-                            // Alternativa se a animação já tiver sido processada e congelada no frame final
-                            retangulo.setAttribute('width', novaLarguraFinal);
-                        }
+                        // FORÇAR VIA ESTILO DO NAVEGADOR
+                        // Como o Keyshape altera o atributo 'width' via JS, nós injetamos uma regra
+                        // de CSS inline que tem prioridade acima de qualquer atributo do SVG.
+                        retangulo.style.setProperty('width', `${novaLarguraFinal}px`, 'important');
+                        retangulo.setAttribute('width', novaLarguraFinal);
                     } else {
-                        // Se voltar para o Português, restaura o valor padrão do frame final
-                        if (retangulo.ks && retangulo.ks.width && retangulo.ks.width.keys && retangulo.ks.width.keys[4]) {
-                            retangulo.ks.width.keys[4].value = LARGURA_ORIGINAL_KEYSHAPE;
-                        }
+                        // Se voltar ao normal (PT)
+                        retangulo.style.removeProperty('width');
                         retangulo.setAttribute('width', LARGURA_ORIGINAL_KEYSHAPE);
                     }
                 }
             };
 
-            // Monitora as mutações do Google Tradutor
+            // Monitora o tradutor do Google
             const observer = new MutationObserver(ajustarWidthAnimado);
             observer.observe(textoHtml, { childList: true, characterData: true, subtree: true });
             
-            // Dispara no load inicial
+            // Dispara ao carregar
             ajustarWidthAnimado();
+            
+            // Se o Keyshape resetar o tamanho durante a animação (hover), 
+            // esse ouvinte força o tamanho correto de volta no final do movimento
+            if (svgPai) {
+                svgPai.addEventListener('mouseenter', () => setTimeout(ajustarWidthAnimado, 150));
+                svgPai.addEventListener('mousemove', ajustarWidthAnimado);
+            }
         }
     });
 })();
