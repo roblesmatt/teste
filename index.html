@@ -247,13 +247,21 @@ if (window.getSelection) window.getSelection().removeAllRanges();});
     const elementosSvg = document.querySelectorAll('[data-traduzir^="projeto"]');
     
     elementosSvg.forEach(textoSvg => {
-        const nomeProjeto = textoSvg.getAttribute('data-traduzir'); // Pega "projeto1", "projeto2", etc.
-        const textoHtml = document.getElementById(`fonte-${nomeProjeto}`); // Acha a DIV correspondente
+        const nomeProjeto = textoSvg.getAttribute('data-traduzir'); 
+        const textoHtml = document.getElementById(`fonte-${nomeProjeto}`); 
+
+        // [AQUI] O comando que encontra o retângulo com a classe 'fundo-animado' dentro do mesmo SVG
+        const svgPai = textoSvg.closest('svg');
+        const retangulo = svgPai ? svgPai.querySelector('.fundo-animado') : null;
 
         if (textoSvg && textoHtml) {
             // 2. Função direta e leve que atualiza o texto no SVG
             const traduzir = () => {
                 textoSvg.textContent = textoHtml.textContent;
+                
+                // Se um dia você precisar testar se o script está achando o retângulo,
+                // você pode descomentar a linha abaixo para ver no console do navegador:
+                // console.log('Retângulo encontrado:', retangulo);
             };
 
             // 3. Observador que detecta quando o Google Tradutor altera o idioma da DIV oculta
