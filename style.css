@@ -128,13 +128,14 @@ body {
     break-inside: avoid;
     display: block;
   }
+  .card-desktop1 svg:nth-child(2),
   .card-desktop1 svg:last-child {
     margin-bottom: 0;
   }
-  .card-desktop svg .card-mobile svg {
-    flex: 1;
-    width: 50%;
-  }
+}
+.card-desktop svg .card-mobile svg {
+  flex: 1;
+  width: 50%;
 }
 
 .espaco {
