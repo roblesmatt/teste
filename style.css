@@ -318,21 +318,21 @@ body {
 
 @media (min-width: 1025px) {
   #totor-seta,
-  #projeto2-seta,
+  #thairo-seta,
   #projeto3-seta {
     transform: translate(404px, 218px) scale(0.3);
   }
 }
 @media (min-width: 720px) and (max-width: 1024px) {
   #totor-seta,
-  #projeto2-seta,
+  #thairo-seta,
   #projeto3-seta {
     transform: translate(312px, 218px) scale(0.3);
   }
 }
 @media (max-width: 719px) {
   #totor-seta,
-  #projeto2-seta,
+  #thairo-seta,
   #projeto3-seta {
     transform: translate(292px, 198px) scale(0.6);
   }
