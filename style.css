@@ -82,14 +82,15 @@ body {
 .card-grupo {
   width: 100%;
 }
-.texto-card {
-  margin-bottom: 20px;
+.card-mobile {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
-.imagens-lado-a-lado {
+.card-desktop {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
 }
 .grid-layouts svg {
   width: 100%;
@@ -98,13 +99,13 @@ body {
   display: block;
 }
 @media (min-width: 1024px) {
-  .imagens-lado-a-lado {
-    flex-direction: row;
+  .card-desktop {
+    flex-direction: row; /* Vira linha apenas em telas grandes */
   }
-  .imagens-lado-a-lado svg {
-    flex: 1;
-    width: 50%;
-  }
+}
+.card-desktop svg .card-mobile svg {
+  flex: 1;
+  width: 50%;
 }
 .espaco {
   margin-bottom: 15vw;
