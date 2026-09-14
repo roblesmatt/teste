@@ -85,7 +85,7 @@ body {
 .texto-card {
   margin-bottom: 20px;
 }
-  .imagens-lado-a-lado {
+.imagens-lado-a-lado {
   display: flex;
   flex-direction: column;
   gap: 20px;
