@@ -337,3 +337,46 @@ body {
     transform: translate(292px, 198px) scale(0.6);
   }
 }
+
+/* Container Externo */
+.carousel-container {
+  width: 100%;
+  max-width: 1200px; /* Largura máxima para desktop */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  box-sizing: border-box;
+  margin-top: 50px; /* Espaçamento superior */
+  margin-bottom: 50px; /* Espaçamento inferior */
+}
+/* Trilho com Scroll Horizontal e Snap */
+.carousel-track {
+  display: flex;
+  gap: 20px; /* Espaçamento entre os iPhones */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  /* Esconde a barra de rolagem mantendo a funcionalidade */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Opera */
+}
+.carousel-item {
+  flex: 0 0 70%; /* No mobile: ocupa 82% da tela, deixando ~18% do próximo à vista */
+  scroll-snap-align: start; /* Trava o iPhone no início da tela ao rolar */
+}
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (min-width: 1024px) {
+  .carousel-track {
+    overflow-x: visible;
+    justify-content: center;
+  }
+  .carousel-item {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+}
