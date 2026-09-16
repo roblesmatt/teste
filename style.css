@@ -366,7 +366,6 @@ body {
   flex: 0 0 100%; /* No mobile: ocupa 82% da tela, deixando ~18% do próximo à vista */
   max-width: 285px; /* Impede que cresça demais */
   scroll-snap-align: center; /* Trava o iPhone no início da tela ao rolar */
-
 }
 .carousel-item svg {
   width: 100%;
@@ -388,7 +387,7 @@ body {
   }
   .carousel-track {
     display: flex;
-    justify-content: center; /* Centraliza o conjunto de iPhones */
+    justify-content: start; /* Centraliza o conjunto de iPhones */
     overflow-x: auto;
     gap: 20px;
     scroll-snap-type: none;
