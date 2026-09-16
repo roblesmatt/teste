@@ -340,21 +340,26 @@ body {
 
 /* Container Externo */
 .carousel-container {
-  width: 100%;
-  max-width: 1380px; /* Largura máxima para desktop */
-  margin: 0 auto; /* Centraliza horizontalmente */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw; /* Puxa para a extrema esquerda da tela */
+  margin-right: -50vw; /* Puxa para a extrema direita da tela */
+  margin-top: 50px;
+  margin-bottom: 50px;
   box-sizing: border-box;
-  margin-top: 50px; /* Espaçamento superior */
-  margin-bottom: 50px; /* Espaçamento inferior */
+  overflow: visible !important;
 }
 /* Trilho com Scroll Horizontal e Snap */
 .carousel-track {
   display: flex;
   gap: 20px; /* Espaçamento entre os iPhones */
   overflow-x: auto;
-  scroll-snap-type: x proximity; /* Snap horizontal */
+  overflow-y: visible; /* Garante que o topo e base não cortem */
+  scroll-snap-type: x proximity;
   scroll-behavior: smooth;
-
+  padding: 0 40px;
   /* Esconde a barra de rolagem mantendo a funcionalidade */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
@@ -383,11 +388,13 @@ body {
 }
 @media (min-width: 1024px) {
   .carousel-container {
-    max-width: 100%;
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
   .carousel-track {
     display: flex;
-    justify-content: start; /* Centraliza o conjunto de iPhones */
+    justify-content: flex-start; /* Centraliza o conjunto de iPhones */
     overflow-x: auto;
     gap: 20px;
     scroll-snap-type: none;
