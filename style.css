@@ -409,7 +409,6 @@ body {
   gap: 20px; /* Aumenta o espaçamento entre eles */
   scroll-snap-type: x proximity; /* Mantém o snap suave no desktop/trackpad */
 }
-
 .carousel-item {
   /* Define o tamanho fixo bem maior para cada iPhone */
   flex: 0 0 280px;
