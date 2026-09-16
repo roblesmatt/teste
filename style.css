@@ -357,10 +357,8 @@ body {
   gap: 20px; /* Espaçamento entre os iPhones */
   overflow-x: auto;
   overflow-y: visible; /* Garante que o topo e base não cortem */
-  scroll-snap-type: x proximity;
-  scroll-behavior: smooth;
-  padding: 0 40px;
-  /* Esconde a barra de rolagem mantendo a funcionalidade */
+  scroll-snap-type: x mandatory;
+  padding: 0 25px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
 }
@@ -370,7 +368,7 @@ body {
 .carousel-item {
   flex: 0 0 100%; /* No mobile: ocupa 82% da tela, deixando ~18% do próximo à vista */
   max-width: 280px; /* Impede que cresça demais */
-  scroll-snap-align: center; /* Trava o iPhone no início da tela ao rolar */
+  scroll-snap-align: center;
 }
 .carousel-item svg {
   width: 100%;
@@ -397,7 +395,7 @@ body {
     justify-content: flex-start; /* Centraliza o conjunto de iPhones */
     overflow-x: auto;
     gap: 20px;
-    scroll-snap-type: none;
+    scroll-snap-type: x mandatory;
   }
   .carousel-item {
     flex: 0 0 100%; /* Aumenta o tamanho do iPhone no Desktop sem estourar o layout */
