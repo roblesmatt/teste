@@ -363,9 +363,9 @@ body {
   display: none; /* Chrome, Safari e Opera */
 }
 .carousel-item {
-  flex: 0 0 70%; /* No mobile: ocupa 82% da tela, deixando ~18% do próximo à vista */
-  max-width: 280px; /* Impede que cresça demais */
-  scroll-snap-align: center; /* Trava o iPhone no início da tela ao rolar */
+  flex: 0 0 100%; /* No mobile: ocupa 82% da tela, deixando ~18% do próximo à vista */
+  max-width: 285px; /* Impede que cresça demais */
+  scroll-snap-align: start; /* Trava o iPhone no início da tela ao rolar */
   will-change: transform;
   transform: translateZ(0);
 }
@@ -376,41 +376,26 @@ body {
 }
 @media (min-width: 600px) and (max-width: 1023px) {
   .carousel-track {
-    gap: 24px;
-  }
-
-  .carousel-item {
-    /* Ocupa ~40% da tela em vez de 70%, mostrando 2 iPhones perfeitamente */
-    flex: 0 0 40%;
-    max-width: 240px;
-  }
-}
-@media (min-width: 768px) {
-  .carousel-track {
-    justify-content: start; /* Centraliza todos no meio da tela */
-    scroll-snap-type: none; /* Desativa o encaixe magnético se couberem todos */
-    overflow-x: auto;
     gap: 20px;
   }
   .carousel-item {
-    /* Divide o espaço exato para caberem 6 itens perfeitamente */
-    flex: 0 0 calc((100% - (20px * 5)) / 6);
-    max-width: 210px; /* Mantém o formato iPhone num tamanho elegante */
+    flex: 0 0 100%;
+    max-width: 300px;
   }
 }
-.carousel-container {
-  max-width: 100%; /* Permite expandir na tela */
-  /* Respiro nas laterais */
-}
-.carousel-track {
-  display: flex;
-  justify-content: flex-start; /* Alinha do início para permitir rolar suavemente */
-  overflow-x: auto; /* Mantém a rolagem horizontal */
-  gap: 20px; /* Aumenta o espaçamento entre eles */
-  scroll-snap-type: x proximity; /* Mantém o snap suave no desktop/trackpad */
-}
-.carousel-item {
-  /* Define o tamanho fixo bem maior para cada iPhone */
-  flex: 0 0 280px;
-  max-width: 280px;
+@media (min-width: 1024px) {
+  .carousel-container {
+    max-width: 100%;
+  }
+  .carousel-track {
+    display: flex;
+    justify-content: start; /* Centraliza o conjunto de iPhones */
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: none;
+  }
+  .carousel-item {
+    flex: 0 0 100%; /* Aumenta o tamanho do iPhone no Desktop sem estourar o layout */
+    max-width: 400px;
+  }
 }
