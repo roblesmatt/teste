@@ -349,7 +349,7 @@ body {
   margin-top: 50px;
   margin-bottom: 50px;
   box-sizing: border-box;
-  overflow: visible !important;
+  overflow: visible;
 }
 /* Trilho com Scroll Horizontal e Snap */
 .carousel-track {
