@@ -341,7 +341,7 @@ body {
 /* Container Externo */
 .carousel-container {
   width: 100%;
-  max-width: 1200px; /* Largura máxima para desktop */
+  max-width: 1380px; /* Largura máxima para desktop */
   margin: 0 auto; /* Centraliza horizontalmente */
   box-sizing: border-box;
   margin-top: 50px; /* Espaçamento superior */
@@ -352,7 +352,7 @@ body {
   display: flex;
   gap: 20px; /* Espaçamento entre os iPhones */
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity; /* Snap horizontal */
   scroll-behavior: smooth;
 
   /* Esconde a barra de rolagem mantendo a funcionalidade */
@@ -364,19 +364,58 @@ body {
 }
 .carousel-item {
   flex: 0 0 70%; /* No mobile: ocupa 82% da tela, deixando ~18% do próximo à vista */
-  scroll-snap-align: start; /* Trava o iPhone no início da tela ao rolar */
+  max-width: 280px; /* Impede que cresça demais */
+  scroll-snap-align: center; /* Trava o iPhone no início da tela ao rolar */
+  will-change: transform;
+  transform: translateZ(0);
 }
-.carousel-item img {
+.carousel-item svg {
   width: 100%;
   height: auto;
   display: block;
 }
-@media (min-width: 1024px) {
+@media (min-width: 600px) and (max-width: 1023px) {
   .carousel-track {
-    overflow-x: visible;
-    justify-content: center;
+    gap: 24px;
   }
+
   .carousel-item {
-    flex: 0 0 calc((100% - 40px) / 3);
+    /* Ocupa ~40% da tela em vez de 70%, mostrando 2 iPhones perfeitamente */
+    flex: 0 0 40%; 
+    max-width: 240px; 
   }
 }
+
+
+/* =========================================================
+   3. DESKTOP (>= 1024px)
+   Exibe os 6 iPhones lado a lado sem ficar gigante
+   ========================================================= */
+@media (min-width: 1024px) {
+  .carousel-track {
+    justify-content: center; /* Centraliza todos no meio da tela */
+    scroll-snap-type: none;  /* Desativa o encaixe magnético se couberem todos */
+    overflow-x: auto;
+    gap: 20px;
+  }
+
+  .carousel-item {
+    /* Divide o espaço exato para caberem 6 itens perfeitamente */
+    flex: 0 0 calc((100% - (20px * 5)) / 6);
+    max-width: 210px; /* Mantém o formato iPhone num tamanho elegante */
+  }
+}@media (min-width: 1024px) {
+  .carousel-track {
+    overflow-x: auto; /* Mantém controle */
+    justify-content: start;
+    scroll-snap-type: none;
+  }
+  .carousel-item {
+    flex: 0 0 calc((100% - 1px) / 6);
+    max-width: 210px;
+  }
+}
+
+
+
+
