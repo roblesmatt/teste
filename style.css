@@ -394,6 +394,6 @@ body {
   }
   .carousel-item {
     flex: 0 0 100%; /* Aumenta o tamanho do iPhone no Desktop sem estourar o layout */
-    max-width: 400px;
+    max-width: 300px;
   }
 }
