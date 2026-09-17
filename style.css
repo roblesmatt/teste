@@ -358,7 +358,7 @@ body {
   overflow-x: auto;
   overflow-y: visible; /* Garante que o topo e base não cortem */
   scroll-snap-type: x mandatory;
-  padding: 0 20px;
+  padding: 0 25px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
 }
