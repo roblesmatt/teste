@@ -338,36 +338,34 @@ body {
   }
 }
 
-/* Container Externo */
 .carousel-container {
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
-  margin-left: -50vw; /* Puxa para a extrema esquerda da tela */
-  margin-right: -50vw; /* Puxa para a extrema direita da tela */
+  margin-left: -50vw;
+  margin-right: -50vw;
   margin-top: 50px;
   margin-bottom: 50px;
   box-sizing: border-box;
   overflow: visible;
 }
-/* Trilho com Scroll Horizontal e Snap */
 .carousel-track {
   display: flex;
-  gap: 20px; /* Espaçamento entre os iPhones */
+  gap: 20px;
   overflow-x: auto;
-  overflow-y: visible; /* Garante que o topo e base não cortem */
+  overflow-y: visible;
   scroll-snap-type: x mandatory;
   padding: 0 25px;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 .carousel-track::-webkit-scrollbar {
-  display: none; /* Chrome, Safari e Opera */
+  display: none;
 }
 .carousel-item {
-  flex: 0 0 100%; /* No mobile: ocupa 82% da tela, deixando ~18% do próximo à vista */
-  max-width: 280px; /* Impede que cresça demais */
+  flex: 0 0 100%;
+  max-width: 280px;
   scroll-snap-align: center;
 }
 .carousel-item svg {
@@ -392,13 +390,13 @@ body {
   }
   .carousel-track {
     display: flex;
-    justify-content: flex-start; /* Centraliza o conjunto de iPhones */
+    justify-content: flex-start;
     overflow-x: auto;
     gap: 20px;
     scroll-snap-type: x mandatory;
   }
   .carousel-item {
-    flex: 0 0 100%; /* Aumenta o tamanho do iPhone no Desktop sem estourar o layout */
+    flex: 0 0 100%;
     max-width: 320px;
   }
 }
