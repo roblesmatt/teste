@@ -365,6 +365,29 @@ if(document.location.search.substr(1).split('&amp;').indexOf('global=paused')&gt
 document.addEventListener('contextmenu', event => event.preventDefault());
 document.addEventListener('mousedown', () => {
 if (window.getSelection) window.getSelection().removeAllRanges();});
+
+const track = document.querySelector('.carousel-track');
+let isDown = false, startX, scrollLeft;
+
+track.addEventListener('pointerdown', (e) => {
+  isDown = true;
+  startX = e.pageX - track.offsetLeft;
+  scrollLeft = track.scrollLeft;
+  track.setPointerCapture(e.pointerId); // Trava o ponteiro na track
+});
+
+track.addEventListener('pointerup', (e) => {
+  isDown = false;
+  track.releasePointerCapture(e.pointerId);
+});
+
+track.addEventListener('pointermove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - track.offsetLeft;
+  const walk = (x - startX) * 1.2; // Ajusta a sensibilidade do arrasto
+  track.scrollLeft = scrollLeft - walk;
+});
 </script>
 </body>
 </html>

@@ -372,6 +372,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  pointer-events: none;
 }
 @media (min-width: 600px) and (max-width: 1023px) {
   .carousel-track {
@@ -394,7 +395,12 @@ body {
     overflow-x: auto;
     gap: 20px;
     scroll-snap-type: x mandatory;
+    cursor: grab;
+    user-select: none;
   }
+  .carousel-track:active {
+  cursor: grabbing;
+}
   .carousel-item {
     flex: 0 0 100%;
     max-width: 320px;
