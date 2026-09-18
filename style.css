@@ -399,8 +399,8 @@ body {
     user-select: none;
   }
   .carousel-track:active {
-  cursor: grabbing;
-}
+    cursor: grabbing;
+  }
   .carousel-item {
     flex: 0 0 100%;
     max-width: 320px;
