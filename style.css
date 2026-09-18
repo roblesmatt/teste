@@ -246,6 +246,7 @@ body {
   justify-content: center;
   cursor: pointer;
   overflow: visible;
+  transition: transform 0.1s ease-in-out;
 }
 .botao-wrapper1 {
   width: 1.2em;
@@ -253,6 +254,9 @@ body {
   overflow: hidden;
   display: inline-block;
   margin-left: 2vw;
+}
+.botao-wrapper:active {
+  transform: scale(0.8);
 }
 .botao-wrapper::after {
   content: "";
