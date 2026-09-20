@@ -387,21 +387,29 @@ let isDown = false, startX, scrollLeft;
 
 track.addEventListener('pointerdown', (e) => {
   isDown = true;
+  track.classList.add('is-dragging');
   startX = e.pageX - track.offsetLeft;
   scrollLeft = track.scrollLeft;
-  track.setPointerCapture(e.pointerId); // Trava o ponteiro na track
+  track.setPointerCapture(e.pointerId);
 });
 
 track.addEventListener('pointerup', (e) => {
   isDown = false;
+  track.classList.remove('is-dragging');
   track.releasePointerCapture(e.pointerId);
+});
+
+track.addEventListener('pointercancel', (e) => {
+  isDown = false;
+  track.classList.remove('is-dragging');
+  track.releasePointerCapture(e.pointerId); // Libera o ponteiro se o gesto for cancelado
 });
 
 track.addEventListener('pointermove', (e) => {
   if (!isDown) return;
   e.preventDefault();
   const x = e.pageX - track.offsetLeft;
-  const walk = (x - startX) * 1.2; // Ajusta a sensibilidade do arrasto
+  const walk = (x - startX) * 1.2;
   track.scrollLeft = scrollLeft - walk;
 });
 </script>

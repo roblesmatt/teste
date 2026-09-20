@@ -365,6 +365,10 @@ body {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
+  .carousel-track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
 .carousel-track::-webkit-scrollbar {
   display: none;
 }
@@ -403,9 +407,10 @@ body {
     cursor: grab;
     user-select: none;
   }
-  .carousel-track:active {
-    cursor: grabbing;
-  }
+  .carousel-track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none; 
+}
   .carousel-item {
     flex: 0 0 100%;
     max-width: 320px;
