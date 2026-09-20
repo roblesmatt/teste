@@ -383,10 +383,139 @@ document.addEventListener('mousedown', () => {
 if (window.getSelection) window.getSelection().removeAllRanges();});
 
 const track = document.querySelector('.carousel-track');
-let isDown = false, startX, scrollLeft;
+const items = track.querySelectorAll('.carousel-item');
 
+let autoPlayTimer = null;
+let hoverResumeTimer = null; // Temporizador para forçar o reinício após o hover
+let isDown = false, startX, scrollLeft;
+let isHovered = false;
+let currentIndex = 0;
+let isCarouselVisible = false;
+
+const HOVER_PAUSE_DURATION = 5000; // Tempo máximo de pausa no hover (5 segundos)
+
+// --- 1. FUNÇÃO CENTRAL DE CONTROLE DO AUTOPLAY ---
+function checkAndStartAutoPlay(forceResume = false) {
+  // Se forçado pelo tempo de hover, ignora a flag isHovered
+  const canPlay = isCarouselVisible && !isDown && (!isHovered || forceResume);
+
+  if (canPlay) {
+    if (!autoPlayTimer) {
+      autoPlayTimer = setInterval(nextSlide, 3000);
+    }
+  } else {
+    stopAutoPlay();
+  }
+}
+
+function stopAutoPlay() {
+  if (autoPlayTimer) {
+    clearInterval(autoPlayTimer);
+    autoPlayTimer = null;
+  }
+}
+
+// Limpa o timer de tolerância do hover
+function clearHoverResumeTimer() {
+  if (hoverResumeTimer) {
+    clearTimeout(hoverResumeTimer);
+    hoverResumeTimer = null;
+  }
+}
+
+// --- 2. OBSERVER DE VISIBILIDADE DO CARROSSEL ---
+const carouselVisibilityObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    isCarouselVisible = entry.isIntersecting;
+    if (isCarouselVisible) {
+      checkAndStartAutoPlay();
+    } else {
+      stopAutoPlay();
+      clearHoverResumeTimer();
+    }
+  });
+}, { threshold: 0.2 });
+
+carouselVisibilityObserver.observe(track);
+
+// --- 3. DETECÇÃO DO CARD ATIVO NO CENTRO ---
+function setupItemObserver() {
+  const trackWidth = track.clientWidth;
+  const marginX = Math.floor((trackWidth / 2) - 10);
+
+  const observerOptions = {
+    root: track,
+    rootMargin: `0px -${marginX}px 0px -${marginX}px`,
+    threshold: 0
+  };
+
+  const itemObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const index = Array.from(items).indexOf(entry.target);
+        if (index !== -1) {
+          currentIndex = index;
+        }
+      }
+    });
+  }, observerOptions);
+
+  items.forEach((item) => itemObserver.observe(item));
+}
+
+setupItemObserver();
+window.addEventListener('resize', setupItemObserver);
+
+// --- 4. AVANÇAR SLIDE (RESET AO CHEGAR NO FIM) ---
+function getCardStep() {
+  const item = track.querySelector('.carousel-item');
+  const gap = parseFloat(getComputedStyle(track).gap) || 20;
+  return item ? item.offsetWidth + gap : 300;
+}
+
+function nextSlide() {
+  if (items.length === 0) return;
+
+  const maxScroll = track.scrollWidth - track.clientWidth;
+  const isAtEnd = currentIndex >= items.length - 1 || track.scrollLeft >= maxScroll - 10;
+
+  if (isAtEnd) {
+    currentIndex = 0;
+  } else {
+    currentIndex++;
+  }
+
+  const cardStep = getCardStep();
+
+  track.scrollTo({
+    left: currentIndex * cardStep,
+    behavior: 'smooth'
+  });
+}
+
+// --- 5. EVENTOS DE HOVER COM TEMPO MÁXIMO DE PAUSA (DESKTOP) ---
+track.addEventListener('mouseenter', () => {
+  isHovered = true;
+  checkAndStartAutoPlay(); // Pausa o auto-play
+
+  clearHoverResumeTimer();
+  // Cria um temporizador para ativar o carrossel após 5s mesmo com o rato por cima
+  hoverResumeTimer = setTimeout(() => {
+    checkAndStartAutoPlay(true); // Argumento 'true' força o reinício
+  }, HOVER_PAUSE_DURATION);
+});
+
+track.addEventListener('mouseleave', () => {
+  isHovered = false;
+  clearHoverResumeTimer();
+  checkAndStartAutoPlay(); // Destrava imediatamente
+});
+
+// --- 6. EVENTOS DE ARRASTE (POINTER EVENTS - MOBILE E DESKTOP) ---
 track.addEventListener('pointerdown', (e) => {
   isDown = true;
+  clearHoverResumeTimer();
+  checkAndStartAutoPlay(); // Trava enquanto segura/arrasta
   track.classList.add('is-dragging');
   startX = e.pageX - track.offsetLeft;
   scrollLeft = track.scrollLeft;
@@ -397,12 +526,14 @@ track.addEventListener('pointerup', (e) => {
   isDown = false;
   track.classList.remove('is-dragging');
   track.releasePointerCapture(e.pointerId);
+  checkAndStartAutoPlay(); // Retoma a rolagem
 });
 
 track.addEventListener('pointercancel', (e) => {
   isDown = false;
   track.classList.remove('is-dragging');
-  track.releasePointerCapture(e.pointerId); // Libera o ponteiro se o gesto for cancelado
+  track.releasePointerCapture(e.pointerId);
+  checkAndStartAutoPlay();
 });
 
 track.addEventListener('pointermove', (e) => {
