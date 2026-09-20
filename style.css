@@ -408,7 +408,7 @@ body {
     max-width: 320px;
   }
 }
- .carousel-track.is-dragging {
+.carousel-track.is-dragging {
   cursor: grabbing;
   scroll-snap-type: none;
 }
