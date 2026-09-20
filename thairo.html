@@ -386,17 +386,16 @@ const track = document.querySelector('.carousel-track');
 const items = track.querySelectorAll('.carousel-item');
 
 let autoPlayTimer = null;
-let hoverResumeTimer = null; // Temporizador para forçar o reinício após o hover
+let hoverResumeTimer = null;
 let isDown = false, startX, scrollLeft;
 let isHovered = false;
 let currentIndex = 0;
 let isCarouselVisible = false;
 
-const HOVER_PAUSE_DURATION = 5000; // Tempo máximo de pausa no hover (5 segundos)
+const HOVER_PAUSE_DURATION = 5000;
 
-// --- 1. FUNÇÃO CENTRAL DE CONTROLE DO AUTOPLAY ---
 function checkAndStartAutoPlay(forceResume = false) {
-  // Se forçado pelo tempo de hover, ignora a flag isHovered
+
   const canPlay = isCarouselVisible && !isDown && (!isHovered || forceResume);
 
   if (canPlay) {
@@ -415,7 +414,6 @@ function stopAutoPlay() {
   }
 }
 
-// Limpa o timer de tolerância do hover
 function clearHoverResumeTimer() {
   if (hoverResumeTimer) {
     clearTimeout(hoverResumeTimer);
@@ -423,7 +421,6 @@ function clearHoverResumeTimer() {
   }
 }
 
-// --- 2. OBSERVER DE VISIBILIDADE DO CARROSSEL ---
 const carouselVisibilityObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     isCarouselVisible = entry.isIntersecting;
@@ -438,7 +435,6 @@ const carouselVisibilityObserver = new IntersectionObserver((entries) => {
 
 carouselVisibilityObserver.observe(track);
 
-// --- 3. DETECÇÃO DO CARD ATIVO NO CENTRO ---
 function setupItemObserver() {
   const trackWidth = track.clientWidth;
   const marginX = Math.floor((trackWidth / 2) - 10);
@@ -466,7 +462,6 @@ function setupItemObserver() {
 setupItemObserver();
 window.addEventListener('resize', setupItemObserver);
 
-// --- 4. AVANÇAR SLIDE (RESET AO CHEGAR NO FIM) ---
 function getCardStep() {
   const item = track.querySelector('.carousel-item');
   const gap = parseFloat(getComputedStyle(track).gap) || 20;
@@ -493,29 +488,27 @@ function nextSlide() {
   });
 }
 
-// --- 5. EVENTOS DE HOVER COM TEMPO MÁXIMO DE PAUSA (DESKTOP) ---
 track.addEventListener('mouseenter', () => {
   isHovered = true;
-  checkAndStartAutoPlay(); // Pausa o auto-play
+  checkAndStartAutoPlay(); 
 
   clearHoverResumeTimer();
-  // Cria um temporizador para ativar o carrossel após 5s mesmo com o rato por cima
   hoverResumeTimer = setTimeout(() => {
-    checkAndStartAutoPlay(true); // Argumento 'true' força o reinício
+    checkAndStartAutoPlay(true);
   }, HOVER_PAUSE_DURATION);
 });
 
 track.addEventListener('mouseleave', () => {
   isHovered = false;
   clearHoverResumeTimer();
-  checkAndStartAutoPlay(); // Destrava imediatamente
+  checkAndStartAutoPlay();
 });
 
-// --- 6. EVENTOS DE ARRASTE (POINTER EVENTS - MOBILE E DESKTOP) ---
+
 track.addEventListener('pointerdown', (e) => {
   isDown = true;
   clearHoverResumeTimer();
-  checkAndStartAutoPlay(); // Trava enquanto segura/arrasta
+  checkAndStartAutoPlay();
   track.classList.add('is-dragging');
   startX = e.pageX - track.offsetLeft;
   scrollLeft = track.scrollLeft;
@@ -526,7 +519,7 @@ track.addEventListener('pointerup', (e) => {
   isDown = false;
   track.classList.remove('is-dragging');
   track.releasePointerCapture(e.pointerId);
-  checkAndStartAutoPlay(); // Retoma a rolagem
+  checkAndStartAutoPlay();
 });
 
 track.addEventListener('pointercancel', (e) => {
