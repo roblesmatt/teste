@@ -423,3 +423,41 @@ body {
   height: auto;
   display: block;
 }
+
+
+.carousel-item1 {
+  position: relative;
+  width: 295.2px;  /* Ajusta para a largura do teu mockup */
+  height: 600.9px; /* Ajusta para a altura do teu mockup */
+  background-color: #1c1c1c;
+  overflow: hidden;
+}
+
+/* O container do vídeo fica fixo ao fundo */
+.video-container1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Camada inferior */
+}
+
+/* O vídeo preenche todo o espaço */
+.responsive-video1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen; /* Elimina o fundo preto do vídeo */
+}
+
+/* O SVG fica exatamente por cima do vídeo */
+.carousel-item1 > svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Camada superior */
+  pointer-events: none; /* Garante que cliques/drag passem para o carrossel */
+}
