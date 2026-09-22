@@ -424,10 +424,9 @@ body {
   display: block;
 }
 
-
 .carousel-item1 {
   position: relative;
-  width: 295.2px;  /* Ajusta para a largura do teu mockup */
+  width: 295.2px; /* Ajusta para a largura do teu mockup */
   height: 600.9px; /* Ajusta para a altura do teu mockup */
   background-color: #1c1c1c;
   overflow: hidden;
