@@ -532,7 +532,7 @@ function setupVideoVisibilityObserver() {
       }
     });
   }, {
-    threshold:0, rootMargin: "-49%"
+    threshold:0, rootMargin: "-49% 0px -49% 0px"
   });
 
   videos.forEach((video) => videoObserver.observe(video));
