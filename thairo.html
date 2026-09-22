@@ -523,6 +523,7 @@ function setupVideoVisibilityObserver() {
       const video = entry.target;
 
       if (entry.isIntersecting) {
+        video.currentTime = 0;
         video.play().catch(() => {
           video.muted = true;
           video.play();
