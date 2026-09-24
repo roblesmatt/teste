@@ -202,14 +202,14 @@ body {
 
 .menu-navegacao {
   position: fixed;
-  width: 335px;
+  width: 330px;
   height: 60px;
   background-color: #0e0e0e;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px 8px 10px 0px;
+  padding: 10px 10px 10px 0px;
   z-index: 1000;
 }
 .menu-navegacao a,
