@@ -235,7 +235,7 @@ body {
 }
 
 :root {
-  --tamanho-seta: 24px;
+  --tamanho-seta: 26px;
 }
 .botao-wrapper {
   position: relative;
@@ -308,7 +308,7 @@ body {
   border-bottom: 0.5vw solid transparent;
 }
 .link:hover .setas-container {
-  transform: translateX(-4.8em);
+  transform: translateX(-4.7em);
   transition: transform 0.1s steps(4);
 }
 .container-links {
@@ -447,4 +447,79 @@ body {
   height: 100%;
   z-index: 2;
   pointer-events: none;
+}
+
+:root {
+  --bg-menu: #0e0e0e; /* retirado da sua classe .menu-navegacao */
+  --texto-principal: #dddddd; /* retirado da sua classe .link */
+  --texto-hover: #aaaaaa; /* retirado de .link:hover */
+  --svg-fill: #ffffff;
+}
+body.theme-light {
+  --bg-principal: #f1f1f1;
+  --bg-menu: #ffffff;
+  --texto-principal: #1c1c1c;
+  --texto-hover: #444444;
+  --svg-fill: #1c1c1c;
+}
+body {
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+}
+.menu-navegacao {
+  background-color: var(--bg-menu);
+}
+.link {
+  color: var(--texto-principal);
+}
+.link:hover {
+  color: var(--texto-hover);
+}
+.descricao {
+  color: var(--texto-hover); /* Usa a variável em vez de #aaaaaa */
+}
+.descricao strong {
+  color: var(--texto-principal); /* Usa a variável em vez de #dddddd */
+}
+.marca-italico {
+  font-style: italic;
+}
+.setas-container svg,
+.setas-container svg * {
+  stroke: var(--svg-fill);
+}
+
+/* Aplica vermelho no hover apenas em botões com a classe .botao-vermelho */
+.botao-vermelho:hover svg,
+.botao-vermelho:hover svg * {
+  stroke: #ff0000;
+}
+/* Configuração base do wrapper do alternador de tema */
+#theme-toggle {
+  cursor: pointer;
+  width: var(--tamanho-seta);
+  height: var(--tamanho-seta);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#theme-toggle::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  bottom: -18px;
+  left: -18px;
+  right: -18px;
+  z-index: 10;
+}
+/* Garante que o clique passe direto para o wrapper sem travar no SVG */
+#theme-toggle * {
+  pointer-events: none;
+}
+
+/* HOVER EXCLUSIVO EM VERMELHO: Aplica apenas no #theme-toggle */
+#theme-toggle:hover svg,
+#theme-toggle:hover svg * {
+  stroke: #00ff08 !important;
 }
