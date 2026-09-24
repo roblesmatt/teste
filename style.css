@@ -484,6 +484,10 @@ body {
 .marca-italico {
   font-style: italic;
 }
+.logo-uminimo,
+.logo-uminimo * {
+  fill: var(--svg-fill);
+}
 .setas-container svg,
 .setas-container svg * {
   stroke: var(--svg-fill);
