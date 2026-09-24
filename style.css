@@ -202,7 +202,7 @@ body {
 
 .menu-navegacao {
   position: fixed;
-  width: 280px;
+  width: 335px;
   height: 60px;
   background-color: #0e0e0e;
   border-radius: 10px;
@@ -235,7 +235,7 @@ body {
 }
 
 :root {
-  --tamanho-seta: 26px;
+  --tamanho-seta: 24px;
 }
 .botao-wrapper {
   position: relative;
@@ -450,17 +450,17 @@ body {
 }
 
 :root {
-  --bg-menu: #0e0e0e; /* retirado da sua classe .menu-navegacao */
-  --texto-principal: #dddddd; /* retirado da sua classe .link */
-  --texto-hover: #aaaaaa; /* retirado de .link:hover */
+  --bg-menu: #0e0e0e;
+  --texto-principal: #dddddd;
+  --texto-hover: #aaaaaa;
   --svg-fill: #ffffff;
 }
 body.theme-light {
-  --bg-principal: #f1f1f1;
-  --bg-menu: #ffffff;
-  --texto-principal: #1c1c1c;
-  --texto-hover: #444444;
-  --svg-fill: #1c1c1c;
+  --bg-principal: #f0f0f0;
+  --bg-menu: #fafafa;
+  --texto-principal: #000000;
+  --texto-hover: #555555;
+  --svg-fill: #000000;
 }
 body {
   background-color: var(--bg-principal);
@@ -476,10 +476,10 @@ body {
   color: var(--texto-hover);
 }
 .descricao {
-  color: var(--texto-hover); /* Usa a variável em vez de #aaaaaa */
+  color: var(--texto-hover);
 }
 .descricao strong {
-  color: var(--texto-principal); /* Usa a variável em vez de #dddddd */
+  color: var(--texto-principal);
 }
 .marca-italico {
   font-style: italic;
@@ -492,13 +492,10 @@ body {
 .setas-container svg * {
   stroke: var(--svg-fill);
 }
-
-/* Aplica vermelho no hover apenas em botões com a classe .botao-vermelho */
 .botao-vermelho:hover svg,
 .botao-vermelho:hover svg * {
   stroke: #ff0000;
 }
-/* Configuração base do wrapper do alternador de tema */
 #theme-toggle {
   cursor: pointer;
   width: var(--tamanho-seta);
@@ -522,8 +519,8 @@ body {
 }
 #theme-toggle:hover svg,
 #theme-toggle:hover svg * {
-  fill: #ffc400;
-  stroke: #ffc400;
+  fill: #ffb300;
+  stroke: #ffb300;
 }
 #theme-toggle .setas-container {
   transform: translateX(0);
