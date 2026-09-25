@@ -218,7 +218,8 @@ body {
   justify-content: space-around;
   padding: 10px 10px 10px 0px;
   z-index: 1000;
-  touch-action: manipulation;
+  zoom: 1;
+  user-select: none;
 }
 .menu-navegacao a,
 .paginacao {
