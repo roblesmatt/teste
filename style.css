@@ -218,15 +218,13 @@ body {
   justify-content: space-around;
   padding: 10px 10px 10px 0px;
   z-index: 1000;
-  touch-action: pan-x pan-y;
-  user-select: none;
 }
 .menu-navegacao a,
 .paginacao {
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 1.2rem;
 }
 @media (min-width: 481px) {
   .menu-navegacao {
