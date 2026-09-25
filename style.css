@@ -539,25 +539,3 @@ svg.fundo-tema [id*="fundo"] {
   fill: var(--fundo-tema);
   transition: fill 0.1s ease;
 }
-
-
-
-/* Container que faz de retângulo/card para o vídeo */
-.card-video.fundo-tema {
-  background-color: var(--fundo-tema);
-  transition: background-color 0.1s ease;
-  
-  /* Ajustes para o vídeo ficar bem centrado dentro do card */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px; /* Ajusta conforme o teu design */
-  overflow: hidden;    /* Corta o vídeo se tiver cantos arredondados */
-}
-
-/* O vídeo transparente expande para preencher o card */
-.card-video video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
