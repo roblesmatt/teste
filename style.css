@@ -458,7 +458,7 @@ body {
 
 :root {
   --bg-menu: #0e0e0e;
-  --fundo-tema: #0e0e0e;      /* Cor de fundo dos layouts/cards (Tema Escuro) */
+  --fundo-tema: #0e0e0e; /* Cor de fundo dos layouts/cards (Tema Escuro) */
   --texto-principal: #dddddd;
   --texto-hover: #aaaaaa;
   --svg-fill: #ffffff;
