@@ -350,6 +350,75 @@ body {
   }
 }
 
+.carousel-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  padding: 0 25px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.carousel-item {
+  flex: 0 0 100%;
+  max-width: 280px;
+  scroll-snap-align: center;
+}
+.carousel-item svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .carousel-track {
+    gap: 20px;
+  }
+  .carousel-item {
+    flex: 0 0 100%;
+    max-width: 420px;
+  }
+}
+@media (min-width: 1024px) {
+  .carousel-container {
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  .carousel-track {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    user-select: none;
+  }
+  .carousel-item {
+    flex: 0 0 100%;
+    max-width: 320px;
+  }
+}
+.carousel-track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
 
 .video-container {
   width: 100%;
@@ -360,6 +429,31 @@ body {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.phone-mockup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.phone-video {
+  position: absolute;
+  left: 5%;
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 50px;
+}
+.phone-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
 }
 
 :root {
@@ -380,7 +474,6 @@ body.theme-light {
 body {
   background-color: var(--bg-principal);
   color: var(--texto-principal);
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .menu-navegacao {
   background-color: var(--bg-menu);
@@ -444,5 +537,5 @@ body.theme-light #theme-toggle .setas-container {
 svg.fundo-tema rect,
 svg.fundo-tema [id*="fundo"] {
   fill: var(--fundo-tema);
-  transition: fill 0.3s ease-in-out;
+  transition: fill 0.1s ease-in-out;
 }
