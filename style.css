@@ -350,7 +350,6 @@ body {
   }
 }
 
-
 .video-container {
   width: 100%;
   border-radius: 10px;
@@ -380,7 +379,9 @@ body.theme-light {
 body {
   background-color: var(--bg-principal);
   color: var(--texto-principal);
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
 .menu-navegacao {
   background-color: var(--bg-menu);
