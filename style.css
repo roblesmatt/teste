@@ -458,12 +458,14 @@ body {
 
 :root {
   --bg-menu: #0e0e0e;
+  --fundo-tema: #0e0e0e;      /* Cor de fundo dos layouts/cards (Tema Escuro) */
   --texto-principal: #dddddd;
   --texto-hover: #aaaaaa;
   --svg-fill: #ffffff;
 }
 body.theme-light {
   --bg-principal: #f0f0f0;
+  --fundo-tema: #ffffff;
   --bg-menu: #fafafa;
   --texto-principal: #000000;
   --texto-hover: #555555;
@@ -530,4 +532,32 @@ body {
 }
 body.theme-light #theme-toggle .setas-container {
   transform: translateX(calc(-1 * var(--tamanho-seta) * 4));
+}
+
+svg.fundo-tema rect,
+svg.fundo-tema [id*="fundo"] {
+  fill: var(--fundo-tema);
+  transition: fill 0.1s ease;
+}
+
+
+
+/* Container que faz de retângulo/card para o vídeo */
+.card-video.fundo-tema {
+  background-color: var(--fundo-tema);
+  transition: background-color 0.1s ease;
+  
+  /* Ajustes para o vídeo ficar bem centrado dentro do card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* Ajusta conforme o teu design */
+  overflow: hidden;    /* Corta o vídeo se tiver cantos arredondados */
+}
+
+/* O vídeo transparente expande para preencher o card */
+.card-video video {
+  width: 100%;
+  height: auto;
+  display: block;
 }
