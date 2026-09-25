@@ -446,3 +446,12 @@ svg.fundo-tema [id*="fundo"] {
   fill: var(--fundo-tema);
   transition: fill 0.3s ease-in-out;
 }
+
+.card-video.fundo-tema {
+  background-color: var(--fundo-tema);
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
