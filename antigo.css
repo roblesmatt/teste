@@ -209,14 +209,14 @@ body {
 
 .menu-navegacao {
   position: fixed;
-  width: 240px;
+  width: 330px;
   height: 60px;
   background-color: #0e0e0e;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px 8px 10px 0px;
+  padding: 10px 10px 10px 0px;
   z-index: 1000;
 }
 .menu-navegacao a,
@@ -315,7 +315,7 @@ body {
   border-bottom: 0.5vw solid transparent;
 }
 .link:hover .setas-container {
-  transform: translateX(-4.8em);
+  transform: translateX(-4.7em);
   transition: transform 0.1s steps(4);
 }
 .container-links {
@@ -360,3 +360,98 @@ body {
   height: auto;
   display: block;
 }
+
+:root {
+  --bg-menu: #0e0e0e;
+  --fundo-tema: #0e0e0e; /* Cor de fundo dos layouts/cards (Tema Escuro) */
+  --texto-principal: #dddddd;
+  --texto-hover: #aaaaaa;
+  --svg-fill: #ffffff;
+}
+body.theme-light {
+  --bg-principal: #f0f0f0;
+  --fundo-tema: #ffffff;
+  --bg-menu: #fafafa;
+  --texto-principal: #000000;
+  --texto-hover: #555555;
+  --svg-fill: #000000;
+}
+body {
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+.menu-navegacao {
+  background-color: var(--bg-menu);
+}
+.link {
+  color: var(--texto-principal);
+}
+.link:hover {
+  color: var(--texto-hover);
+}
+.descricao {
+  color: var(--texto-hover);
+}
+.descricao strong {
+  color: var(--texto-principal);
+}
+.marca-italico {
+  font-style: italic;
+}
+.logo-uminimo,
+.logo-uminimo * {
+  fill: var(--svg-fill);
+}
+.setas-container svg,
+.setas-container svg * {
+  stroke: var(--svg-fill);
+}
+.botao-vermelho:hover svg,
+.botao-vermelho:hover svg * {
+  stroke: #ff0000;
+}
+#theme-toggle {
+  cursor: pointer;
+  width: var(--tamanho-seta);
+  height: var(--tamanho-seta);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#theme-toggle::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  bottom: -18px;
+  left: -18px;
+  right: -18px;
+  z-index: 10;
+}
+#theme-toggle * {
+  pointer-events: none;
+}
+#theme-toggle .setas-container {
+  transform: translateX(0);
+  transition: transform 0.2s steps(4);
+}
+body.theme-light #theme-toggle .setas-container {
+  transform: translateX(calc(-1 * var(--tamanho-seta) * 4));
+}
+@media (min-width: 1024px) {
+#theme-toggle:hover svg,
+#theme-toggle:hover svg * {
+  stroke: #ffaa00;
+  fill: #ffaa00;
+}}
+svg.fundo-tema rect,
+svg.fundo-tema [id*="fundo"] {
+  fill: var(--fundo-tema);
+  transition: fill 0.3s ease-in-out;
+}
+
+
+
