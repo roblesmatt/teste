@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfume Artesanal - Docura Cítrica</title>
+    <link rel="stylesheet" href="thairo.css" />
+    <!-- Ícones Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="header">
+      <div class="logo">LOGO</div>
+
+      <nav class="nav-menu">
+        <a href="#" class="active">Home</a>
+        <a href="#">Produtos <i class="ph ph-caret-down"></i></a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-bar">
+          <input type="text" placeholder="Pesquisar..." />
+          <i class="ph ph-magnifying-glass"></i>
+        </div>
+        <button class="icon-btn" aria-label="Perfil">
+          <i class="ph ph-user"></i>
+        </button>
+        <button class="icon-btn" aria-label="Carrinho">
+          <i class="ph ph-shopping-bag-open"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="product-page">
+      <!-- Galeria de Imagens -->
+      <section class="product-gallery">
+        <div class="thumbnails-wrapper">
+          <button
+            class="nav-arrow up-arrow"
+            id="prevThumb"
+            aria-label="Anterior"
+          >
+            <i class="ph ph-caret-up"></i>
+          </button>
+
+          <div class="thumbnails" id="thumbContainer">
+            <div class="thumb active">
+              <img
+                src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=150&q=80"
+                alt="Miniatura Perfume 1"
+              />
+            </div>
+            <div class="thumb">
+              <img
+                src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=150&q=80"
+                alt="Miniatura Perfume 2"
+              />
+            </div>
+            <div class="thumb">
+              <img
+                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=150&q=80"
+                alt="Miniatura Perfume 3"
+              />
+            </div>
+            <div class="thumb">
+              <img
+                src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=150&q=80"
+                alt="Miniatura Perfume 4"
+              />
+            </div>
+          </div>
+
+          <button
+            class="nav-arrow down-arrow"
+            id="nextThumb"
+            aria-label="Próximo"
+          >
+            <i class="ph ph-caret-down"></i>
+          </button>
+        </div>
+
+        <div class="main-image-container">
+          <div class="image-circle-bg"></div>
+          <img
+            id="mainImage"
+            src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80"
+            alt="Perfume Artesanal Docura Cítrica"
+            class="main-image"
+          />
+        </div>
+      </section>
+
+      <!-- Detalhes do Produto & Acordeões -->
+      <section class="product-info">
+        <div class="product-header">
+          <span class="subtitle">Perfume Artesanal de</span>
+          <h1 class="title">Docura Cítrica.</h1>
+          <p class="meta">1 Unidade - Contém 60ml.</p>
+        </div>
+
+        <div class="price-and-qty">
+          <div class="price">R$79,90</div>
+
+          <div class="quantity-selector">
+            <button
+              class="qty-btn"
+              id="btnMinus"
+              aria-label="Diminuir quantidade"
+            >
+              -
+            </button>
+            <span class="qty-value" id="qtyValue">1</span>
+            <button
+              class="qty-btn"
+              id="btnPlus"
+              aria-label="Aumentar quantidade"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <div class="rating-and-actions">
+          <div class="stars">
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph ph-star"></i>
+          </div>
+
+          <div class="action-buttons">
+            <button class="icon-action-btn" aria-label="Adicionar com opções">
+              <i class="ph ph-shopping-bag-open"></i>
+              <span class="plus-badge">+</span>
+            </button>
+            <button class="icon-action-btn" aria-label="Favoritar">
+              <i class="ph ph-heart"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Lista de Acordeões -->
+        <div class="accordion-list">
+          <details class="accordion-item" open>
+            <summary class="accordion-header">
+              <span class="accordion-title">
+                <i class="ph ph-chat-teardrop-text"></i>
+                Sobre o produto
+              </span>
+              <i class="ph ph-caret-down accordion-arrow"></i>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since 1966, when designers at Letraset and James
+                Mosley, the librarian at St Bride Printing Library in London,
+                took a 1914 Cicero translation and scrambled it to make dummy
+                text for Letraset's Body Type sheets. It has survived not only
+                many decades, but also the leap into.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-header">
+              <span class="accordion-title">
+                <i class="ph ph-chat-teardrop-text"></i>
+                Ativos
+              </span>
+              <i class="ph ph-caret-down accordion-arrow"></i>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                Óleos essenciais naturais selecionados, extratos cítricos puros
+                e álcool refinado para perfumaria artesanal.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-header">
+              <span class="accordion-title">
+                <i class="ph ph-chat-teardrop-text"></i>
+                Benefícios
+              </span>
+              <i class="ph ph-caret-down accordion-arrow"></i>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                Sensação revigorante, alta fixação na pele, fórmula vegana e
+                livre de crueldade animal.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-header">
+              <span class="accordion-title">
+                <i class="ph ph-chat-teardrop-text"></i>
+                Composição
+              </span>
+              <i class="ph ph-caret-down accordion-arrow"></i>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                Alcohol, Parfum (Fragrance), Aqua (Water), Limonene, Linalool,
+                Citral.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-header">
+              <span class="accordion-title">
+                <i class="ph ph-chat-teardrop-text"></i>
+                Ficha Técnica
+              </span>
+              <i class="ph ph-caret-down accordion-arrow"></i>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                Volume: 60ml | Família Olfativa: Cítrico Floral | Validade: 2
+                anos | Origem: Brasil.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary class="accordion-header">
+              <span class="accordion-title">
+                <i class="ph ph-chat-teardrop-text"></i>
+                Comentarios
+              </span>
+              <i class="ph ph-caret-down accordion-arrow"></i>
+            </summary>
+            <div class="accordion-content">
+              <p>Avaliações dos clientes sobre o perfume aparecerão aqui.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Botão de Ação Principal -->
+        <a
+          href="https://wa.me/5500000000000"
+          target="_blank"
+          class="whatsapp-btn"
+        >
+          <span>ENCOMENDAR VIA WHATSAPP</span>
+          <i class="ph ph-caret-right"></i>
+        </a>
+      </section>
+    </main>
+
+    <script src="thairo.js"></script>
+  </body>
+</html>
