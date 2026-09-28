@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Artesanal - Catálogo</title>
+  <!-- O seu ficheiro de estilos CSS principal -->
+  <link rel="stylesheet" href="thairo.css">
+</head>
+<body>
+
+  <!-- Cabeçalho do Site -->
+  <header class="site-header">
+    <div class="logo">
+      <h1>Minha Loja Artesanal</h1>
+    </div>
+
+    <!-- Barra de Pesquisa -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Pesquisar produtos...">
+    </div>
+
+    <!-- Botão do Carrinho -->
+    <button id="cartBtn" class="botao-icone" aria-label="carrinho">
+      <div class="icone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.8 32.8">
+          <path d="M24.2 22.8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm20-17.8h-26.6l3.4 16h18.2l5-16z" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+  </header>
+
+  <!-- Conteúdo Principal da Página -->
+  <main>
+    <section class="catalogo-section">
+      <h2>Catálogo de Produtos</h2>
+      <div class="produtos-grid">
+        <!-- Os seus cartões de produtos vão aqui -->
+        <div class="produto-card">
+          <h3>Perfume Artesanal de Capim Limão</h3>
+          <p>R$ 79,90</p>
+          <a href="produto-capim.html" class="btn-detalhes">Ver Produto</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Pesquisa (Oculto por padrão) -->
+  <div id="searchModal" class="search-modal" style="display: none;">
+    <div class="search-modal-content">
+      <button id="closeSearchModal" class="close-btn">&times;</button>
+      <h3>Resultados da Pesquisa</h3>
+      <div id="searchResultsList"></div>
+    </div>
+  </div>
+
+  <!-- Modal do Carrinho (Oculto por padrão) -->
+  <div id="cartModal" class="cart-modal">
+    <div class="cart-content">
+      <button id="closeCartModal" class="close-btn">&times;</button>
+      <h3>O seu Carrinho</h3>
+      
+      <div id="cartItemsList" class="cart-items-container">
+        <p class="cart-empty-msg">O seu carrinho está vazio.</p>
+      </div>
+      
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Total:</span>
+          <span id="cartTotal">R$ 0,00</span>
+        </div>
+        <a href="checkout.html" class="checkout-link-btn">Avançar para Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ficheiro JavaScript externo com a lógica de busca e carrinho -->
+  <script src="busca.js"></script>
+</body>
+</html>

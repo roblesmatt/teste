@@ -42,8 +42,7 @@
         <button class="botao-icone" aria-label="carrinho">
 <div class="icone">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.8 32.8"><path d="M24.2 7h1.7c2.1 0 4 .9 5.3 2.4c1.4 1.5 1.9 3.6 1.5 5.5l-2.8 12.7c-0.7 3-3.5 5.2-6.8 5.2h-13.7c-3.4 0-6.2-2.2-6.8-5.4l-2.4-12.6c-0.4-2 .2-4 1.6-5.5c1.3-1.4 3.2-2.3 5.2-2.3h1.8c.8-4.1 4-7 7.7-7c3.6 0 6.8 2.9 7.7 7Zm-15.6 3.4h-1.6c-1 0-2.1 .4-2.8 1.2c-0.6 .7-0.9 1.6-0.7 2.5l2.4 12.7c.3 1.6 1.8 2.7 3.5 2.7h13.7c1.7 0 3.2-1.1 3.6-2.6l2.7-12.7c.2-0.9 0-1.9-0.7-2.6c-0.7-0.8-1.7-1.2-2.8-1.2h-1.5v3.6c0 .9-0.8 1.7-1.7 1.7c-0.9 0-1.7-0.8-1.7-1.7v-3.6h-9.1v3.6c0 .9-0.7 1.7-1.7 1.7c-0.9 0-1.6-0.8-1.6-1.7v-3.6Zm12.1-3.4c-0.6-2.1-2.2-3.7-4.2-3.7c-2 0-3.6 1.6-4.3 3.7h8.5Z"/></svg>
-</button></div>
-      </div>
+</div></button></div>
     </header>
 
     <!-- Conteúdo Principal -->
@@ -110,7 +109,7 @@
 
         
         
-<button class="botao-carrinho" aria-label="Adicionar carrinho">
+<button id="cartBtn" class="botao-carrinho" aria-label="Adicionar carrinho">
 <span>Adicionar carrinho</span><div class="icone-carrinho">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.8 32.8"><path d="M24.2 7h1.7c2.1 0 4 .9 5.3 2.4c1.4 1.5 1.9 3.6 1.5 5.5l-2.8 12.7c-0.7 3-3.5 5.2-6.8 5.2h-13.7c-3.4 0-6.2-2.2-6.8-5.4l-2.4-12.6c-0.4-2 .2-4 1.6-5.5c1.3-1.4 3.2-2.3 5.2-2.3h1.8c.8-4.1 4-7 7.7-7c3.6 0 6.8 2.9 7.7 7Zm-15.6 3.4h-1.6c-1 0-2.1 .4-2.8 1.2c-0.6 .7-0.9 1.6-0.7 2.5l2.4 12.7c.3 1.6 1.8 2.7 3.5 2.7h13.7c1.7 0 3.2-1.1 3.6-2.6l2.7-12.7c.2-0.9 0-1.9-0.7-2.6c-0.7-0.8-1.7-1.2-2.8-1.2h-1.5v3.6c0 .9-0.8 1.7-1.7 1.7c-0.9 0-1.7-0.8-1.7-1.7v-3.6h-9.1v3.6c0 .9-0.7 1.7-1.7 1.7c-0.9 0-1.6-0.8-1.6-1.7v-3.6Zm12.1-3.4c-0.6-2.1-2.2-3.7-4.2-3.7c-2 0-3.6 1.6-4.3 3.7h8.5Z"/></svg>
 </button></div>
@@ -242,8 +241,7 @@ Conserva em local seco, fresco e ao abrigo da luz solar.
         </div>
 
         <!-- Botão de Ação Principal -->
-        <a
-          href="https://wa.me/5500000000000"
+        <a href="checkout.html"
           target="_blank"
           class="whatsapp-btn"
         >
@@ -564,76 +562,38 @@ if (document.readyState === 'loading') {
 
       
 
-  document.addEventListener("DOMContentLoaded", function() {
-  const searchInput = document.getElementById('searchInput');
-  const searchModal = document.getElementById('searchModal');
-  const closeSearchModal = document.getElementById('closeSearchModal');
-  const searchResultsList = document.getElementById('searchResultsList');
 
-  if (!searchInput || !searchModal) return;
 
-  // Lista com todos os produtos da loja (o catálogo completo)
-  const produtosDisponiveis = [
-    { nome: "Perfume Artesanal de Capim Limão", preco: "R$ 79,90", imagem: "sua-imagem.jpg", link: "produto-capim.html" },
-    { nome: "Sabonete Artesanal de Fubá", preco: "R$ 25,00", imagem: "sua-imagem2.jpg", link: "#" },
-    { nome: "Esfoliante Corporal de Mel", preco: "R$ 45,00", imagem: "sua-imagem3.jpg", link: "#" },
-    { nome: "Perfume Botânico Lavanda", preco: "R$ 89,90", imagem: "sua-imagem4.jpg", link: "#" }
-  ];
 
-  searchInput.addEventListener('input', (e) => {
-    const termo = e.target.value.toLowerCase().trim();
 
-    if (termo.length > 0) {
-      searchModal.style.display = 'flex';
-      searchResultsList.innerHTML = '';
 
-      let encontrados = 0;
 
-      // Filtra os produtos que coincidem com a pesquisa
-      produtosDisponiveis.forEach(produto => {
-        if (produto.nome.toLowerCase().includes(termo)) {
-          encontrados++;
-          
-          const item = document.createElement('a');
-          item.href = produto.link;
-          item.className = 'search-result-card';
-          
-          item.innerHTML = `
-            <img src="${produto.imagem}" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
-            <div>
-              <h4 style="margin: 0 0 4px 0; font-size: 14px; color: #333;">${produto.nome}</h4>
-              <span style="font-size: 13px; font-weight: bold; color: #111;">${produto.preco}</span>
-            </div>
-          `;
-          
-          searchResultsList.appendChild(item);
-        }
-      });
 
-      if (encontrados === 0) {
-        searchResultsList.innerHTML = '<p style="color: #777; text-align: center; padding: 10px;">Nenhum produto encontrado.</p>';
-      }
-    } else {
-      searchModal.style.display = 'none';
-    }
-  });
 
-  if (closeSearchModal) {
-    closeSearchModal.addEventListener('click', () => {
-      searchModal.style.display = 'none';
-      searchInput.value = '';
-    });
-  }
 
-  window.addEventListener('click', (e) => {
-    if (e.target === searchModal) {
-      searchModal.style.display = 'none';
-    }
-  });
-});
+
+
+
+
+
+
 
 
 
     </script>
+    <script src="busca.js"></script>
+    <div id="cartModal" class="cart-modal" style="display: none;">
+  <div class="cart-content">
+    <h3>O seu Carrinho</h3>
+    <div id="cartItemsList">
+      <!-- Os produtos adicionados aparecerão aqui -->
+    </div>
+    <div class="cart-footer">
+      <p>Total: <span id="cartTotal">R$ 0,00</span></p>
+      <a href="checkout.html" class="checkout-link-btn">Avançar para Checkout</a>
+      <button id="closeCartModal">Fechar</button>
+    </div>
+  </div>
+</div>
   </body>
 </html>
