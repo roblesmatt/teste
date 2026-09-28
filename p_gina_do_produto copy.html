@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Loja Artesanal</title>
+    <link rel="stylesheet" href="thairo.css">
+    <!-- Ícones Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- 1. CABEÇALHO COM A BARRA DE PESQUISA -->
+    <header class="header">
+        <div class="logo">Thairo's</div>
+        <nav class="nav-menu">
+            <a href="#" class="active">Home</a>
+            <a href="#">Produtos <i class="ph ph-caret-down"></i></a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+        <div class="header-actions">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Pesquisar produtos..." />
+                <i class="ph ph-magnifying-glass"></i>
+            </div>
+            <button class="botao-icone" aria-label="carrinho">
+                <i class="ph ph-shopping-bag"></i>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- 2. CONTEÚDO PRINCIPAL (VITRINE COM VÁRIOS PRODUTOS DE EXEMPLO) -->
+    <main class="conteudo-principal" style="padding: 40px; max-width: 1100px; margin: 0 auto;">
+        <h2>Nossos Produtos</h2>
+
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            
+            <!-- Produto 1 -->
+            <div class="product-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; width: 220px; background: #fff;">
+                <img src="sua-imagem.jpg" alt="Perfume" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                <h3 style="font-size: 16px; margin: 10px 0 5px 0;">Perfume Artesanal de Capim Limão</h3>
+                <span class="preco" style="font-weight: bold; color: #111;">R$ 79,90</span>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="product-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; width: 220px; background: #fff;">
+                <img src="sua-imagem2.jpg" alt="Sabonete" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                <h3 style="font-size: 16px; margin: 10px 0 5px 0;">Sabonete Artesanal de Fubá</h3>
+                <span class="preco" style="font-weight: bold; color: #111;">R$ 25,00</span>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; width: 220px; background: #fff;">
+                <img src="sua-imagem3.jpg" alt="Esfoliante" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                <h3 style="font-size: 16px; margin: 10px 0 5px 0;">Esfoliante Corporal de Mel</h3>
+                <span class="preco" style="font-weight: bold; color: #111;">R$ 45,00</span>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; width: 220px; background: #fff;">
+                <img src="sua-imagem4.jpg" alt="Perfume" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                <h3 style="font-size: 16px; margin: 10px 0 5px 0;">Perfume Botânico Lavanda</h3>
+                <span class="preco" style="font-weight: bold; color: #111;">R$ 89,90</span>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- 3. MODAL DE PESQUISA -->
+    <div id="searchModal" class="search-modal" style="display: none;">
+      <div class="search-modal-content">
+        <button id="closeSearchModal" class="close-btn">&times;</button>
+        <h3>Resultados da Pesquisa</h3>
+        <div id="searchResultsList" class="search-results-list"></div>
+      </div>
+    </div>
+
+
+    <!-- 4. SCRIPT JAVASCRIPT -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById('searchInput');
+        const searchModal = document.getElementById('searchModal');
+        const closeSearchModal = document.getElementById('closeSearchModal');
+        const searchResultsList = document.getElementById('searchResultsList');
+
+        if (!searchInput || !searchModal) return;
+
+        searchInput.addEventListener('input', (e) => {
+          const termo = e.target.value.toLowerCase().trim();
+
+          if (termo.length > 0) {
+            searchModal.style.display = 'flex';
+            searchResultsList.innerHTML = '';
+
+            const cardsProdutos = document.querySelectorAll('.product-card');
+            let encontrados = 0;
+
+            cardsProdutos.forEach(card => {
+              const tituloEl = card.querySelector('h3');
+              const imgEl = card.querySelector('img');
+              const precoEl = card.querySelector('.preco');
+
+              if (tituloEl) {
+                const nomeProduto = tituloEl.textContent.toLowerCase();
+
+                if (nomeProduto.includes(termo)) {
+                  encontrados++;
+                  
+                  const item = document.createElement('a');
+                  item.href = "#";
+                  item.className = 'search-result-card';
+                  
+                  const imgSrc = imgEl ? imgEl.src : '';
+                  const precoText = precoEl ? precoEl.textContent : '';
+
+                  item.innerHTML = `
+                    ${imgSrc ? `<img src="${imgSrc}" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">` : ''}
+                    <div>
+                      <h4 style="margin: 0 0 4px 0; font-size: 14px; color: #333;">${tituloEl.textContent}</h4>
+                      ${precoText ? `<span style="font-size: 13px; font-weight: bold; color: #111;">${precoText}</span>` : ''}
+                    </div>
+                  `;
+                  
+                  searchResultsList.appendChild(item);
+                }
+              }
+            });
+
+            if (encontrados === 0) {
+              searchResultsList.innerHTML = '<p style="color: #777; text-align: center; padding: 10px;">Nenhum produto encontrado.</p>';
+            }
+          } else {
+            searchModal.style.display = 'none';
+          }
+        });
+
+        if (closeSearchModal) {
+          closeSearchModal.addEventListener('click', () => {
+            searchModal.style.display = 'none';
+            searchInput.value = '';
+          });
+        }
+
+        window.addEventListener('click', (e) => {
+          if (e.target === searchModal) {
+            searchModal.style.display = 'none';
+          }
+        });
+      });
+    </script>
+
+</body>
+</html>
