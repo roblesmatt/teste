@@ -158,7 +158,6 @@ main,
   margin-top: -40px;
   margin-bottom: 40px;
 }
-
 @media (min-width: 1024px) {
   .product-page {
     display: grid;
@@ -170,7 +169,6 @@ main,
   }
   .product-gallery {
     position: fixed;
-    width: calc(100% - 500px);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -179,6 +177,20 @@ main,
   .product-info {
     grid-column: 2;
     position: relative;
+  }
+  .product-gallery .product-item {
+    flex: 0 0 auto;
+    width: 200px;
+  }
+  .product-gallery {
+    width: calc(100% - 500px);
+  }
+}
+@media (min-width: 1400px) {
+  .product-gallery {
+    width: calc(100% - 1020px);
+    flex-wrap: wrap;
+    gap: 20px;
   }
 }
 
