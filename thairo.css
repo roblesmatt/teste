@@ -47,7 +47,7 @@ body {
 @media (min-width: 440px) {
   .header {
     padding: 5px 5px;
-    width: 1200px; /* Recupera o padding maior apenas em ecrãs grandes */
+    width: 1200px;
   }
 }
 
@@ -56,15 +56,15 @@ main,
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 16px; /* <-- ADICIONA ISTO */
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
 .logo {
   width: clamp(90px, 20vw, 150px);
-  height: auto; /* Mantém a proporção correta de altura */
+  height: auto;
   display: block;
-  margin-left: 0; /* Alinha perfeitamente à esquerda */
+  margin-left: 0;
 }
 @media (min-width: 1024px) {
   .logo {
@@ -177,7 +177,7 @@ main,
     margin-bottom: 0;
   }
   .product-info {
-    grid-column: 2; /* Força a ficar estritamente na segunda coluna do grid */
+    grid-column: 2;
     position: relative;
   }
 }
@@ -405,12 +405,7 @@ main,
   height: auto;
   margin-top: 3px;
 }
-.icone-arcordeao {
-  width: 20px;
-  height: auto;
-  margin-left: 10px;
-  margin-top: 3px;
-}
+
 .plus-badge {
   font-size: 10px;
   font-weight: bold;
@@ -579,7 +574,7 @@ main,
   scroll-snap-type: none;
 }
 .carousel-progress-bar {
-  width: 60px; /* Largura da barrinha */
+  width: 60px;
   height: 5px;
   background-color: #ffffff;
   margin: 15px auto 0 auto;
@@ -677,9 +672,30 @@ main,
   transform: rotate(180deg);
 }
 .accordion-content {
-  padding: 0 16px 16px 16px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease-in-out,
+    padding 0.35s ease-in-out;
+  padding: 0 16px;
   font-size: 12px;
   line-height: 1.6;
   color: #666666;
   box-sizing: border-box;
+}
+details[open] .accordion-content {
+  max-height: 300px;
+  opacity: 1;
+  padding: 0 16px 16px 16px;
+}
+.icone-arcordeao {
+  width: 20px;
+  height: auto;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+.accordion-list:active {
+  transform: scale(0.99);
 }
