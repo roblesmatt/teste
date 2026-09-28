@@ -1,38 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
+html,
+body {
+  background-color: #f3f3f3;
+  color: #333333;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: #f3f3f3;
-  color: #333333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-
-/* Cabeçalho */
 .header {
   width: 100%;
-  max-width: 1200px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 32px;
+  padding: 16px 16px;
   background-color: #f3f3f3;
+}
+@media (min-width: 440px) {
+  .header {
+    padding: 5px 5px;
+    width: 1200px; /* Recupera o padding maior apenas em ecrãs grandes */
+  }
+}
+
+main,
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px; /* <-- ADICIONA ISTO */
+  box-sizing: border-box;
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #2b2b2b;
+  width: clamp(90px, 20vw, 150px);
+  height: auto; /* Mantém a proporção correta de altura */
+  display: block;
+  margin-left: 0; /* Alinha perfeitamente à esquerda */
+}
+@media (min-width: 1024px) {
+  .logo {
+    margin-left: 24px; /* Zera no Desktop */
+  }
 }
 
 .nav-menu {
@@ -67,7 +92,6 @@ body {
   display: flex;
   align-items: center;
 }
-
 .search-bar input {
   background-color: #ffffff;
   border: none;
@@ -78,11 +102,9 @@ body {
   width: 180px;
   color: #666;
 }
-
 .search-bar input::placeholder {
   color: #cccccc;
 }
-
 .search-bar i {
   position: absolute;
   right: 12px;
@@ -105,23 +127,24 @@ body {
   font-size: 18px;
   transition: background-color 0.2s;
 }
-
 .icon-btn:hover {
   background-color: #e5e5e5;
 }
 
-/* Estrutura da Página */
 .product-page {
-  width: 100%;
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 40px;
-  padding: 20px 32px 60px 32px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  padding: 10px 20px 40px 20px;
+  gap: 24px;
 }
-
-/* Galeria de Fotos */
+@media (min-width: 1024px) {
+  .product-page {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 40px;
+    padding: 20px 32px 60px 32px;
+    align-items: start;
+  }
+}
 .product-gallery {
   display: flex;
   gap: 24px;
@@ -129,13 +152,14 @@ body {
   position: relative;
   justify-content: center;
   padding-top: 20px;
+  margin-bottom: 50px;
 }
 
 .thumbnails-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
 }
 
 .nav-arrow {
@@ -150,7 +174,7 @@ body {
 .thumbnails {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .thumb {
@@ -164,7 +188,9 @@ body {
   align-items: center;
   justify-content: center;
   border: 2px solid transparent;
-  transition: border-color 0.2s, opacity 0.2s;
+  transition:
+    border-color 0.2s,
+    opacity 0.2s;
   opacity: 0.7;
 }
 
@@ -217,7 +243,7 @@ body {
 }
 
 .product-header .subtitle {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 22px;
   font-weight: 600;
   color: #2b2b2b;
@@ -226,7 +252,7 @@ body {
 }
 
 .product-header .title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 34px;
   font-weight: 700;
   color: #111111;
@@ -249,7 +275,7 @@ body {
 }
 
 .price {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 38px;
   font-weight: 700;
   color: #1a1a1a;
@@ -316,7 +342,9 @@ body {
   color: #333333;
   position: relative;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-  transition: transform 0.1s, background-color 0.2s;
+  transition:
+    transform 0.1s,
+    background-color 0.2s;
 }
 
 .icon-action-btn:active {
@@ -331,23 +359,24 @@ body {
   right: 8px;
 }
 
-/* Acordeões */
 .accordion-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 8px;
+  width: 100%; /* Ocupa exatamente o espaço útil do container */
+  box-sizing: border-box;
 }
 
 .accordion-item {
-  background-color: #ffffff;
+  background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  width: 100%; /* Impede que ultrapasse a largura do pai */
+  box-sizing: border-box;
 }
 
 .accordion-header {
-  padding: 14px 18px;
+  padding: 14px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -357,6 +386,7 @@ body {
   font-size: 14px;
   color: #222222;
   user-select: none;
+  box-sizing: border-box;
 }
 
 .accordion-header::-webkit-details-marker {
@@ -383,10 +413,11 @@ body {
 }
 
 .accordion-content {
-  padding: 0 18px 16px 18px;
+  padding: 0 16px 16px 16px;
   font-size: 12px;
   line-height: 1.6;
   color: #666666;
+  box-sizing: border-box;
 }
 
 /* Botão WhatsApp */
@@ -424,12 +455,6 @@ body {
   .search-bar,
   .header-actions .icon-btn:first-child {
     display: none;
-  }
-
-  .product-page {
-    grid-template-columns: 1fr;
-    padding: 10px 20px 40px 20px;
-    gap: 24px;
   }
 
   .product-gallery {
